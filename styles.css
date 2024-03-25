@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #51cdfa;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Para remover a barra de rolagem */
+}
+
+/* ..........FORMATAÇÃO CABEÇALHO.......... */
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #00adec;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+header h1 {
+    margin: 0;
+}
+.links {
+    display: flex;
+}
+.links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* ..........FORMATAÇÃO COLUNAS.......... */
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0;
+    overflow: hidden; /* Para evitar que haja espaços extras */
+}
+.colunas {
+    padding: 0px;
+    margin: 0 10px; /* Margem nas laterais */
+    overflow: hidden;
+}
+.coluna1 {
+    width: 25%;
+}
+.coluna2 {
+    width: 50%;
+}
+.coluna3 {
+    width: 25%;
+}
+
+/* ..........FORMATAÇÃO BLOCO.......... */
+.blocos {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #83ddfd;
+    overflow: hidden;
+}
+.resumo > * {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* ..........FORMATAÇÃO BLOCO PERFIL.......... */
+.blocos img {
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+}
+.reduzido {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+
+/* ..........FORMATAÇÃO BLOCO POSTAGEM.......... */
+.scrollable {
+    overflow-y: scroll; /* Mantém o overflow como scroll */
+    height: 100vh;
+    background-color: #51cdfa;
+    scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
+    -ms-overflow-style: none; /* Esconde a barra de rolagem no Internet Explorer e Edge */
+}
+.scrollable::-webkit-scrollbar {
+    display: none; /* Esconde a barra de rolagem no Chrome e Safari */
+}
+.usuario-postagem {
+    font-size: 1.3em; /* tamanho da fonte do nome de quem postou */
+}
+.date-time-location {
+    font-size: 0.8em; /* tamanho da fonte do momento da postagem */
+}
+.divPostagem {
+    background-color: #83ddfd;
+    margin-bottom: 20px; /* Adiciona uma margem de 20 pixels entre cada bloco */
+    border: 10px solid #83ddfd; /* Adiciona uma borda cinza para separar visualmente os blocos */
+    border-radius: 10px; /* Arredonda os cantos dos blocos */
+    overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
+}
