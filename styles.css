@@ -40,8 +40,28 @@ header h1 {
     text-decoration: none;
     margin: 0 10px;
 }
+
+/* ..........FORMATAÇÃO Login.......... */
 .login {
     text-align: right;
+}
+/* Estilo para o campo de entrada */
+input[type="text"], input[type="password"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+/* Estilo para o texto dentro do campo quando o placeholder está sendo exibido */
+input[type="text"]::placeholder,
+        input[type="password"]::placeholder {
+    color: #999; /* Cor do texto do placeholder */
+}
+
+/* Estilo para o texto dentro do campo quando o placeholder não está sendo exibido */
+input[type="text"]:not(:placeholder-shown) {
+    color: #000; /* Cor do texto digitado */
 }
 
 /* ..........FORMATAÇÃO COLUNAS.......... */
@@ -61,6 +81,9 @@ main {
     width: 25%;
 }
 .coluna2 {
+    width: 75%;
+}
+.coluna2rede {
     width: 50%;
 }
 .coluna3 {
@@ -93,14 +116,14 @@ main {
 
 
 /* ..........FORMATAÇÃO BLOCO POSTAGEM.......... */
-.scrollable {
+.scrollableRede {
     overflow-y: scroll; /* Mantém o overflow como scroll */
     height: 100vh;
     background-color: #51cdfa;
     scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
     -ms-overflow-style: none; /* Esconde a barra de rolagem no Internet Explorer e Edge */
 }
-.scrollable::-webkit-scrollbar {
+.scrollableRede::-webkit-scrollbar {
     display: none; /* Esconde a barra de rolagem no Chrome e Safari */
 }
 .usuario-postagem {
@@ -115,4 +138,16 @@ main {
     border: 10px solid #83ddfd; /* Adiciona uma borda cinza para separar visualmente os blocos */
     border-radius: 10px; /* Arredonda os cantos dos blocos */
     overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
+}
+
+/* ..........FORMATAÇÃO BLOCO JOGO E PERFIL.......... */
+.scrollable {
+    overflow-y: scroll; /* Mantém o overflow como scroll */
+    height: 100vh;
+    background-color: #51cdfa;
+    scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
+    -ms-overflow-style: none; /* Esconde a barra de rolagem no Internet Explorer e Edge */
+}
+.scrollable::-webkit-scrollbar {
+    display: none; /* Esconde a barra de rolagem no Chrome e Safari */
 }

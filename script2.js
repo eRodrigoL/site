@@ -1,15 +1,15 @@
 //..........ALTURA DA COLUNA..........
-// Adicionar função para ajustar o tamanho da coluna meio
+// Adicionar função para ajustar o tamanho da coluna
 function ajustarTamanhoColunas() {
     var altura = window.innerHeight;
-    var topMeio = document.getElementById('colunas').getBoundingClientRect().top;
-    document.getElementById('colunas').style.height = (altura - topMeio) + 'px';
+    var topColuna = document.getElementById('colunas').getBoundingClientRect().top;
+    document.getElementById('colunas').style.height = (altura - topColuna) + 'px';
 }
 
-// Chamar a função de ajuste do tamanho da coluna meio quando a janela for carregada
+// Chamar a função de ajuste do tamanho da coluna quando a janela for carregada
 window.onload = ajustarTamanhoColunas;
 
-// Adicionar um listener para chamar a função de ajuste do tamanho da coluna meio quando a janela for redimensionada
+// Adicionar um listener para chamar a função de ajuste do tamanho da coluna quando a janela for redimensionada
 window.addEventListener('resize', ajustarTamanhoColunas);
 
 //..........ROLAGEM INFINITA..........
@@ -51,3 +51,6 @@ function replicateContentOnMouseMove() {
 replicateContentOnMouseMove();
 
 //..........ROLAGEM LIMITADA SEM SCROLLBAR..........
+document.getElementById('contentContainer').addEventListener('scroll', function() {
+    this.classList.toggle('hide-scrollbar', this.scrollHeight <= this.clientHeight);
+});
