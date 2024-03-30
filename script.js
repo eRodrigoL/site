@@ -3,7 +3,8 @@
 function ajustarTamanhoColunas() {
     var altura = window.innerHeight;
     var topMeio = document.getElementById('colunas').getBoundingClientRect().top;
-    document.getElementById('colunas').style.height = (altura - topMeio) + 'px';
+    var alturaScrollable = altura - topMeio;
+    document.querySelector('.scrollable').style.height = alturaScrollable + 'px';
 }
 
 // Chamar a função de ajuste do tamanho da coluna meio quando a janela for carregada
@@ -49,5 +50,3 @@ function replicateContentOnMouseMove() {
 
 // Chamar a função de replicar o conteúdo continuamente
 replicateContentOnMouseMove();
-
-//..........ROLAGEM LIMITADA SEM SCROLLBAR..........

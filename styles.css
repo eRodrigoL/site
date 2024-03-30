@@ -90,7 +90,7 @@ main {
     width: 25%;
 }
 
-/* ..........FORMATAÇÃO BLOCO.......... */
+/* ..........FORMATAÇÃO BLOCOS.......... */
 .blocos {
     border-radius: 10px;
     padding: 10px;
@@ -102,7 +102,7 @@ main {
     text-align: center;
 }
 
-/* ..........FORMATAÇÃO BLOCO PERFIL.......... */
+/* ..........FORMATAÇÃO BLOCO PERFIL DE USUÁRIO E JOGO.......... */
 .blocos img {
     height: 200px;
     display: block;
@@ -116,14 +116,16 @@ main {
 
 
 /* ..........FORMATAÇÃO BLOCO POSTAGEM.......... */
-.scrollableRede {
+.scrollable {
+    /*C U I D A D O    A O     M U D A R     este bloco scrollable*/
     overflow-y: scroll; /* Mantém o overflow como scroll */
-    height: 100vh;
-    background-color: #51cdfa;
+    background-color: #83ddfd;
+    border: 10px solid #83ddfd; /* Adiciona uma borda cinza para separar visualmente os blocos */
+    border-radius: 10px; /* Arredonda os cantos dos blocos */
     scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
     -ms-overflow-style: none; /* Esconde a barra de rolagem no Internet Explorer e Edge */
 }
-.scrollableRede::-webkit-scrollbar {
+.scrollable::-webkit-scrollbar {
     display: none; /* Esconde a barra de rolagem no Chrome e Safari */
 }
 .titulo-postagem {
@@ -138,15 +140,6 @@ main {
     border: 10px solid #83ddfd; /* Adiciona uma borda cinza para separar visualmente os blocos */
     border-radius: 10px; /* Arredonda os cantos dos blocos */
     overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
-}
-
-/* ..........FORMATAÇÃO BLOCO JOGO E PERFIL.......... */
-.scrollable {
-    overflow-y: scroll; /* Mantém o overflow como scroll */
-    background-color: #83ddfd;
-    height: 80vh;
-    margin-bottom: 20px; /* Adiciona uma margem de 20 pixels entre cada bloco */
-    border: 10px solid #83ddfd; /* Adiciona uma borda cinza para separar visualmente os blocos */
 }
 .opinioes {
     background-color: #b0eafe;

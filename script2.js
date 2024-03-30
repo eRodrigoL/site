@@ -2,9 +2,10 @@
 // Adicionar função para ajustar o tamanho da coluna
 function ajustarTamanhoColunas() {
     var altura = window.innerHeight;
-    var barraRolagem = window.innerWidth - document.documentElement.clientWidth; // Calcula a largura da barra de rolagem
-    var topColuna = document.getElementById('colunas').getBoundingClientRect().top;
-    document.getElementById('colunas').style.height = (altura - topColuna - barraRolagem) + 'px';
+    var topMeio = document.getElementById('colunas').getBoundingClientRect().top;
+    var alturaScrollable = altura - topMeio;
+    document.querySelector('.scrollable').style.height = alturaScrollable + 'px';
+    return alturaScrollable; // Retorna a altura calculada para fins de utilização posterior, se necessário
 }
 
 // Chamar a função de ajuste do tamanho da coluna quando a janela for carregada
@@ -23,7 +24,7 @@ function addDynamicContent() {
     var content = `
         <div class="image-with-text">
             <img src="perfis/foto.png" alt="Imagem" height="30">
-            <strong><em class="usuario-postagem">Fulano de Tal</em></strong>
+            <b><em class="usuario-postagem">Fulano de Tal</em></b>
         </div>
         <div class="date-time-location">15 / jan / 2024 &nbsp;&nbsp;&nbsp;10:00 am&nbsp;&nbsp;&nbsp;Mauá - SP</div>
         <img src="rede/jogoteste.jpg" style="height: 280px;">
@@ -55,3 +56,4 @@ replicateContentOnMouseMove();
 document.getElementById('contentContainer').addEventListener('scroll', function() {
     this.classList.toggle('hide-scrollbar', this.scrollHeight <= this.clientHeight);
 });
+
