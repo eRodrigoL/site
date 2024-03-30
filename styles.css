@@ -126,7 +126,7 @@ main {
 .scrollableRede::-webkit-scrollbar {
     display: none; /* Esconde a barra de rolagem no Chrome e Safari */
 }
-.usuario-postagem {
+.titulo-postagem {
     font-size: 1.3em; /* tamanho da fonte do nome de quem postou */
 }
 .date-time-location {
@@ -143,11 +143,11 @@ main {
 /* ..........FORMATAÇÃO BLOCO JOGO E PERFIL.......... */
 .scrollable {
     overflow-y: scroll; /* Mantém o overflow como scroll */
-    height: 100vh;
-    background-color: #51cdfa;
-    scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
-    -ms-overflow-style: none; /* Esconde a barra de rolagem no Internet Explorer e Edge */
+    background-color: #83ddfd;
+    height: 80vh;
+    margin-bottom: 20px; /* Adiciona uma margem de 20 pixels entre cada bloco */
+    border: 10px solid #83ddfd; /* Adiciona uma borda cinza para separar visualmente os blocos */
 }
-.scrollable::-webkit-scrollbar {
-    display: none; /* Esconde a barra de rolagem no Chrome e Safari */
+.opinioes {
+    background-color: #b0eafe;
 }

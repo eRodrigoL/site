@@ -2,8 +2,9 @@
 // Adicionar função para ajustar o tamanho da coluna
 function ajustarTamanhoColunas() {
     var altura = window.innerHeight;
+    var barraRolagem = window.innerWidth - document.documentElement.clientWidth; // Calcula a largura da barra de rolagem
     var topColuna = document.getElementById('colunas').getBoundingClientRect().top;
-    document.getElementById('colunas').style.height = (altura - topColuna) + 'px';
+    document.getElementById('colunas').style.height = (altura - topColuna - barraRolagem) + 'px';
 }
 
 // Chamar a função de ajuste do tamanho da coluna quando a janela for carregada
