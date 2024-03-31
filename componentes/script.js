@@ -22,16 +22,16 @@ function addDynamicContent() {
 
     var content = `
         <div class="image-with-text">
-            <img src="perfis/foto.png" alt="Imagem" height="30">
+            <img src="../imagens/perfis/foto.png" alt="Imagem" height="30">
             <b><em class="titulo-postagem">Fulano de Tal</em></b>
         </div>
         <div class="date-time-location">15 / jan / 2024 &nbsp;&nbsp;&nbsp;10:00 am&nbsp;&nbsp;&nbsp;Mauá - SP</div>
-        <img src="rede/jogoteste.jpg" style="height: 280px;">
+        <img src="../imagens/rede/jogoteste.jpg" style="height: 280px;">
         <div><p><strong>Everdell</strong></p></div>
         <div><p>Hoje foi dia de conhecer a expansão de Everdell</p></div>
         <div class="likes">
-            <a href="#"><img src="icones/like.png" height="20" alt="Ícone 1"></a>
-            <a href="#"><img src="icones/dislike.png" height="20" alt="Ícone 2"></a>
+            <a href="#"><img src="../imagens/icones/like.png" height="20" alt="Ícone 1"></a>
+            <a href="#"><img src="../imagens/icones/dislike.png" height="20" alt="Ícone 2"></a>
             123456 (nº like - dislike)
         </div>
     `;
