@@ -18,7 +18,7 @@ window.addEventListener('resize', ajustarTamanhoColunas);
 function addDynamicContent() {
     var contentContainerRede = document.getElementById('contentContainerRede');
     var divPostagem = document.createElement('div');
-    divPostagem.className = 'divPostagem';
+    divPostagem.className = 'principal postagens';
 
     var content = `
         <div class="image-with-text">

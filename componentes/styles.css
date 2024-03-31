@@ -115,13 +115,11 @@ main {
 }
 
 
-/* ..........FORMATAÇÃO BLOCO POSTAGEM.......... */
+/* ..........FORMATAÇÃO BLOCO PRINCIPAL.......... */
 .scrollable {
     /*C U I D A D O    A O     M U D A R     este bloco scrollable*/
     overflow-y: scroll; /* Mantém o overflow como scroll */
-    background-color: #83ddfd;
-    border: 10px solid #83ddfd; /* Adiciona uma borda cinza para separar visualmente os blocos */
-    border-radius: 10px; /* Arredonda os cantos dos blocos */
+    background-color: #51cdfa;
     scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
     -ms-overflow-style: none; /* Esconde a barra de rolagem no Internet Explorer e Edge */
 }
@@ -134,13 +132,16 @@ main {
 .date-time-location {
     font-size: 0.8em; /* tamanho da fonte do momento da postagem */
 }
-.divPostagem {
+.principal {
     background-color: #83ddfd;
-    margin-bottom: 20px; /* Adiciona uma margem de 20 pixels entre cada bloco */
     border: 10px solid #83ddfd; /* Adiciona uma borda cinza para separar visualmente os blocos */
     border-radius: 10px; /* Arredonda os cantos dos blocos */
     overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
 }
 .opinioes {
     background-color: #b0eafe;
+}
+.postagens {
+    /*E S P A Ç O    E N T R E    C A D A    P O S T A G E M*/
+    margin-bottom: 20px; /* Adiciona uma margem de 20 pixels entre cada bloco */
 }
