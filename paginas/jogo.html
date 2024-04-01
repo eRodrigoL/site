@@ -5,22 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noob Jogo</title>
     <link rel="stylesheet" href="../componentes/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Bibliotéca para os gráficos -->
 </head>
 <body>
 
-    <header>
-        <div class="colunaCabecalho logo"><h1>Noob</h1></div>
-        <div class="colunaCabecalho links">
-            <a href="../paginas/jogo.html">Jogos</a>
-            <a href="../paginas/perfil.html">Perfil</a>
-            <a href="../paginas/rede.html">Rede</a>
-        </div>
-        <div class="colunaCabecalho login">
-            <input type="text" id="nome" name="nome" placeholder="Usuário">
-            <input type="password" id="senha" name="senha" placeholder="Senha">
-            Esqueceu a senha? <Button>Entrar</Button>
-        </div>
-    </header>
+<header>
+    <!-- Cabeçalho gerado no script.js -->
+    <!-- Depois dá pra usar o cabeçalho no caminho ../complementos/header.html através no Node.js-->
+</header>
 
 <main>
     <div class="colunas coluna1" id="colunas">
@@ -50,64 +42,125 @@
     <div class="colunas coluna2" id="colunas">
         <div class="scrollable" id="contentContainer">
             <div class="principal">
-                <div><p>penso caixas de selação: (tenho, quero, tive, joguei) e favorito</p></div>
-            <div>________________________________________</div>
-            <div><p><b>Preço </b>3,36<i> (R$420,00) (agora indisponível)    </i></p></div>
-            <button onclick="window.open('#')">Comprar</button>
-            <div>________________________________________</div>
-            <div>
-                <p><b>Idade:</b> +13</p>
-                <p></p><b>Designer:</b> James A. Wilson</p>
-                <p><b>Artista:</b> Andrew Bosley, Dann May</p>
-                <p><b>Editora:</b> Galápagos (BR), CMON Global Limited (US)</p>
-                <p><b>Versão digital:</b> <a href="#">Sim</a></p>
-            </div>
-            <div>________________________________________</div>
-            <div>
-                <p><b>Informações:</b></p>
-                <p><b>Nota geral:</b> 80,8</p><br>
-                <p><b>Tempo médio das partidas:</b> 87 min</p><br>
-
-                <p><b>Categoria:</b> (competitivo, competitivo (grupo), cooperativo, semicooperativo, solo)</p><br>
-                
-                <p><b>Avaliação:</b> (nota com a médi do gráfico)</p>
-                <img src="../imagens/exemplos/grafico[avaliação].jpg" alt="Imagem" height="200">
-                <p><b>Estilo</b> (sorte, azar ou destreza):</p>
-                <img src="../imagens/exemplos/grafico[sorte-estategia-destreza].jpg" alt="Imagem" height="200">
-                <p><b>Jogabilidade</b> (formas de evoluir, avançar e ganhar o jogo):</p>
-                <img src="../imagens/exemplos/grafico[jogabilidade].jpg" alt="Imagem" height="200">
-                <p><b>Componentes:</b>meeples, cartas, tabuleiro, moedas</p>
-            </div>
-            <div>________________________________________</div>
-            <div>
-                <b>Descrição:</b> Dentro do encantador vale de Everdell, sob os ramos das altas árvores, entre riachos calmos e poças musgosas, uma civilização de criaturas da floresta está prosperando e se expandindo. De Everfrost a Bellsong, muitos anos vieram e se foram, mas chegou a hora de estabelecer novos territórios e novas cidades. Você será o líder de um grupo de criaturas para realizar esta tarefa. Há edifícios para construir, personagens para encontrar, eventos para atender - você tem um ano ocupado à sua frente. Será que o sol brilhará mais na sua cidade antes que a lua do inverno se eleve?<br><br>
-                Everdell é um jogo dinâmico de construção de tabuleiro e alocação de trabalhadores.
-            </div>
-            <div>________________________________________</div>
-            <div><b>Opiniões:</b>
-                <div class="opinioes">
-                    <div>
-                        <img src="../imagens/perfis/foto.png" alt="Imagem" height="30">
-                        <b><em>Fulano de Tal</em></b>
+                <div style="display: flex; align-items: center">
+                    <div class="favorito">
+                        <input type="checkbox" id="favorito" name="caixaSelecao">
+                        <label for="favorito">Lista de Favoritos</label>
                     </div>
-                    <div>
-                        Texto da descrição                        
-                        <div>
-                            <p><b>Ruim----------------80,8---Bom</b></p>
-                        </div>
+    
+                    <div class="posse">
+                        <input type="radio" id="tenho" name="opcao" value="tenho">
+                        <label for="tenho">Tenho</label>
+                      
+                        <input type="radio" id="desejo" name="opcao" value="desejo">
+                        <label for="desejo">Desejo</label>
+                      
+                        <input type="radio" id="tive" name="opcao" value="tive">
+                        <label for="tive">Tive</label>
+    
+                        <input type="radio" id="joguei" name="opcao" value="joguei">
+                        <label for="joguei">Apenas já joguei</label>
                     </div>
-                    <div class="likes">
-                        <a href="#"><img src="../imagens/icones/like.png" height="20" alt="Ícone 1"></a>
-                        <a href="#"><img src="../imagens/icones/dislike.png" height="20" alt="Ícone 2"></a>
-                        123456 (nº like - dislike)
+                    
+                    <div class="comprar">
+                        <p>R$ 420,00 &nbsp; (3,36)</p> <!-- Entre () quantos jogos se compra com um sálario mínimo -->
+                        <button onclick="window.open('#')">Comprar</button> <!-- Mudar "Comprar" para "Indisponível", quando se aplicar -->
                     </div>
                 </div>
-            </div>
+                <div>________________________________________</div>
+                
+                <div>
+                    <p><b>Idade:</b> +13</p>
+                    <p></p><b>Designer:</b> James A. Wilson</p>
+                    <p><b>Artista:</b> Andrew Bosley, Dann May</p>
+                    <p><b>Editora:</b> Galápagos (BR), CMON Global Limited (US)</p>
+                    <p><b>Versão digital:</b> <a href="#">Sim</a></p>
+                </div>
+                <div>________________________________________</div>
+                <div>
+                    <p><b>Informações:</b></p>
+                    <p><b>Nota geral:</b> 80,8</p><br>
+                    <p><b>Tempo médio das partidas:</b> 87 min</p><br>
+
+                    <p><b>Categoria:</b> (competitivo, competitivo (grupo), cooperativo, semicooperativo, solo)</p><br>
+                    
+                    <p><b>Avaliação:</b> (nota com a médi do gráfico)</p>
+                    <img src="../imagens/exemplos/grafico[avaliação].jpg" alt="Imagem" height="200">
+                    <canvas id="avaliacao"></canvas>
+                    <p><b>Estilo</b> (sorte, azar ou destreza):</p>
+                    <img src="../imagens/exemplos/grafico[sorte-estategia-destreza].jpg" alt="Imagem" height="200">
+                    <p><b>Jogabilidade</b> (formas de evoluir, avançar e ganhar o jogo):</p>
+                    <img src="../imagens/exemplos/grafico[jogabilidade].jpg" alt="Imagem" height="200">
+                    <p><b>Componentes:</b>meeples, cartas, tabuleiro, moedas</p>
+                </div>
+                <div>________________________________________</div>
+                <div>
+                    <b>Descrição:</b> Dentro do encantador vale de Everdell, sob os ramos das altas árvores, entre riachos calmos e poças musgosas, uma civilização de criaturas da floresta está prosperando e se expandindo. De Everfrost a Bellsong, muitos anos vieram e se foram, mas chegou a hora de estabelecer novos territórios e novas cidades. Você será o líder de um grupo de criaturas para realizar esta tarefa. Há edifícios para construir, personagens para encontrar, eventos para atender - você tem um ano ocupado à sua frente. Será que o sol brilhará mais na sua cidade antes que a lua do inverno se eleve?<br><br>
+                    Everdell é um jogo dinâmico de construção de tabuleiro e alocação de trabalhadores.
+                </div>
+                <div>________________________________________</div>
+                <div><b>Opiniões:</b>
+                    <div class="opinioes">
+                        <div>
+                            <img src="../imagens/perfis/foto.png" alt="Imagem" height="30">
+                            <b><em>Fulano de Tal</em></b>
+                        </div>
+                        <div>
+                            Texto da descrição                        
+                            <div>
+                                <p><b>Ruim----------------80,8---Bom</b></p>
+                            </div>
+                        </div>
+                        <div class="likes">
+                            <a href="#"><img src="../imagens/icones/like.png" height="20" alt="Ícone 1"></a>
+                            <a href="#"><img src="../imagens/icones/dislike.png" height="20" alt="Ícone 2"></a>
+                            123456 (nº like - dislike)
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </main>
 
+<script>
+
+
+//..........GRÁFICO AVALIAÇÃO..........
+// Dados para o gráfico
+var dados = {
+    labels: ["Qualidade dos Componentes", "Beleza do Jogo", "Divertimento", "Tempo de Duração", "Preço", "Tam. da caixa / Armaz. dos Comp."],
+    datasets: [{
+        label: "Avaliação",
+        data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)],
+        backgroundColor: "rgba(54, 162, 235, 0.2)",
+        borderColor: "rgba(54, 162, 235, 1)",
+        borderWidth: 1
+    }]
+};
+  
+// Configurações do gráfico
+var opcoes = {
+    scale: {
+        angleLines: {
+            display: true
+        },
+        ticks: {
+            suggestedMin: 0,
+            suggestedMax: 100
+        }
+    }
+};
+  
+// Criar o gráfico radar
+var ctx = document.getElementById('avaliacao').getContext('2d');
+var avaliacao = new Chart(ctx, {
+    type: 'radar',
+    data: dados,
+    options: opcoes
+});
+  
+</script>
 <script src="../componentes/script.js"></script>
 
 </body>

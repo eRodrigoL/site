@@ -145,3 +145,24 @@ main {
     /*E S P A Ç O    E N T R E    C A D A    P O S T A G E M*/
     margin-bottom: 20px; /* Adiciona uma margem de 20 pixels entre cada bloco */
 }
+
+/* ..........CAIXA DE SELEÇÃO E DE OPÇÃO E COMPRAR.......... */
+.favorito {
+    width: 20%;
+}
+.favorito input {
+    margin-right: 5px;
+}
+.posse {
+    width: 60%;
+}
+.posse input {
+    margin-right: 5px;
+}
+.posse label {
+    margin-right: 20px;
+}
+.comprar {
+    width: 20%;
+    border: 1px solid #379c69;
+}

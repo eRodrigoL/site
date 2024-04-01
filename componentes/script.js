@@ -1,3 +1,34 @@
+//..........CABEÇALHO..........
+// Verifica se o documento foi completamente carregado
+document.addEventListener("DOMContentLoaded", function() {
+    // Criação dos elementos HTML
+    var logo = document.createElement("div");
+    logo.className = "colunaCabecalho logo";
+    logo.innerHTML = "<h1>Noob</h1>";
+
+    var links = document.createElement("div");
+    links.className = "colunaCabecalho links";
+    links.innerHTML = '<a href="../paginas/jogo.html">Jogos</a>' +
+                      '<a href="../paginas/perfil.html">Perfil</a>' +
+                      '<a href="../paginas/rede.html">Rede</a>';
+
+    var login = document.createElement("div");
+    login.className = "colunaCabecalho login";
+    login.innerHTML = '<input type="text" id="nome" name="nome" placeholder="Usuário">' +
+                      '<input type="password" id="senha" name="senha" placeholder="Senha">' +
+                      'Esqueceu a senha? <button>Entrar</button>';
+
+    // Seleciona o elemento header de cada página e adiciona os elementos criados
+    var headers = document.querySelectorAll("header");
+    headers.forEach(function(header) {
+        header.appendChild(logo.cloneNode(true));
+        header.appendChild(links.cloneNode(true));
+        header.appendChild(login.cloneNode(true));
+    });
+});
+
+
+
 //..........ALTURA DA COLUNA..........
 // Adicionar função para ajustar o tamanho da coluna meio
 function ajustarTamanhoColunas() {
