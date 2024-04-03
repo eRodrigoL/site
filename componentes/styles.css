@@ -89,6 +89,9 @@ main {
 .coluna3 {
     width: 25%;
 }
+.colunaNOVOjogo {
+    width: 100%;
+}
 
 /* ..........FORMATAÇÃO BLOCOS.......... */
 .blocos {
@@ -165,4 +168,15 @@ main {
 .comprar {
     width: 20%;
     border: 1px solid #379c69;
+}
+
+
+.graficos-jogos {
+    height: 400px;
+}
+
+
+.coluna1 .dificuldade {
+    display: inline;
+    width: 55%;
 }
