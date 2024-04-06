@@ -13,6 +13,29 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+//..........MODAL CADASTRAR JOGO..........
+document.getElementById('cadastrar-jogo').addEventListener('click', function() {
+    // Mostra o modal
+    document.getElementById('modal').style.display = 'block';
+
+    // Carrega o conteúdo do arquivo HTML especificado
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById('modal-cadastrar-jogo').innerHTML = this.responseText;
+    }
+    };
+    xhttp.open('GET', 'cadastro-jogo.html', true);
+    xhttp.send();
+});
+
+// Fecha o modal quando o usuário clica fora dele
+window.onclick = function(event) {
+    var modal = document.getElementById('modal');
+    if (event.target == modal) {
+    modal.style.display = "none";
+    }
+}
 
 
 //..........GRÁFICO AVALIAÇÃO..........
@@ -48,5 +71,3 @@ var avaliacao = new Chart(ctx, {
     data: dados,
     options: opcoes
 });
-
-
