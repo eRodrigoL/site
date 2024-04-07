@@ -171,8 +171,14 @@ main {
 }
 
 /* ..........GRÁFICOS.......... */
-.graficos-jogos {
-    height: 600px;
+.graficos-jogos1 {
+    height: 500px;
+}
+.graficos-jogos2 {
+    height: 300px;
+}
+.graficos-jogos3 {
+    height: 400px;
 }
 .coluna1 .dificuldade {
     display: inline;
