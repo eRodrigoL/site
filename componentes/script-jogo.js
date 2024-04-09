@@ -79,7 +79,6 @@ var avaliacao = new Chart(ctx, {
 var dados = {
     labels: ["Sorte", "Azar", "Destreza", "Outros"],
     datasets: [{
-        label: "Estilo",
         data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)],
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -122,9 +121,8 @@ var estilo = new Chart(ctx, {
 //..........GRÁFICO JOGABILIDADE..........
 // Dados para o gráfico
 var dados = {
-    labels: ["Rolagem de Dados", "Leilão", "Desenho", "Posicionamento de Dados", "Construção de Mapa", "Administração de Recursos", "Locação de Trabalhadores", "Mira", "Uso e Descarte de Cartas"],
+    labels: ["R. Dados", "Leilão", "Desenho", "P. Dados", "C. Mapa", "A. Recursos", "L. Trabalhadores", "Mira", "Cartas"],
     datasets: [{
-        label: "Jogabilidade",
         data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)],
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',

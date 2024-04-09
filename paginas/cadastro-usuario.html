@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noob Jogo</title>
+    <link rel="stylesheet" href="../componentes/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Bibliotéca para os gráficos -->
+</head>
+<body>
+<main>
+    <div class="colunas colunaNOVOjogo" id="colunas">
+        <div class="scrollable" id="contentContainer">
+            <div class="principal">
+                <label>Apelido: </label>
+                <input type="text" id="nome-jogo" placeholder="(Obrigatório) Digite o nome do jogo."><br><br>
+                <label>Data de nascimento: </label>
+                <input type="text" id="data-nascimento" placeholder="(Opicional) Digite sua data de nascimento."><br><br>
+                <label>Foto: </label>
+                <input type="file" id="foto" accept="image/*"><br><!-- talves seja melhor deixar este de lado-->
+                <label>Senha: </label>
+                <input type="password" id="senha" placeholder="(Obrigatório) Digite uma senha."><br>
+                <label>Confirmação da senha: </label>
+                <input type="password" id="confirmacao" placeholder="(Opicional) Confirma a senha."><br>
+                <Button>Adicionar jogo</Button>
+                <Button>Adicionar jogo e avalia-lo</Button>
+                <Button>Cancelar</Button>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="../componentes/script-geral.js"></script>
+
+</body>
+</html>
