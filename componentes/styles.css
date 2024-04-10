@@ -180,6 +180,9 @@ main {
 .graficos-jogos3 {
     height: 400px;
 }
+.graficos-jogos4 {
+    height: 300px;
+}
 .coluna1 .dificuldade {
     display: inline;
     width: 55%;

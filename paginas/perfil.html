@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noob Perfil</title>
     <link rel="stylesheet" href="../componentes/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Bibliotéca para os gráficos -->
 </head>
 <body>
 
@@ -41,6 +42,10 @@
         <div class="scrollable" id="contentContainer">
             <div class="principal">
                 <div>
+                    <div class="graficos-jogos4">
+                        <p><b>Desempenho: </b></p>
+                        <canvas id="desempenho"></canvas>
+                    </div>
                     <p><b>Desempenho:</b></p>
                     <img src="../imagens/exemplos/graficoperfil[vitótiasderrotas].jpg" alt="Imagem" height="200">
                     <p><b>Desempenho por categoria</b> (por categoria)</p>
@@ -60,6 +65,7 @@
 </main>
 
 <script src="../componentes/script-geral.js"></script>
+<script src="../componentes/script-perfil.js" type="module"></script>
 
 </body>
 </html>
