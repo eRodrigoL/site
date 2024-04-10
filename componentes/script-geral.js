@@ -14,9 +14,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var login = document.createElement("div");
     login.className = "colunaCabecalho login";
-    login.innerHTML = '<input type="text" id="nome" name="nome" placeholder="Usuário">' +
+    login.innerHTML = '<div>' +
+                      '<input type="text" id="nome" name="nome" placeholder="Usuário">' +
                       '<input type="password" id="senha" name="senha" placeholder="Senha">' +
-                      'Esqueceu a senha? <button>Entrar</button>';
+                      '<Button>Entrar</Button>' +
+                      '</div>' +
+                      '<p>Ainda não tem conta?<a href="cadastro-usuario.html">Cadastre-se</a></p>';
 
     // Seleciona o elemento header de cada página e adiciona os elementos criados
     var headers = document.querySelectorAll("header");

@@ -47,11 +47,11 @@ header h1 {
 }
 /* Estilo para o campo de entrada */
 input[type="text"], input[type="password"] {
-    padding: 8px;
-    font-size: 16px;
+    padding: 4px;
+    font-size: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 200px;
+    width: 150px;
 }
 /* Estilo para o texto dentro do campo quando o placeholder está sendo exibido */
 input[type="text"]::placeholder,
@@ -171,12 +171,27 @@ main {
 }
 
 /* ..........GRÁFICOS.......... */
-.graficos-jogos {
-    height: 600px;
+.graficos-jogos1 {
+    height: 500px;
 }
-
-
+.graficos-jogos2 {
+    height: 300px;
+}
+.graficos-jogos3 {
+    height: 400px;
+}
 .coluna1 .dificuldade {
     display: inline;
     width: 55%;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
 }

@@ -44,12 +44,20 @@
     <div class="colunas coluna2" id="colunas">
         <div class="scrollable" id="contentContainer">
             <div class="principal">
-                <button onclick="window.location.href = 'cadastro-jogo.html'">Registrar um novo jogo</button>
+                <button id="cadastrar-jogo">Cadastrar novo jogo</button>
+                <!-- O modal -->
+                <div id="modal" class="modal">
+                    <!-- Conteúdo do modal carregado do arquivo especificado -->
+                    <div class="modal-content" id="modal-cadastrar-jogo">
+                    <!-- O conteúdo do arquivo HTML será carregado aqui -->
+                    </div>
+                </div>
+
                 <div>________________________________________</div>
                 <div style="display: flex; align-items: center">
                     <div class="favorito">
                         <input type="checkbox" id="favorito" name="caixaSelecao">
-                        <label for="favorito">Lista de Favoritos</label>
+                        <label for="favorito">Favorito</label>
                     </div>
     
                     <div class="posse">
@@ -60,10 +68,10 @@
                         <label for="desejo">Desejo</label>
                       
                         <input type="radio" id="tive" name="opcao" value="tive">
-                        <label for="tive">Tive</label>
+                        <label for="tive">Já tive</label>
     
                         <input type="radio" id="joguei" name="opcao" value="joguei">
-                        <label for="joguei">Apenas já joguei</label>
+                        <label for="joguei">Joguei</label>
 
                         <input type="radio" id="desconheco" name="opcao" value="desconheco">
                         <label for="desconheco">Desconheço</label>
@@ -91,16 +99,18 @@
 
                     <p><b>Categoria:</b> (competitivo, competitivo (grupo), cooperativo, semicooperativo, solo)</p><br>
                     
-                    <p><b>Avaliação:</b> (nota com a médi do gráfico)</p>
-                    <div class="graficos-jogos">
+                    <div class="graficos-jogos1">
+                        <p><b>Avaliação: </b> (nota com a médi do gráfico)</p>
                         <canvas id="avaliacao"></canvas>
                     </div>
-                    
-                    <p><b>Estilo</b> (sorte, azar ou destreza):</p>
-                    <img src="../imagens/exemplos/grafico[sorte-estategia-destreza].jpg" alt="Imagem" height="200">
-                    <p><b>Jogabilidade</b> (formas de evoluir, avançar e ganhar o jogo):</p>
-                    <img src="../imagens/exemplos/grafico[jogabilidade].jpg" alt="Imagem" height="200">
-                    <p><b>Componentes:</b>meeples, cartas, tabuleiro, moedas</p>
+                    <div class="graficos-jogos2">
+                        <p><b>Estilo: </b></p>
+                        <canvas id="estilo"></canvas>
+                    </div>
+                    <div class="graficos-jogos3">
+                        <p><b>Jpgabilidade: </b></p>
+                        <canvas id="jogabilidade"></canvas>
+                    </div>
                 </div>
                 <div>________________________________________</div>
                 <div>
