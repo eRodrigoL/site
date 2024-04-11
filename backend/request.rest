@@ -1,0 +1,229 @@
+POST http://localhost:3000/api/usuarios
+Content-Type: application/json
+
+{"cpf": "333333333-33",
+"nome": "Emerson",
+"administrador": 1,
+"apelido": "Emerson",
+"email" : "emerson@gmail.com",
+"senha" : "emerson123",
+"nascimento": "01/03/2000"
+}
+
+###
+GET http://localhost:3000/api/usuarios
+
+###
+GET http://localhost:3000/api/usuarios/66044fe18742f658505bbfb0
+
+
+###
+DELETE http://localhost:3000/api/usuarios/66044fe18742f658505bbfb0
+
+###
+PUT http://localhost:3000/api/usuarios/66044fe18742f658505bbfb0
+Content-Type: application/json
+
+{"cpf": "111111111-11",
+"nome": "Maria",
+"administrador": 1,
+"apelido": "maria",
+"email" : "maria@gmail.com",
+"senha" : "maria1234",
+"nascimento": "10/03/2002",
+"rede": [
+    {
+    "cpf": "222222222-22",
+    "nome": "ana",
+    "administrador": 1,
+    "apelido": "ana",
+    "email" : "ana@gmail.com",
+    "senha" : "ana1234",
+    "nascimento": "10/03/2002"
+    }
+]
+}
+
+
+###
+POST http://localhost:3000/api/jogos
+Content-Type: application/json
+
+{"titulo": "Uno",
+"editora": "Mattel",
+"alteravel": 1,
+"descricao": "teste",
+"categoria" : "teste"
+}
+
+
+###
+GET http://localhost:3000/api/jogos
+
+###
+GET http://localhost:3000/api/jogos/66045b8c59a1ea415c1dcbd7
+
+
+###
+DELETE http://localhost:3000/api/jogos/66045b6259a1ea415c1dcbd0
+
+###
+PUT http://localhost:3000/api/jogos/66081910b86e76bf315818c6
+Content-Type: application/json
+
+{"titulo": "Uno",
+"editora": "Mattel",
+"alteravel": 1,
+"descricao": "teste2",
+"categoria" : "teste2"
+}
+
+
+###
+POST http://localhost:3000/api/atividades
+Content-Type: application/json
+
+{
+"usuarios": [
+    {
+    "cpf": "333333333-33",
+    "nome": "maria",
+    "administrador": 1,
+    "apelido": "ana",
+    "email" : "ana@gmail.com",
+    "senha" : "ana123",
+    "nascimento": "10/03/2002"
+    }],
+"jogo": [
+    {"titulo": "Uno",
+    "editora": "Mattel",
+    "alteravel": 1,
+    "descricao": "teste2",
+    "categoria" : "teste2"
+    }],
+"vencedor": [
+    {
+    "cpf": "222222222-22",
+    "nome": "ana",
+    "administrador": 1,
+    "apelido": "ana",
+    "email" : "ana@gmail.com",
+    "senha" : "ana123",
+    "nascimento": "10/03/2002"
+    }]
+}
+
+
+###
+GET http://localhost:3000/api/atividades
+
+###
+GET http://localhost:3000/api/atividades/66081d33b86e76bf315818e5
+
+
+###
+DELETE http://localhost:3000/api/atividades/66081cfcb86e76bf315818d8
+
+###
+PUT http://localhost:3000/api/atividades/66081d33b86e76bf315818e5
+Content-Type: application/json
+
+{
+"usuarios": [
+    {
+    "cpf": "333333333-33",
+    "nome": "ana",
+    "administrador": 1,
+    "apelido": "ana",
+    "email" : "ana@gmail.com",
+    "senha" : "ana123",
+    "nascimento": "10/03/2002"
+    }],
+"jogo": [
+    {"titulo": "Uno",
+    "editora": "Mattel",
+    "alteravel": 1,
+    "descricao": "teste2",
+    "categoria" : "teste2"
+    }],
+"vencedor": [
+    {
+    "cpf": "222222222-22",
+    "nome": "ana",
+    "administrador": 1,
+    "apelido": "ana",
+    "email" : "ana@gmail.com",
+    "senha" : "ana123",
+    "nascimento": "10/03/2002"
+    }]
+}
+
+
+
+###
+POST http://localhost:3000/api/avaliacoes
+Content-Type: application/json
+
+{
+"usuario": [
+    {
+    "cpf": "333333333-33",
+    "nome": "maria",
+    "administrador": 1,
+    "apelido": "ana",
+    "email" : "ana@gmail.com",
+    "senha" : "ana123",
+    "nascimento": "10/03/2002"
+    }],
+"jogo": [
+    {"titulo": "Uno",
+    "editora": "Mattel",
+    "alteravel": 1,
+    "descricao": "teste2",
+    "categoria" : "teste2"
+    }],
+
+"nota":10 
+}
+
+
+###
+GET http://localhost:3000/api/avaliacoes
+
+###
+GET http://localhost:3000/api/avaliacoes/6609abf28723795174326aab
+
+
+###
+DELETE http://localhost:3000/api/avaliacoes/6609aa9d2c485b50dba7f437
+
+###
+PUT http://localhost:3000/api/avaliacoes/6609abf28723795174326aab
+Content-Type: application/json
+
+{
+"usuario": [
+    {
+    "cpf": "444444444-44",
+    "nome": "ana",
+    "administrador": 1,
+    "apelido": "ana",
+    "email" : "ana@gmail.com",
+    "senha" : "ana123",
+    "nascimento": "10/03/2002"
+    }],
+"jogo": [
+    {"titulo": "Uno",
+    "editora": "Mattel",
+    "alteravel": 1,
+    "descricao": "teste2",
+    "categoria" : "teste2"
+    }],
+"nota":10 
+}
+
+
+
+
+
+

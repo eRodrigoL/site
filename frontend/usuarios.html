@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estilo.css">
+    <title> API Noob - Usuários </title>
+</head>
+
+<body>
+    <form action="" method="get">
+        <h2> Pesquisando usuário </h2>
+        <p>ID: <input type="text" name="" id="usuarioId"  size="40"></p>
+        <button type="submit" id="btnPesquisar"> Pesquisar</button>
+        <button type="reset" id="btnReset"> Limpar </button>
+    </form>
+
+<div id="result-style">
+    <img src="" alt="" id="">
+    <pre id="conteudo"></pre>
+</div>
+
+<hr>
+
+<form action="" method="get">
+    <h2> Listando usuários </h2>
+    <button onclick="listarUsuarios()" type="submit" id="btnListar" > Listar</button>
+    <button type="reset" id="btnReset"> Limpar </button>
+</form>
+
+<div id="result-style">
+<img src="" alt="" id="">
+<pre id="conteudoListar"></pre>
+</div>
+
+<hr>
+
+<form action="" method="get">
+    <h2> Deletando usuários </h2>
+    <p>ID: <input type="text" name="" id="usuarioIdDeletar"  size="40"></p>
+    <button type="submit" id="btnDeletar"> Deletar </button>
+</form>
+
+<div id="result-style">
+<img src="" alt="" id="">
+<pre id="conteudoDeletar"></pre>
+</div>
+
+<hr>
+
+<form id="cadastroUsuarios" action="" method="get">
+    <h2> Cadastrando usuários </h2>
+    <p> CPF: <input type="text" name="cpf" id="txtCPFUsuarios"  size="40"> </p>
+    <p> Nome: <input type="text" name="nome" id="txtNomeUsuarios"  size="60"></p>
+    <p> Administrador: <input type="number" name="administrador" id="txtAdministradorUsuarios"  min="0" max="1"></p>
+    <p> Apelido: <input type="text" name="apelido" id="txtApelidoUsuarios"  size="40"></p>
+    <p> Email: <input type="text" name="email" id="txtEmailUsuarios"  size="40"></p>
+    <p> Senha: <input type="password" name="senha" id="txtSenhaUsuarios"  size="20"></p>
+    <p> Nascimento: <input type="date" name="dataNascimento" id="txtNascimentoUsuarios"></p>
+
+    <button type="submit" id="btnCadastrar"> Cadastrar </button>
+</form>
+
+<div id="result-style">
+<img src="" alt="" id="">
+<pre id="conteudoCadastrar"></pre>
+</div>
+
+<hr>
+
+    
+</body>
+<script src="./scriptUsuarios.js"></script>
+
+
+</html>
+
+
+
+
