@@ -26,3 +26,60 @@ var chart = new Chart(ctx, {
         }
     }
 });
+
+
+
+//..........GRÁFICO DESEMPENHO POR CATEGORIA..........
+// Dados do gráfico
+var data = {
+    labels: ["Competitivos", "Competitivos de grupo", "Cooperativos", "Semi-cooperativos", "Solo", "Sorte", "Estratégia", "Destreza", "Outros"],
+    datasets: [{
+        label: "Vitórias por Categoria",
+        data: [30, 40, 70, 50, 30, 20, 90, 30, 100],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 206, 86, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(153, 102, 255, 0.5)',
+            'rgba(255, 159, 64, 0.5)',
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 206, 86, 0.5)'
+        ],
+        borderColor: 'rgba(255, 255, 255, 1)',
+        borderWidth: 1
+    }]
+};
+
+// Opções do gráfico
+var options = {
+    title: {
+        display: true,
+        text: 'Desempenho por Categoria'
+    },
+    scale: {
+        angleLines: {
+            display: false // Remover as linhas de ângulo
+        },
+        ticks: {
+            beginAtZero: true,
+            min: 0,
+            max: 100
+        }
+    },
+    animation: {
+        animateRotate: false, // Desativar a animação de rotação
+        animateScale: true
+    }
+};
+
+// Configurando o contexto do gráfico
+var ctx = document.getElementById('vitorias-catogoria').getContext('2d');
+
+// Criando o gráfico de área polar
+var myChart = new Chart(ctx, {
+    type: 'polarArea',
+    data: data,
+    options: options
+});
