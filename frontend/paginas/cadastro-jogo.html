@@ -18,27 +18,27 @@
     <div class="colunas colunaNOVOjogo" id="colunas">
         <div class="scrollable" id="contentContainer">
             <div class="principal">
-                <form id="cadastroJogos" action="" method="get"></form>
+                <form id="cadastroJogos" action="" method="get">
                 <label>Nome: </label>
-                <input type="text" id="nome-jogo" name="nome" placeholder="(Obrigatório) Digite o nome do jogo."><br><br>
+                <input type="text" id="nome-jogo" size="60" name="nome" placeholder="(Obrigatório)"><br><br>
                 <label>Ano: </label>
-                <input type="text" id="ano-jogo" name="ano" placeholder="(Opicional) Digite o ano de lançamento do jogo."><br><br>
+                <input type="text" id="ano-jogo" size="4"  name="ano" placeholder="(Opcional) Digite o ano de lançamento do jogo."><br><br>
                 <label>Idade: </label>
-                <input type="number" id="idade-jogo" name="idade" placeholder="(Opicional) Digite a idade mínima indicada."><br><!-- número para SE DER TEMPO por filtrar a pesquisa por idade mínima -->
+                <input type="number" id="idade-jogo" name="idade" placeholder="(Opcional) Digite a idade mínima indicada."><br><br><!-- número para SE DER TEMPO por filtrar a pesquisa por idade mínima -->
                 <label>Designer: </label>
-                <input type="text" id="designer-jogo" name="designer" placeholder="(Opicional) Digite o(s) nome(s) do(s) designer(s) do jogo."><br>
+                <input type="text" id="designer-jogo" size="60" name="designer" placeholder="(Opcional) Digite o(s) nome(s) do(s) designer(s) do jogo."><br><br>
                 <label>Artista: </label>
-                <input type="text" id="artista-jogo" name="artista" placeholder="(Opicional) Digite o(s) nome(s) do(s) artista(s) do jogo."><br>
+                <input type="text" id="artista-jogo"  size="60" name="artista" placeholder="(Opcional) Digite o(s) nome(s) do(s) artista(s) do jogo."><br><br>
                 <label>Editora: </label>
-                <input type="text" id="editora-jogo" name="editora" placeholder="(Opicional) Digite o nome da editora do jogo"><br>
+                <input type="text" id="editora-jogo" size="60" name="editora" placeholder="(Opcional) Digite o nome da editora do jogo"><br><br>
                 <label>Versão digital: </label>
-                <input type="url" id="digital-jogo" name="digital" placeholder="(Opicional) Digite o endereço web completo da versão digital."><br><br>
+                <input type="url" id="digital-jogo" name="digital" placeholder="(Opcional) Digite o endereço web completo da versão digital."><br><br>
                 <label>Categoria: </label>
-                <input type="text" id="categoria-jogo" placeholder="(Opicional) Competitivo, competitivo em grupo, cooperativo, semicooperativo, solo"><br><br>
+                <input type="text" id="categoria-jogo" size="60" name="categoria" placeholder="(Opcional) Competitivo, competitivo em grupo, cooperativo, semicooperativo, solo"><br><br>
                 <label>Componentes: </label>
-                <input type="text" id="componentes" placeholder="(Opicional) Meeples, cartas, tabuleiro, moedas..."><br>
+                <input type="text" id="componentes" size="60" name="componentes" placeholder="(Opcional) Meeples, cartas, tabuleiro, moedas..."><br><br>
                 <label>Descrição: </label>
-                <input type="text" id="descricao" placeholder="(Opicional) Conte como este jogo é."><br>
+                <textarea id="descricao" rows="5" cols="60" name="descricao" placeholder="(Opcional) Conte como este jogo é."></textarea><br><br>
                 <button type="submit" id="btnCadastrarJogo">Adicionar jogo</button>
                 <button type="submit" id="btnCadastrarJogoAvaliar">Adicionar jogo e avalia-lo</button>
                 <button id="btnCancelarJogo">Cancelar</button>
@@ -49,5 +49,5 @@
 </main>
 </body>
 <script src="../componentes/script-geral.js"></script>
-<script src="../componentes/script-cadastro-jogo.js"></script>
+<script src="../componentes/script-cadastro-jogos.js"></script>
 </html>

@@ -29,5 +29,6 @@ document.getElementById('cadastroJogos').addEventListener('submit', async functi
             console.error('Erro:', error);
             //return conteudoCadastrar.innerHTML = 'Erro ao cadastrar usuário! Tente novamente'
             alert('Ocorreu um erro ao cadastrar o jogo. Por favor, tente novamente mais tarde.');
-        } 
+        }
+    
 });
