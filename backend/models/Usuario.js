@@ -4,20 +4,16 @@ const { Schema } = mongoose;
 
 const usuarioSchema = new Schema({
 
-    cpf: {
-        type: String,
-        required: true
-    },
     nome: {
         type: String,
         required: true
     },
-    administrador: {
-        type: Boolean,
-    },
     apelido: {
         type: String,
         required: true
+    },
+    nascimento: {
+        type: Date,
     },
     email: {
         type: String,
@@ -27,8 +23,9 @@ const usuarioSchema = new Schema({
         type: String,
         required: true
     },
-    nascimento: {
-        type: Date,
+    confirmacao: {
+        type: String,
+        required: true
     },
     foto: {
         type: String,

@@ -5,13 +5,12 @@ const usuarioController = {
     create: async(req, res) =>{
         try {
             const usuario = {
-                cpf: req.body.cpf,
                 nome: req.body.nome,
-                administrador: req.body.administrador,
                 apelido: req.body.apelido,
+                nascimento: req.body.nascimento,
                 email: req.body.email,
                 senha: req.body.senha,
-                nascimento: req.body.nascimento,
+                confirmacao: req.body.confirmacao,
                 foto: req.body.foto
             };
             const response = await UsuarioModel.create(usuario);
@@ -73,13 +72,12 @@ const usuarioController = {
         const id = req.params.id
 
         const usuario = {
-            cpf: req.body.cpf,
             nome: req.body.nome,
-            administrador: req.body.administrador,
             apelido: req.body.apelido,
+            nascimento: req.body.nascimento,
             email: req.body.email,
             senha: req.body.senha,
-            nascimento: req.body.nascimento,
+            confirmacao: req.body.confirmacao,
             foto: req.body.foto
         };
 

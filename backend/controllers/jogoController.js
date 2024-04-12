@@ -5,11 +5,16 @@ const jogoController = {
     create: async(req, res) =>{
         try {
             const jogo = {
-                titulo: req.body.titulo,
-                editora: req.body.editora,
-                alteravel: req.body.alteravel,
-                descricao: req.body.descricao,
-                categoria: req.body.categoria,
+            nome: req.body.nome,
+            ano: req.body.ano,
+            idade: req.body.idade,
+            designer: req.body.designer,
+            artista: req.body.artista,
+            editora: req.body.editora,
+            digital: req.body.digital,
+            categoria: req.body.categoria,
+            componentes: req.body.componentes,
+            descricao: req.body.descricao
             };
             const response = await JogoModel.create(jogo);
 
@@ -70,11 +75,16 @@ const jogoController = {
         const id = req.params.id
 
         const jogo = {
-            titulo: req.body.titulo,
+            nome: req.body.nome,
+            ano: req.body.ano,
+            idade: req.body.idade,
+            designer: req.body.designer,
+            artista: req.body.artista,
             editora: req.body.editora,
-            alteravel: req.body.alteravel,
-            descricao: req.body.descricao,
-            categoria: req.body.categoria
+            digital: req.body.digital,
+            categoria: req.body.categoria,
+            componentes: req.body.componentes,
+            descricao: req.body.descricao
         };
 
         const updatedJogo = await JogoModel.findByIdAndUpdate(id, jogo)
