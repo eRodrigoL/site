@@ -48,7 +48,7 @@ var data = {
             'rgba(255, 206, 86, 0.5)'
         ],
         borderColor: 'rgba(255, 255, 255, 1)',
-        borderWidth: 1
+        borderWidth: 2
     }]
 };
 
@@ -80,6 +80,81 @@ var ctx = document.getElementById('vitorias-catogoria').getContext('2d');
 // Criando o gráfico de área polar
 var myChart = new Chart(ctx, {
     type: 'polarArea',
+    data: data,
+    options: options
+});
+
+
+
+//..........GRÁFICO NÚMEOR DE DISPUTAS POR CATEGORIA..........
+// Dados do gráfico
+var data = {
+    labels: ["Competitivos", "Competitivos de grupo", "Cooperativos", "Semi-cooperativos", "Solo"],
+    datasets: [{
+        data: [30, 20, 15, 25, 10],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 206, 86, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(153, 102, 255, 0.5)'
+        ],
+        borderColor: 'rgba(255, 255, 255, 1)',
+        borderWidth: 2
+    }]
+};
+
+// Configurações do gráfico
+var options = {
+    title: {
+        display: true,
+        text: 'Disputas por Categoria'
+    }
+};
+
+// Configurando o contexto do gráfico
+var ctx = document.getElementById('disputas-categoria').getContext('2d');
+
+// Criando o gráfico de rosca
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: data,
+    options: options
+});
+
+
+
+//..........GRÁFICO NÚMEOR DE DISPUTAS POR TIPO..........
+// Dados do gráfico
+var data = {
+    labels: ["Sorte", "Estratégia", "Destreza", "Outros"],
+    datasets: [{
+        data: [25, 35, 20, 20], // Exemplo de dados. Substitua pelos seus dados reais.
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.5)', // Cor para "Sorte"
+            'rgba(54, 162, 235, 0.5)', // Cor para "Estratégia"
+            'rgba(255, 206, 86, 0.5)', // Cor para "Destreza"
+            'rgba(75, 192, 192, 0.5)' // Cor para "Outros"
+        ],
+        borderColor: 'rgba(255, 255, 255, 1)',
+        borderWidth: 2
+    }]
+};
+
+// Configurações do gráfico
+var options = {
+    title: {
+        display: true,
+        text: 'Disputas por Tipo'
+    }
+};
+
+// Configurando o contexto do gráfico
+var ctx = document.getElementById('disputas-tipo').getContext('2d');
+
+// Criando o gráfico de rosca
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
     data: data,
     options: options
 });
