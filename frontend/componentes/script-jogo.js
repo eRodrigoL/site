@@ -1,9 +1,9 @@
 //..........BARRA DE AJUSTE..........
-document.addEventListener("DOMContentLoaded", function() {
-    const barraDificuldade = document.getElementById("barraDificuldade");
-    const valorDificuldade = document.getElementById("valorDificuldade");
+document.addEventListener('DOMContentLoaded', function() {
+    const barraDificuldade = document.getElementById('barraDificuldade');
+    const valorDificuldade = document.getElementById('valorDificuldade');
   
-    barraDificuldade.addEventListener("input", function() {
+    barraDificuldade.addEventListener('input', function() {
       const valor = parseInt(barraDificuldade.value);
       valorDificuldade.textContent = valor;
     });
@@ -33,139 +33,130 @@ document.getElementById('cadastrar-jogo').addEventListener('click', function() {
 window.onclick = function(event) {
     var modal = document.getElementById('modal');
     if (event.target == modal) {
-    modal.style.display = "none";
+    modal.style.display = 'none';
     }
 }
 
 
 //..........GRÁFICO AVALIAÇÃO..........
-// Dados para o gráfico
-var dados = {
-    labels: ["Qualidade dos Componentes", "Beleza do Jogo", "Divertimento", "Tempo de Duração", "Preço", "Tam. da caixa / Armaz. dos Comp."],
+// Dados do gráfico
+var data = {
+    labels: ['Qualidade dos Componentes', 'Beleza do Jogo', 'Divertimento', 'Tempo de Duração', 'Preço', 'Tam. da caixa / Armaz. dos Comp.'],
     datasets: [{
-        label: "Avaliação",
         data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)],
-        backgroundColor: "rgba(54, 162, 235, 0.2)",
-        borderColor: "rgba(54, 162, 235, 1)",
-        borderWidth: 1
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 206, 86, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(153, 102, 255, 0.5)',
+            'rgba(255, 159, 64, 0.5)'
+        ],
+        borderColor: 'rgba(255, 255, 255, 1)',
+        borderWidth: 2
     }]
 };
-  
-// Configurações do gráfico
-var opcoes = {
+
+// Opções do gráfico
+var options = {
+    title: {
+        display: true,
+        text: 'Desempenho por Categoria'
+    },
     scale: {
         angleLines: {
-            display: true
+            display: false // Remover as linhas de ângulo
         },
         ticks: {
-            suggestedMin: 0,
-            suggestedMax: 100
+            beginAtZero: true,
+            min: 0,
+            max: 100
         }
+    },
+    animation: {
+        animateRotate: false, // Desativar a animação de rotação
+        animateScale: true
     }
 };
-  
-// Criar o gráfico radar
+
+// Configurando o contexto do gráfico
 var ctx = document.getElementById('avaliacao').getContext('2d');
-var avaliacao = new Chart(ctx, {
-    type: 'radar',
-    data: dados,
-    options: opcoes
+
+// Criando o gráfico de área polar
+var myChart = new Chart(ctx, {
+    type: 'polarArea',
+    data: data,
+    options: options
 });
 
 
 
 //..........GRÁFICO ESTILO..........
-// Dados para o gráfico
-var dados = {
-    labels: ["Sorte", "Azar", "Destreza", "Outros"],
+// Dados para o gráfico de pizza
+var dadosPizza = {
+    labels: ['Sorte', 'Azar', 'Destreza', 'Outros'],
     datasets: [{
-        data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)],
+        label: "Preferências de Estilo",
+        data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)], // Valores fictícios para exemplificação
         backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(105, 105, 105, 0.2)'
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 206, 86, 0.5)',
+            'rgba(75, 192, 192, 0.5)'
         ],
-        borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(105, 105, 105, 1)'
-        ],
-        borderWidth: 1
+        borderColor: 'rgba(255, 255, 255, 1)',
+        borderWidth: 2
     }]
 };
   
-// Configurações do gráfico
-var opcoes = {
-    scales: {
-        yAxes: [{
-            display: false
-        }],
-        xAxes: [{
-            display: false
-        }]
-    }
+// Configurações do gráfico de pizza
+var opcoesPizza = {
+    // Adicione opções aqui, se necessário
 };
   
 // Criar o gráfico de pizza
-var ctx = document.getElementById('estilo').getContext('2d');
-var estilo = new Chart(ctx, {
+var ctxPizza = document.getElementById('estilo').getContext('2d');
+var estiloChart = new Chart(ctxPizza, {
     type: 'doughnut',
-    data: dados,
-    options: opcoes
+    data: dadosPizza,
+    options: opcoesPizza
 });
 
 
 
 //..........GRÁFICO JOGABILIDADE..........
-// Dados para o gráfico
-var dados = {
-    labels: ["R. Dados", "Leilão", "Desenho", "P. Dados", "C. Mapa", "A. Recursos", "L. Trabalhadores", "Mira", "Cartas"],
+//..........GRÁFICO ESTILO..........
+// Dados para o gráfico de pizza
+var dadosPizza = {
+    labels: ['R. Dados', 'Leilão', 'Desenho', 'P. Dados', 'C. Mapa', 'A. Recursos', 'L. Trabalhadores', 'Mira', 'Cartas'],
     datasets: [{
-        data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)],
+        label: "Preferências de Estilo",
+        data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)], // Valores fictícios para exemplificação
         backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)'
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 206, 86, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(153, 102, 255, 0.5)',
+            'rgba(255, 159, 64, 0.5)',
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(255, 206, 86, 0.5)'
         ],
-        borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)'
-        ],
-        borderWidth: 1
+        borderColor: 'rgba(255, 255, 255, 1)',
+        borderWidth: 2
     }]
 };
   
-// Configurações do gráfico
-var opcoes = {
-    scales: {
-        yAxes: [{
-            display: false
-        }],
-        xAxes: [{
-            display: false
-        }]
-    }
+// Configurações do gráfico de pizza
+var opcoesPizza = {
+    // Adicione opções aqui, se necessário
 };
   
 // Criar o gráfico de pizza
-var ctx = document.getElementById('jogabilidade').getContext('2d');
-var estilo = new Chart(ctx, {
-    type: 'pie',
-    data: dados,
-    options: opcoes
+var ctxPizza = document.getElementById('jogabilidade').getContext('2d');
+var estiloChart = new Chart(ctxPizza, {
+    type: 'doughnut',
+    data: dadosPizza,
+    options: opcoesPizza
 });

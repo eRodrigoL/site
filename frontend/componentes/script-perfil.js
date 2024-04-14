@@ -35,7 +35,7 @@ var data = {
     labels: ["Competitivos", "Competitivos de grupo", "Cooperativos", "Semi-cooperativos", "Solo", "Sorte", "Estratégia", "Destreza", "Outros"],
     datasets: [{
         label: "Vitórias por Categoria",
-        data: [30, 40, 70, 50, 30, 20, 90, 30, 100],
+        data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)],
         backgroundColor: [
             'rgba(255, 99, 132, 0.5)',
             'rgba(54, 162, 235, 0.5)',
@@ -91,7 +91,7 @@ var myChart = new Chart(ctx, {
 var data = {
     labels: ["Competitivos", "Competitivos de grupo", "Cooperativos", "Semi-cooperativos", "Solo"],
     datasets: [{
-        data: [30, 20, 15, 25, 10],
+        data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)],
         backgroundColor: [
             'rgba(255, 99, 132, 0.5)',
             'rgba(54, 162, 235, 0.5)',
@@ -129,7 +129,7 @@ var myChart = new Chart(ctx, {
 var data = {
     labels: ["Sorte", "Estratégia", "Destreza", "Outros"],
     datasets: [{
-        data: [25, 35, 20, 20], // Exemplo de dados. Substitua pelos seus dados reais.
+        data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)], // Exemplo de dados. Substitua pelos seus dados reais.
         backgroundColor: [
             'rgba(255, 99, 132, 0.5)', // Cor para "Sorte"
             'rgba(54, 162, 235, 0.5)', // Cor para "Estratégia"
