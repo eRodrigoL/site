@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noob Perfil</title>
     <link rel="stylesheet" href="../componentes/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Bibliotéca para os gráficos -->
 </head>
 <body>
 
@@ -41,14 +42,22 @@
         <div class="scrollable" id="contentContainer">
             <div class="principal">
                 <div>
-                    <p><b>Desempenho:</b></p>
-                    <img src="../imagens/exemplos/graficoperfil[vitótiasderrotas].jpg" alt="Imagem" height="200">
-                    <p><b>Desempenho por categoria</b> (por categoria)</p>
-                    <img src="../imagens/exemplos/graficoperfil[desempenho].jpg" alt="Imagem" height="200">
-                    <p><b>Nº disputas</b> (por categoria)</p>
-                    <img src="../imagens/exemplos/graficoperfil[disputas por categoria].jpg" alt="Imagem" height="200">
-                    <p><b>Nº disputas</b> (por tipo)</p>
-                    <img src="../imagens/exemplos/graficoperfil[disputas por tipo].jpg" alt="Imagem" height="200">
+                    <div class="graficos-jogos4">
+                        <p><b>Desempenho: </b></p>
+                        <canvas id="desempenho"></canvas>
+                    </div>
+                    <div class="graficos-jogos5">
+                        <p><b>Desempenho por categoria (%): </b></p>
+                        <canvas id="vitorias-catogoria"></canvas>
+                    </div>
+                    <div class="graficos-jogos6">
+                        <p><b>Nº de disputas (Categorias): </b></p>
+                        <canvas id="disputas-categoria"></canvas>
+                    </div>
+                    <div class="graficos-jogos7">
+                        <p><b>Nº de disputas (Tipos): </b></p>
+                        <canvas id="disputas-tipo"></canvas>
+                    </div>
                 </div>
                 <div>________________________________________</div>
                 <div>
@@ -60,6 +69,7 @@
 </main>
 
 <script src="../componentes/script-geral.js"></script>
+<script src="../componentes/script-perfil.js" type="module"></script>
 
 </body>
 </html>

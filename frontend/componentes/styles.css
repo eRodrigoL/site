@@ -51,7 +51,7 @@ input[type="text"], input[type="password"] {
     font-size: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 150px;
+    /*width: 150px;*/
 }
 /* Estilo para o texto dentro do campo quando o placeholder está sendo exibido */
 input[type="text"]::placeholder,
@@ -178,6 +178,18 @@ main {
     height: 300px;
 }
 .graficos-jogos3 {
+    height: 400px;
+}
+.graficos-jogos4 {
+    height: 300px;
+}
+.graficos-jogos5 {
+    height: 500px;
+}
+.graficos-jogos6 {
+    height: 400px;
+}
+.graficos-jogos7 {
     height: 400px;
 }
 .coluna1 .dificuldade {

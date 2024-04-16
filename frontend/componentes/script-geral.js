@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var links = document.createElement("div");
     links.className = "colunaCabecalho links";
-    links.innerHTML = '<a href="../paginas/jogo.html">Jogos</a>' +
+    links.innerHTML = '<a href="../paginas/jogo.html">Jogo</a>' +
                       '<a href="../paginas/perfil.html">Perfil</a>' +
                       '<a href="../paginas/rede.html">Rede</a>';
 
