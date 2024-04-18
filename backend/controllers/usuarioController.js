@@ -96,3 +96,5 @@ const usuarioController = {
 
 
 module.exports = usuarioController;
+
+    

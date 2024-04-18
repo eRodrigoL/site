@@ -1,15 +1,13 @@
-const Imagem = require("../models/Imagens");
+const Imagem = require("../models/Imagem");
 
 exports.create = async(req, res) => {
     try {
         //const {name} = req.body;
 
-        const { name } = req.body;
-
         const file = req.file;
 
         const imagem = new Imagem({
-            name,
+           // name,
             src: file.path
         });
 
@@ -23,7 +21,3 @@ exports.create = async(req, res) => {
         res.status(500).json({message: "Erro ao salvar a imagem."});
     }
 };
-
-/*exports.create = async(req, res) =>{
-    res.json("Deu certo!");
-};*/
