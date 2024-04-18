@@ -11,11 +11,11 @@ require("dotenv").config();
 
 // video upload imagens
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT 
 
-const imagemRouter = require("./routes/imagem")
+//const imagemRouter = require("./routes/imagem")
 
-app.use("/imagens", imagemRouter);
+//app.use("/imagens", imagemRouter);
 
 // DB Connection
 const conn = require("./db/conn");
@@ -26,7 +26,6 @@ conn();
 const routes = require("./routes/router");
 
 app.use("/api", routes);
-
 
 app.listen(port, function(){
     console.log(`Servidor Online na porta ${port}`)

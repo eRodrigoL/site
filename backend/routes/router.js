@@ -25,6 +25,12 @@ const avaliacoesRouter = require("./avaliacoes");
 
 router.use("/", avaliacoesRouter);
 
+
+// Imagens routes
+
+const imagemRouter = require("./imagens");
+
+router.use("/", imagemRouter);
+
+
 module.exports = router;
-
-
