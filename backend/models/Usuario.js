@@ -7,30 +7,27 @@ const usuarioSchema = new Schema({
 
     nome: {
         type: String,
-       // required: true
+        required: true
     },
     apelido: {
         type: String,
-        //required: true
+        required: true
     },
     nascimento: {
         type: Date,
     },
     email: {
         type: String,
-        //required: true
+        required: true
     },
     senha: {
         type: String,
-        //required: true
+        required: true
     },
     confirmacao: {
         type: String,
-        //required: true
+        required: true
     },
-    /*foto: {
-        type: String,
-    },*/
     imagem: {
         type: [imagemSchema], 
     }

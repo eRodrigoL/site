@@ -2,6 +2,10 @@ const senha = document.getElementById('senha-usuario');
 const confirmacao = document.getElementById('confirmacao');
 const btnCancelar = document.getElementById('btnCancelar');
 const btnCadastrarUsuario = document.getElementById('btnCadastrarUsuario');
+const nome = document.getElementById('nome-usuario');
+const apelido = document.getElementById('apelido-usuario');
+const email = document.getElementById('email-usuario');
+
 
 // Cadastrando usuários
 
@@ -14,35 +18,39 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', async fun
         userData[key] = value;
     });
 
-    if (senha.value == confirmacao.value){
+    if (nome.value.trim() !== '' && apelido.value.trim() !== '' && email.value.trim() !== '' && senha.value.trim() !== '' && confirmacao.value.trim() !== '' ){
+        if (senha.value == confirmacao.value ){
 
-        try {
-            const response = await fetch('http://localhost:3000/api/usuarios/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(userData)
-            });
-    
-            if (!response.ok) {
-                //return conteudoCadastrar.innerHTML = 'Erro ao cadastrar usuário!'
-                throw new Error('Erro ao cadastrar usuário');
+            try {
+                const response = await fetch('http://localhost:3000/api/usuarios/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                });
+        
+                if (!response.ok) {
+                    //return conteudoCadastrar.innerHTML = 'Erro ao cadastrar usuário!'
+                    throw new Error('Erro ao cadastrar usuário');
+                }
+                //return conteudoCadastrar.innerHTML = 'Usuário cadastrado com sucesso!' 
+                alert('Usuário cadastrado com sucesso!');
+                // Limpar o formulário após o cadastro
+                this.reset();
+            } catch (error) {
+                console.error('Erro:', error);
+                //return conteudoCadastrar.innerHTML = 'Erro ao cadastrar usuário! Tente novamente'
+                alert('Ocorreu um erro ao cadastrar o usuário. Por favor, tente novamente mais tarde.');
             }
-            //return conteudoCadastrar.innerHTML = 'Usuário cadastrado com sucesso!' 
-            alert('Usuário cadastrado com sucesso!');
-            // Limpar o formulário após o cadastro
-            this.reset();
-        } catch (error) {
-            console.error('Erro:', error);
-            //return conteudoCadastrar.innerHTML = 'Erro ao cadastrar usuário! Tente novamente'
-            alert('Ocorreu um erro ao cadastrar o usuário. Por favor, tente novamente mais tarde.');
+        }
+        else{
+            alert('As senhas não correspondem, por favor tentar novamente!');
         }
     }
     else{
-        alert('As senhas não correspondem, por favor tentar novamente!');
+        alert('Por favor, preencha os campos obrigatórios!');
     }
- 
 });
 
 
@@ -52,7 +60,7 @@ document.getElementById("btnCadastrarUsuario").addEventListener("click", functio
     // Obter o elemento de entrada de arquivo
     var input = document.getElementById('foto-usuario');
     // Verificar se um arquivo foi selecionado
-    if (input.files && input.files[0]) {
+   // if (input.files && input.files[0]) {
         var file = input.files[0];
         // Criar um objeto FormData para enviar a imagem
         var formData = new FormData();
@@ -75,8 +83,8 @@ document.getElementById("btnCadastrarUsuario").addEventListener("click", functio
 
         // Enviar a solicitação com o FormData contendo a imagem
         xhr.send(formData);
-    } else {
+   /* } else {
         console.error("Nenhuma imagem selecionada.");
-    }
+    }*/
 });
 
