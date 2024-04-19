@@ -1,5 +1,6 @@
 const {Usuario : UsuarioModel, Usuario } = require("../models/Usuario");
 
+
 const usuarioController = {
 
     create: async(req, res) =>{
@@ -11,7 +12,7 @@ const usuarioController = {
                 email: req.body.email,
                 senha: req.body.senha,
                 confirmacao: req.body.confirmacao,
-                foto: req.body.foto
+                imagem: req.body.imagem  
             };
             const response = await UsuarioModel.create(usuario);
 
@@ -78,7 +79,7 @@ const usuarioController = {
             email: req.body.email,
             senha: req.body.senha,
             confirmacao: req.body.confirmacao,
-            foto: req.body.foto
+            imagem: req.body.imagem
         };
 
         const updatedUsuario = await UsuarioModel.findByIdAndUpdate(id, usuario)
@@ -91,8 +92,7 @@ const usuarioController = {
         res.status(200).json({usuario, msg: "Usuário atualizado com sucesso."}); 
 
         },
-
-    };
+};
 
 
 module.exports = usuarioController;
