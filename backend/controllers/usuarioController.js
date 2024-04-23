@@ -1,3 +1,41 @@
+const Usuarios = require("../models/Usuario");
+
+exports.create = async(req, res) => {
+    try {
+        //const {name} = req.body;
+
+        
+        const {nome} = req.body;
+        const {apelido} = req.body;
+        const {nascimento} = req.body;
+        const {email} = req.body;
+        const {senha} = req.body;
+        const {confirmacao} = req.body;
+        const file = req.file;
+
+        const usuarios = new Usuarios({
+            nome,
+            apelido,
+            nascimento,
+            email,
+            senha,
+            confirmacao,
+            src: file.path
+        });
+
+        await usuarios.save();
+
+        res.json({
+            usuarios, msg: "Usuário cadastrado com sucesso!"
+        });
+
+    } catch (error) {
+        res.status(500).json({message: "Erro ao cadastrar o usuário."});
+    }
+};
+
+
+/*
 const {Usuario : UsuarioModel, Usuario } = require("../models/Usuario");
 
 
@@ -5,6 +43,7 @@ const usuarioController = {
 
     create: async(req, res) =>{
         try {
+
             const usuario = {
                 nome: req.body.nome,
                 apelido: req.body.apelido,
@@ -12,7 +51,7 @@ const usuarioController = {
                 email: req.body.email,
                 senha: req.body.senha,
                 confirmacao: req.body.confirmacao,
-                imagem: req.body.imagem  
+                scr: req.body.imagem
             };
             const response = await UsuarioModel.create(usuario);
 
@@ -95,6 +134,4 @@ const usuarioController = {
 };
 
 
-module.exports = usuarioController;
-
-    
+module.exports = usuarioController;*/

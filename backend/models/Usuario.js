@@ -1,43 +1,36 @@
 const mongoose = require("mongoose");
-const { imagemSchema } = require("./Imagem");
 
-const { Schema } = mongoose;
+const Schema = mongoose.Schema;
 
-const usuarioSchema = new Schema({
-
+const UsuarioSchema = new Schema({
+    
     nome: {
         type: String,
-        required: true
+        //required: true
     },
     apelido: {
         type: String,
-        required: true
+        //required: true
     },
     nascimento: {
         type: Date,
     },
     email: {
         type: String,
-        required: true
+        //required: true
     },
     senha: {
         type: String,
-        required: true
+        //required: true
     },
     confirmacao: {
         type: String,
-        required: true
+        //required: true
     },
-    imagem: {
-        type: [imagemSchema], 
+    src:{
+        type: String,
+       // required: true
     }
-},
-{timestamps: true} //salva a data de criação e de modificação desse registro
-);
+});
 
-const Usuario = mongoose.model("Usuario", usuarioSchema)
-
-module.exports = {
-    Usuario,
-    usuarioSchema
-}
+module.exports = mongoose.model("Usuario", UsuarioSchema);

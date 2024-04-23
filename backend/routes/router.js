@@ -25,7 +25,7 @@ const avaliacoesRouter = require("./avaliacoes");
 
 router.use("/", avaliacoesRouter);
 
-
+/*
 // Imagens router
 
 const imagensRouter = require("./imagem");
@@ -37,6 +37,7 @@ router.use("/", imagensRouter);
 const imgUsuarioRouter = require("./imagemUsuario");
 
 router.use("/", imgUsuarioRouter);
+*/
 
 module.exports = router;
 
