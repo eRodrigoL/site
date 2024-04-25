@@ -55,8 +55,13 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', function(
     .catch(error => {
         alert(error.message);
     });
-});
+});    
  
+// Limpa o formulário quando clico em cancelar
+    document.getElementById('btnCancelar').addEventListener('click', function() {
+
+    document.getElementById('cadastroUsuarios').reset();
+});
     
 
 
