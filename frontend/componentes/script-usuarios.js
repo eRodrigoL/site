@@ -29,7 +29,7 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', function(
     formData.append('nascimento', nascimento);
     formData.append('email', email);
     formData.append('senha', senha);
-    formData.append('confirmacao', confirmacao);
+   // formData.append('confirmacao', confirmacao);
 
     // Verificar se foi selecionada uma foto
     if (foto) {

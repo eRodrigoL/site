@@ -23,10 +23,10 @@ const UsuarioSchema = new Schema({
         type: String,
         //required: true
     },
-    confirmacao: {
+    /*confirmacao: {
         type: String,
         //required: true
-    },
+    },*/
     src:{
         type: String,
        // required: true
