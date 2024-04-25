@@ -43,7 +43,7 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', function(
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Erro ao cadastrar usuário.');
+            throw new Error('O seu email ou apelido já está em uso, por gentileza alterar!');
         }
         return response.json();
     })
@@ -57,11 +57,5 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', function(
     });
 });    
  
-// Limpa o formulário quando clico em cancelar
-    document.getElementById('btnCancelar').addEventListener('click', function() {
-
-    document.getElementById('cadastroUsuarios').reset();
-});
-    
 
 

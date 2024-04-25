@@ -28,12 +28,12 @@ const usuarioController={
             const apelidoExiste = await Usuarios.findOne({apelido: apelido});
     
              if(usuarioExiste){
-                res.status(500).json({message: "O email inserido está em uso, por gentileza utilize outro"});
+                res.status(401).json({message: "O email inserido está em uso, por gentileza utilize outro"});
                 return;
              }
     
              if(apelidoExiste){
-                res.status(500).json({message: "O apelido inserido já está em uso, por gentileza utilize outro"});
+                res.status(401).json({message: "O apelido inserido já está em uso, por gentileza utilize outro"});
                 return;
              }
     
@@ -44,7 +44,7 @@ const usuarioController={
             });
     
         } catch (error) {
-            res.status(500).json({message: "Erro ao cadastrar o usuário."});
+            console.log(error)
         }
     },
         getAll: async (req, res) => {
