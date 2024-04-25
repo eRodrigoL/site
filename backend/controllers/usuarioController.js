@@ -1,10 +1,14 @@
 const  Usuarios = require("../models/Usuario");
 
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
+
 const usuarioController={
+    // função para criar usuário via POST
     create : async(req, res) => {
         try {
-            //const {name} = req.body;
             
+            // recebendo os parametros do body
             const {nome} = req.body;
             const {apelido} = req.body;
             const {nascimento} = req.body;
@@ -12,17 +16,23 @@ const usuarioController={
             const {senha} = req.body;
             const {confirmacao} = req.body;
             const file = req.file;
-    
+
+            // configurando hash de senha
+            /*const salt = await bcrypt.genSalt(12);
+            const senhaHash = await bcrypt.hash(senha,salt);*/
+            
+            // criando o usuario
             const usuarios = new Usuarios({
                 nome,
                 apelido,
                 nascimento,
                 email,
                 senha,
-                confirmacao,
+                //confirmacao,
                 src: file.path
             });
     
+            // validando se usuário e apelido existem
             const usuarioExiste = await Usuarios.findOne({email: email});
     
             const apelidoExiste = await Usuarios.findOne({apelido: apelido});
@@ -37,6 +47,7 @@ const usuarioController={
                 return;
              }
     
+             // salvando o usuário
             await usuarios.save();
     
             res.json({
@@ -47,6 +58,7 @@ const usuarioController={
             console.log(error)
         }
     },
+    // função para buscar todos os usuários da lista via GET
         getAll: async (req, res) => {
             try{
                 const usuarios = await Usuarios.find()
@@ -56,6 +68,7 @@ const usuarioController={
                 console.log(error)
             }
         },
+    // função para buscar apenas um usuário passando o ID via GET
         get: async(req,res) =>{
             try {
                 //id => URL == GET
@@ -73,6 +86,7 @@ const usuarioController={
                 console.log(error)
             }
         },
+    // função para deletar o usuário passando ID via DELETE
         delete: async(req,res) => {
             try{
                 const id = req.params.id;
@@ -94,6 +108,7 @@ const usuarioController={
                 console.log(error)
             }
         },
+    // atualizando o usuário passando o ID via PUT
         update : async(req,res) =>{
             const id = req.params.id
     
