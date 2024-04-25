@@ -1,3 +1,5 @@
+const nome = document.getElementById('nome-jogo');
+
 // Cadastrando Jogos
 document.getElementById('cadastroJogos').addEventListener('submit', async function(event) {
     event.preventDefault();
@@ -8,6 +10,8 @@ document.getElementById('cadastroJogos').addEventListener('submit', async functi
         userData[key] = value;
     });
 
+
+    if(nome.value.trim() !== ''){
         try {
             const response = await fetch('http://localhost:3000/api/jogos/', {
                 method: 'POST',
@@ -30,5 +34,9 @@ document.getElementById('cadastroJogos').addEventListener('submit', async functi
             //return conteudoCadastrar.innerHTML = 'Erro ao cadastrar usuário! Tente novamente'
             alert('Ocorreu um erro ao cadastrar o jogo. Por favor, tente novamente mais tarde.');
         }
-    
+    }
+    else{
+        alert('Por favor, preencha o nome do jogo!');
+    }
+        
 });
