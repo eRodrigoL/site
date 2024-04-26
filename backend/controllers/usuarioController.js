@@ -1,52 +1,49 @@
 const  Usuarios = require("../models/Usuario");
 
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
+//const jwt = require('jsonwebtoken');
 
 const usuarioController={
     // função para criar usuário via POST
     create : async(req, res) => {
         try {
-            
-            // recebendo os parametros do body
-            const {nome} = req.body;
-            const {apelido} = req.body;
-            const {nascimento} = req.body;
-            const {email} = req.body;
-            const {senha} = req.body;
-            const {confirmacao} = req.body;
-            const file = req.file;
 
-            // configurando hash de senha
-            /*const salt = await bcrypt.genSalt(12);
-            const senhaHash = await bcrypt.hash(senha,salt);*/
-            
-            // criando o usuario
-            const usuarios = new Usuarios({
-                nome,
-                apelido,
-                nascimento,
-                email,
-                senha,
-                //confirmacao,
-                src: file.path
-            });
-    
-            // validando se usuário e apelido existem
-            const usuarioExiste = await Usuarios.findOne({email: email});
-    
-            const apelidoExiste = await Usuarios.findOne({apelido: apelido});
-    
-             if(usuarioExiste){
-                res.status(401).json({message: "O email inserido está em uso, por gentileza utilize outro"});
-                return;
-             }
-    
-             if(apelidoExiste){
-                res.status(401).json({message: "O apelido inserido já está em uso, por gentileza utilize outro"});
-                return;
-             }
-    
+        // recebendo os parametros do body
+         const {nome} = req.body;
+         const {apelido} = req.body;
+         const {nascimento} = req.body;
+         const {email} = req.body;
+         const {senha} = req.body;
+         const file = req.file;
+
+         // validando se usuário e apelido existem
+         const usuarioExiste = await Usuarios.findOne({email: email});
+ 
+         const apelidoExiste = await Usuarios.findOne({apelido: apelido});
+ 
+          if(usuarioExiste){
+             res.status(401).json({message: "O email inserido está em uso, por gentileza utilize outro"});
+             return;
+          }
+ 
+          if(apelidoExiste){
+             res.status(401).json({message: "O apelido inserido já está em uso, por gentileza utilize outro"});
+             return;
+          }
+
+         // configurando hash de senha
+         const salt = await bcrypt.genSalt(10);
+         const hash = await bcrypt.hash(senha,salt);
+
+          // criando o usuario
+          const usuarios = new Usuarios({
+            nome,
+            apelido,
+            nascimento,
+            email,
+            senha: hash,
+            src: file.path    
+        });
              // salvando o usuário
             await usuarios.save();
     
@@ -118,7 +115,6 @@ const usuarioController={
                 nascimento: req.body.nascimento,
                 email: req.body.email,
                 senha: req.body.senha,
-                confirmacao: req.body.confirmacao,
                 imagem: req.body.imagem
             };
     
@@ -132,8 +128,6 @@ const usuarioController={
             res.status(200).json({usuario, msg: "Usuário atualizado com sucesso."}); 
     
             },
-    
 };
-
 
 module.exports = usuarioController; 

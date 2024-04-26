@@ -25,6 +25,14 @@ const avaliacoesRouter = require("./avaliacoes");
 
 router.use("/", avaliacoesRouter);
 
+
+// Login Router
+
+const loginRouter = require("./login");
+
+router.use("/", loginRouter);
+
+
 /*
 // Imagens router
 
