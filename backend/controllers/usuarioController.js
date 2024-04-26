@@ -14,7 +14,6 @@ const usuarioController={
             const {nascimento} = req.body;
             const {email} = req.body;
             const {senha} = req.body;
-            const {confirmacao} = req.body;
             const file = req.file;
 
             // configurando hash de senha
