@@ -29,6 +29,7 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', function(
     formData.append('nascimento', nascimento);
     formData.append('email', email);
     formData.append('senha', senha);
+   // formData.append('confirmacao', confirmacao);
 
     // Verificar se foi selecionada uma foto
     if (foto) {
@@ -36,7 +37,7 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', function(
     }
 
     // Enviar a requisição POST para a API
-    fetch('http://localhost:3000/api/usuarios/', {
+    fetch('http://localhost:3000/api/usuarios', {
         method: 'POST',
         body: formData
     })
@@ -44,9 +45,7 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', function(
         if (!response.ok) {
             throw new Error('O seu email ou apelido já está em uso, por gentileza alterar!');
         }
-
         return response.json();
-        
     })
     .then(data => {
         alert('Usuário cadastrado com sucesso!');
@@ -56,7 +55,4 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', function(
     .catch(error => {
         alert(error.message);
     });
-});    
- 
-
-
+}); 
