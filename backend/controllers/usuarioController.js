@@ -14,12 +14,11 @@ const usuarioController={
             const {nascimento} = req.body;
             const {email} = req.body;
             const {senha} = req.body;
-            const {confirmacao} = req.body;
             const file = req.file;
 
             // configurando hash de senha
-            /*const salt = await bcrypt.genSalt(12);
-            const senhaHash = await bcrypt.hash(senha,salt);*/
+            const salt = await bcrypt.genSalt(12);
+            const hash = await bcrypt.hash(senha,salt);
             
             // criando o usuario
             const usuarios = new Usuarios({
@@ -27,7 +26,7 @@ const usuarioController={
                 apelido,
                 nascimento,
                 email,
-                senha,
+                senha:hash,
                 //confirmacao,
                 src: file.path
             });

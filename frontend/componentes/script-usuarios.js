@@ -55,7 +55,4 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', function(
     .catch(error => {
         alert(error.message);
     });
-});    
- 
-
-
+}); 
