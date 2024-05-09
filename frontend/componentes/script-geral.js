@@ -1,3 +1,4 @@
+/*
 //..........CABEÇALHO..........
 // Verifica se o documento foi completamente carregado
 document.addEventListener("DOMContentLoaded", function() {
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
         header.appendChild(login.cloneNode(true));
     });
 });
-
+*/
 
 
 //..........ALTURA DA COLUNA..........
