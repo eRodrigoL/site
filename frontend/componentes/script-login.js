@@ -25,7 +25,7 @@ document.getElementById('login').addEventListener('submit', function(event) {
             return alert('Usuário não encontrado, ou senha incorreta. Por favor revisar!');
         }
         alert('Usuário logado com sucesso!');
-        //console.log('Login bem-sucedido');
+        console.log('Login bem-sucedido');
         // Faça o redirecionamento ou manipulação do DOM aqui
     })
     .catch(function(error) {

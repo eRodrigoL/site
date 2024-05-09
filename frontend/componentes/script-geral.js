@@ -1,6 +1,7 @@
 //..........CABEÇALHO..........
 // Verifica se o documento foi completamente carregado
 document.addEventListener("DOMContentLoaded", function() {
+
     // Criação dos elementos HTML
     var logo = document.createElement("div");
     logo.className = "colunaCabecalho logo";
@@ -15,11 +16,15 @@ document.addEventListener("DOMContentLoaded", function() {
     var login = document.createElement("div");
     login.className = "colunaCabecalho login";
     login.innerHTML = '<div>' +
-                      '<input type="text" id="nome" name="nome" placeholder="Usuário">' +
+                      '<form id="login" action="" method="get">'+
+                      '<input type="text" id="apelido" name="apelido" placeholder="Usuário">' +
                       '<input type="password" id="senha" name="senha" placeholder="Senha">' +
-                      '<Button>Entrar</Button>' +
+                      '<Button type="submit">Entrar</Button>' +
+                      '</form>'+
                       '</div>' +
-                      '<p>Ainda não tem conta?<a href="cadastro-usuario.html">Cadastre-se</a></p>';
+                      '<p>Ainda não tem conta?<a href="cadastro-usuario.html">Cadastre-se</a></p>'+
+                      '<script src="script-login.js"></script>'
+                      ;
 
     // Seleciona o elemento header de cada página e adiciona os elementos criados
     var headers = document.querySelectorAll("header");
