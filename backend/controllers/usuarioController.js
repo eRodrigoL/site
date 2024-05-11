@@ -1,7 +1,7 @@
 const  Usuarios = require("../models/Usuario");
 
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
+//const jwt = require('jsonwebtoken')
 
 const usuarioController={
     // função para criar usuário via POST
@@ -14,7 +14,8 @@ const usuarioController={
             const {nascimento} = req.body;
             const {email} = req.body;
             const {senha} = req.body;
-            const file = req.file;
+            //const file = req.file;
+            let file = req.file;
 
             // configurando hash de senha
             const salt = await bcrypt.genSalt(12);
@@ -27,8 +28,8 @@ const usuarioController={
                 nascimento,
                 email,
                 senha:hash,
-                //confirmacao,
-                src: file.path
+                //src: file.path
+                src: file ? file.path : null
             });
     
             // validando se usuário e apelido existem
@@ -49,12 +50,14 @@ const usuarioController={
              // salvando o usuário
             await usuarios.save();
     
-            res.json({
+            /*res.json({
                 usuarios, msg: "Usuário cadastrado com sucesso!"
-            });
+            })*/
+            res.status(201).json({usuarios, message: "Usuário criado com sucesso!"});
     
         } catch (error) {
             console.log(error)
+            res.status(500).json({ message: "Erro ao processar a requisição." });
         }
     },
     // função para buscar todos os usuários da lista via GET
