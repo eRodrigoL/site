@@ -1,0 +1,216 @@
+  <div class="blocos">
+
+
+    <!--CSS ANTIGO-->
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background-color: #51cdfa;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Para remover a barra de rolagem */
+    }
+    
+    /* ..........FORMATAÇÃO CABEÇALHO.......... */
+    header {
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #00adec;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+    }
+    header h1 {
+        margin: 0;
+    }
+    .colunaCabecalho {
+        width: 33%;
+    }
+    .links {
+        display: flex;
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center; /* Centraliza verticalmente */
+    }
+    .links a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    /* ..........FORMATAÇÃO Login.......... */
+    .login {
+        text-align: right;
+    }
+    /* Estilo para o campo de entrada */
+    input[type="text"], input[type="password"] {
+        padding: 4px;
+        font-size: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        /*width: 150px;*/
+    }
+    /* Estilo para o texto dentro do campo quando o placeholder está sendo exibido */
+    input[type="text"]::placeholder,
+            input[type="password"]::placeholder {
+        color: #999; /* Cor do texto do placeholder */
+    }
+    
+    /* Estilo para o texto dentro do campo quando o placeholder não está sendo exibido */
+    input[type="text"]:not(:placeholder-shown) {
+        color: #000; /* Cor do texto digitado */
+    }
+    
+    /* ..........FORMATAÇÃO COLUNAS.......... */
+    main {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        margin: 0;
+        overflow: hidden; /* Para evitar que haja espaços extras */
+    }
+    .colunas {
+        padding: 0px;
+        margin: 0 10px; /* Margem nas laterais */
+        overflow: hidden;
+    }
+    .coluna1 {
+        width: 25%;
+    }
+    .coluna2 {
+        width: 75%;
+    }
+    .coluna2rede {
+        width: 50%;
+    }
+    .coluna3 {
+        width: 25%;
+    }
+    .colunaNOVOjogo {
+        width: 100%;
+    }
+    
+    /* ..........FORMATAÇÃO BLOCOS.......... */
+    .blocos {
+        border-radius: 10px;
+        padding: 10px;
+        background-color: #83ddfd;
+        overflow: hidden;
+    }
+    .resumo > * {
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    
+    /* ..........FORMATAÇÃO BLOCO PERFIL DE USUÁRIO E JOGO.......... */
+    .blocos img {
+        height: 200px;
+        display: block;
+        margin: 0 auto;
+    }
+    .reduzido {
+        font-size: 0.8em;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    
+    
+    /* ..........FORMATAÇÃO BLOCO PRINCIPAL.......... */
+    .scrollable {
+        /*C U I D A D O    A O     M U D A R     este bloco scrollable*/
+        overflow-y: scroll; /* Mantém o overflow como scroll */
+        background-color: #51cdfa;
+        scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
+        -ms-overflow-style: none; /* Esconde a barra de rolagem no Internet Explorer e Edge */
+    }
+    .scrollable::-webkit-scrollbar {
+        display: none; /* Esconde a barra de rolagem no Chrome e Safari */
+    }
+    .titulo-postagem {
+        font-size: 1.3em; /* tamanho da fonte do nome de quem postou */
+    }
+    .date-time-location {
+        font-size: 0.8em; /* tamanho da fonte do momento da postagem */
+    }
+    .principal {
+        background-color: #83ddfd;
+        border: 10px solid #83ddfd; /* Adiciona uma borda cinza para separar visualmente os blocos */
+        border-radius: 10px; /* Arredonda os cantos dos blocos */
+        overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
+    }
+    .opinioes {
+        background-color: #b0eafe;
+    }
+    .postagens {
+        /*E S P A Ç O    E N T R E    C A D A    P O S T A G E M*/
+        margin-bottom: 20px; /* Adiciona uma margem de 20 pixels entre cada bloco */
+    }
+    
+    /* ..........CAIXA DE SELEÇÃO E DE OPÇÃO E COMPRAR.......... */
+    .favorito {
+        width: 20%;
+    }
+    .favorito input {
+        margin-right: 5px;
+    }
+    .posse {
+        width: 60%;
+    }
+    .posse input {
+        margin-right: 5px;
+    }
+    .posse label {
+        margin-right: 20px;
+    }
+    .comprar {
+        width: 20%;
+        border: 1px solid #379c69;
+    }
+    
+    /* ..........GRÁFICOS.......... */
+    .graficos-jogos1 {
+        height: 500px;
+    }
+    .graficos-jogos2 {
+        height: 300px;
+    }
+    .graficos-jogos3 {
+        height: 400px;
+    }
+    .graficos-jogos4 {
+        height: 300px;
+    }
+    .graficos-jogos5 {
+        height: 500px;
+    }
+    .graficos-jogos6 {
+        height: 400px;
+    }
+    .graficos-jogos7 {
+        height: 400px;
+    }
+    .coluna1 .dificuldade {
+        display: inline;
+        width: 55%;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.5);
+    }
+    
+
