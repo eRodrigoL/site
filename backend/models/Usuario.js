@@ -6,26 +6,26 @@ const UsuarioSchema = new Schema({
     
     nome: {
         type: String,
-        //required: true
+        required: true
     },
     apelido: {
         type: String,
-        //required: true
+        required: true
     },
     nascimento: {
         type: Date,
     },
     email: {
         type: String,
-        //required: true
+        required: true
     },
     senha: {
         type: String,
-        //required: true
+        required: true
     },
     src:{
         type: String,
-       // required: true
+        //required: true
     }
 },
 {timestamps: true}
