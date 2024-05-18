@@ -1,5 +1,4 @@
 //const formularioLogin = getElementById('login');
-
 document.getElementById('btnLogin').addEventListener('click', async function(event) {
     event.preventDefault(); // Evita o envio do formulário padrão
 
