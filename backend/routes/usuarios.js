@@ -6,9 +6,9 @@ const upload = require("../config/multer");
 
 // Funções
 
-//router.route("/usuarios").post((req, res) => usuarioController.create(req,res));
+//router.post("/usuarios", upload.single("file"), usuarioController.create);
 
-router.post("/usuarios", upload.single("file"), usuarioController.create);
+router.route("/usuarios").post((req, res) => usuarioController.create(req,res));
 
 router.route("/usuarios").get((req,res) => usuarioController.getAll(req,res));
 

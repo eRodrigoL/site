@@ -1,7 +1,11 @@
 const  Usuarios = require("../models/Usuario");
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require("dotenv").config()
 
-const usuarioController={
+const JWT_SECRET = process.env.SECRET ;
+
+const loginController={
 
     // enviando as informações do formulário e validando-as
 
@@ -33,8 +37,18 @@ const usuarioController={
             
             const usuario = await Usuarios.findOne({apelido: apelido}).select('-senha');
 
-            res.status(200).json({usuario, msg:"Usuário logado com sucesso!"});      
+            // Gerando o token JWT
+            const token = jwt.sign(
+                {
+                    id: usuario._id, apelido: usuario.apelido
+                }, // Payload do token
+
+                JWT_SECRET, // Chave secreta para assinar o token
+            { expiresIn: '2h' } // Tempo de expiração do token
+        );
+
+            res.status(200).json({usuario, token, msg:"Usuário logado com sucesso!"});      
     }
 };
 
-module.exports = usuarioController;
+module.exports = loginController;
