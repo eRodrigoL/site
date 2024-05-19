@@ -117,25 +117,25 @@ const usuarioController={
             const id = req.params.id
 
              // recebendo os parametros do body
-             const {nome} = req.body;
-             const {apelido} = req.body;
-             const {nascimento} = req.body;
-             const {email} = req.body;
-             const {senha} = req.body;
+            // const {nome} = req.body;
+            // const {apelido} = req.body;
+            // const {nascimento} = req.body;
+            // const {email} = req.body;
+            // const {senha} = req.body;
              let file = req.file;
              //const file = "#";
              
  
              // configurando hash de senha
-             const salt = await bcrypt.genSalt(12);
-             const hash = await bcrypt.hash(senha,salt);
+             //const salt = await bcrypt.genSalt(12);
+             //const hash = await bcrypt.hash(senha,salt);
     
             const usuario = {
-                nome,
-                apelido,
-                nascimento,
-                email,
-                senha:hash,
+                //nome,
+                //apelido,
+                //nascimento,
+               // email,
+               // senha:hash,
                 //src: file
                 src: file ? file.path : null
             };
@@ -147,7 +147,8 @@ const usuarioController={
                 return;
             }
     
-            res.status(200).json({usuario, msg: "Usuário atualizado com sucesso."}); 
+           // res.status(200).json({usuario, msg: "Usuário atualizado com sucesso."}); 
+           res.status(200).json({usuario, msg: "Foto atualizada com sucesso."}); 
     
             }
     
