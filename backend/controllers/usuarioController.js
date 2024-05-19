@@ -113,15 +113,28 @@ const usuarioController={
     // atualizando o usuário passando o ID via PUT
         update : async(req,res) =>{
             const id = req.params.id
+
+             // recebendo os parametros do body
+             const {nome} = req.body;
+             const {apelido} = req.body;
+             const {nascimento} = req.body;
+             const {email} = req.body;
+             const {senha} = req.body;
+             //const file = req.file;
+             let file = req.file;
+ 
+             // configurando hash de senha
+             const salt = await bcrypt.genSalt(12);
+             const hash = await bcrypt.hash(senha,salt);
     
             const usuario = {
-                nome: req.body.nome,
-                apelido: req.body.apelido,
-                nascimento: req.body.nascimento,
-                email: req.body.email,
-                senha: req.body.senha,
-                confirmacao: req.body.confirmacao,
-                imagem: req.body.imagem
+                nome,
+                apelido,
+                nascimento,
+                email,
+                senha:hash,
+                //src: file.path
+                src: file ? file.path : null
             };
     
             const updatedUsuario = await Usuarios.findByIdAndUpdate(id, usuario)
@@ -133,7 +146,7 @@ const usuarioController={
     
             res.status(200).json({usuario, msg: "Usuário atualizado com sucesso."}); 
     
-            },
+            }
     
 };
 
