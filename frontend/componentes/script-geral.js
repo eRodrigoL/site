@@ -52,3 +52,14 @@ window.onload = ajustarTamanhoColunas;
 
 // Adicionar um listener para chamar a função de ajuste do tamanho da coluna meio quando a janela for redimensionada
 window.addEventListener('resize', ajustarTamanhoColunas);
+
+function checkLogin(){
+    const isLogin = localStorage.getItem('login');
+    const isRede = window.location.href.indexOf('rede') > 0
+    const isCadastro = window.location.href.indexOf('cadastro-usuario') > 0
+    if(!isLogin && !isRede && !isCadastro){
+        window.location.href = '../paginas/rede.html?logado=false'
+    }
+}
+
+checkLogin()

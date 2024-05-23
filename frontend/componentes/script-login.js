@@ -25,8 +25,10 @@ document.getElementById('btnLogin').addEventListener('click', async function(eve
             //throw new Error('Erro ao fazer login: ' + response.statusText);
             return alert('Usuário não encontrado, ou senha incorreta. Por favor revisar!');
         }
+        localStorage.setItem('login', apelido);
         alert('Usuário logado com sucesso!');
         console.log('Login bem-sucedido');
+        window.location.href = '../paginas/rede.html'
         // Faça o redirecionamento ou manipulação do DOM aqui
     })
     .catch(function(error) {
