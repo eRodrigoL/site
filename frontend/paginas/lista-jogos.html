@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noob Jogo</title>
+    <link rel="stylesheet" href="../componentes/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Bibliotéca para os gráficos -->
+</head>
+<body>8
+
+<script src="../componentes/script-cabecalho.js"></script><!-- Com este script o <header></header> exibirá com conteúdo em ../complementos/header.html. OBS.: NÃO TESTEI SE ISSO ATRAPALHO A CONEXÃO DE LOGIN -->
+<header></header>
+
+<main>
+    <div class="colunas coluna1" id="colunas">
+        <div class="blocos">
+            Opções de filtragem
+        </div>
+    </div>
+    <div class="colunas coluna2" id="colunas">
+        <div class="scrollable" id="contentContainer">
+            <div class="lista-jogos" id="lista-jogo"></div>
+            <div id="pagination"></div>
+        </div>
+    </div>
+</main>
+
+<script src="../componentes/script-geral.js"></script>
+<script src="../componentes/script-lista-jogos.js"></script>
+
+</body>
+</html>

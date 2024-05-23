@@ -19,8 +19,8 @@
         <div class="scrollable" id="contentContainer">
             <div class="principal">
                 <form id="cadastroJogos" action="" method="post">
-                <label>Nome: </label>
-                <input type="text" id="nome-jogo" size="60" name="nome" placeholder="(Obrigatório)"><br><br>
+                <label>Título: </label>
+                <input type="text" id="titulo-jogo" size="60" name="titulo" placeholder="(Obrigatório)"><br><br>
                 <label>Ano: </label>
                 <input type="text" id="ano-jogo" size="4"  name="ano" placeholder="(Opcional) Digite o ano de lançamento do jogo."><br><br>
                 <label>Idade: </label>
@@ -39,9 +39,10 @@
                 <input type="text" id="componentes" size="60" name="componentes" placeholder="(Opcional) Meeples, cartas, tabuleiro, moedas..."><br><br>
                 <label>Descrição: </label>
                 <textarea id="descricao" rows="5" cols="60" name="descricao" placeholder="(Opcional) Conte como este jogo é."></textarea><br><br>
-                <button type="button" id="btnCadastrarJogo">Adicionar jogo</button>
-               <!--<button type="submit" id="btnCadastrarJogoAvaliar">Adicionar jogo e avalia-lo</button> --> 
-                <button type="button" id="btnCancelarJogo">Cancelar</button>
+                <div class="modal-buttons">
+                    <button type="button" id="btnCadastrarJogo">Adicionar jogo</button>
+                    <button type="button" id="btnCancelarJogo">Cancelar</button>
+                </div>
                 </form>
             </div>
         </div>
