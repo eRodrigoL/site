@@ -11,53 +11,73 @@ document.addEventListener('DOMContentLoaded', function() {
     // Atualizar o valor inicial
     valorDificuldade.textContent = barraDificuldade.value;
 
-    // Modal Cadastrar Jogo
-    document.getElementById('cadastrar-jogo').addEventListener('click', function() {
-        const modalContainer = document.getElementById('modal-cadastrar-jogo');
-        const modal = document.getElementById('modal');
+    // modal .....
+    var modal = document.getElementById("modal");
+    var openModalBtn = document.getElementById("cadastrar-jogo");
+    var cancelBtn = document.getElementById("btnCancelarJogo");
 
-        // Mostra o modal
-        modal.style.display = 'block';
+    openModalBtn.onclick = function() {
+        console.log("Abrindo modal");
+        modal.style.display = "block";
+    }
 
-        // Carrega o conteúdo do arquivo HTML especificado
-        fetch('cadastro-jogo.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao carregar o conteúdo do modal: ' + response.statusText);
-                }
-                return response.text();
-            })
-            .then(html => {
-                modalContainer.innerHTML = html;
-                executeScripts(modalContainer);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    });
+    cancelBtn.onclick = function() {
+        console.log("Cancelando e fechando modal");
+        closeModal();
+    }
 
-    // Fecha o modal quando o usuário clica fora dele
     window.onclick = function(event) {
-        const modal = document.getElementById('modal');
         if (event.target == modal) {
-            modal.style.display = 'none';
+            console.log("Fechando modal ao clicar fora");
+            closeModal();
         }
-    };
+    }
 
-    function executeScripts(container) {
-        const scripts = container.querySelectorAll('script');
-        scripts.forEach(script => {
-            const newScript = document.createElement('script');
-            newScript.textContent = script.textContent;
-            document.body.appendChild(newScript);
+    const formularioCadastro = document.getElementById('cadastroJogos');
+
+    document.getElementById('btnCadastrarJogo').addEventListener('click', async function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(formularioCadastro);
+        const userData = {};
+        formData.forEach((value, key) => {
+            userData[key] = value;
         });
 
-        // Adiciona o script necessário
-        const scriptCadastroJogo = document.createElement('script');
-        scriptCadastroJogo.src = '../componentes/script-cadastro-jogos.js';
-        scriptCadastroJogo.type = 'module'; // Caso seja necessário
-        document.body.appendChild(scriptCadastroJogo);
+        console.log("Dados do formulário:", userData);
+
+        if (userData.titulo.trim() !== '') {
+            try {
+                const response = await fetch('http://localhost:3000/api/jogos/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                });
+
+                console.log("Resposta do servidor:", response);
+
+                if (!response.ok) {
+                    throw new Error('Erro ao cadastrar jogo');
+                }
+
+                alert('Jogo cadastrado com sucesso!');
+                formularioCadastro.reset();
+                closeModal();
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Ocorreu um erro ao cadastrar o jogo. Por favor, tente novamente mais tarde.');
+            }
+        } else {
+            alert('Por favor, preencha o título do jogo!');
+        }
+    });
+
+    function closeModal() {
+        modal.style.display = "none";
     }
+    // modal .....
 
     // Gráfico Avaliação
     const dataAvaliacao = {
