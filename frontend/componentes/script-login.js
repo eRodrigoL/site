@@ -13,7 +13,7 @@ document.getElementById('btnLogin').addEventListener('click', async function(eve
     };
 
     // Realiza a solicitação POST usando fetch
-    fetch('http://localhost:3000/api/login', {
+    fetch('https://web-eg08riks0c18.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

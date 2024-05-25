@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (userData.titulo.trim() !== '') {
             try {
-                const response = await fetch('http://localhost:3000/api/jogos/', {
+                const response = await fetch('https://web-eg08riks0c18.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/jogos', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
