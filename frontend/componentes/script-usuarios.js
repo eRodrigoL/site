@@ -30,7 +30,7 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', async fun
     };
 
     try {
-        const response = await fetch('https://web-eg08riks0c18.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/usuarios', {
+        const response = await fetch('https://api-noob.onrender.com/api/usuarios', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
