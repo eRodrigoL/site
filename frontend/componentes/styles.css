@@ -9,7 +9,7 @@
 body {
     background-color: #000000;
     color: #ffffff;
-    font-family:'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -33,17 +33,42 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    gap: 20px; /* Adiciona espaço entre os blocos */
     overflow: hidden; /* Para evitar que haja espaços extras */
 }
 
 /* Formatação BLOCO PRINCIPAL */
-.principal {
+.bloco-esquerda {
     background-color: #ECDDD3;
     border: 10px solid #ECDDD3; /* Adiciona uma borda cinza para separar visualmente os blocos */
     border-radius: 10px; /* Arredondando os cantos dos blocos */
     overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
     margin-bottom: 20px; /* Adiciona espaço entre os blocos */
-    align-items: flex-end; /* Alinha os itens à direita */
+    padding: 10px;
+    flex: 1; /* Ajustes de largura para os blocos */
+    max-width: 30%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
+}
+.descricao {
+    flex-grow: 2; /* Faz com que o bloco 3 ocupe mais espaço no centro */
+    background-color: #000000;
+    border: 10px solid #000000; /* Adiciona uma borda cinza para separar visualmente os blocos */
+    border-radius: 10px; /* Arredondando os cantos dos blocos */
+    overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
+    margin-bottom: 20px; /* Adiciona espaço entre os blocos */
+    padding: 10px;
+    flex: 1; /* Ajustes de largura para os blocos */
+    max-width: 30%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
+}
+.principal {
+    flex-grow: 2; /* Faz com que o bloco 3 ocupe mais espaço no centro */
+    background-color: #ECDDD3;
+    border: 10px solid #ECDDD3; /* Adiciona uma borda cinza para separar visualmente os blocos */
+    border-radius: 10px; /* Arredondando os cantos dos blocos */
+    overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
+    margin-bottom: 20px; /* Adiciona espaço entre os blocos */
+    padding: 10px;
+    flex: 1; /* Ajustes de largura para os blocos */
+    max-width: 30%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
 }
 
 /* Ajustes no carrossel de imagens */
@@ -77,19 +102,6 @@ main {
 
 
 /* CSS para organizar os blocos */
-.colunas {
-    padding: 10px; /* Definindo padding para as colunas */
-}
-
-.coluna1, .coluna2rede, .coluna3 {
-    width: 30%; /* Definindo a largura de cada coluna */
-}
-
-.coluna2rede {
-    width: 35%; /* Ajustando a largura específica para a coluna 2 */
-    text-align: center;
-}
-
 .blocos {
     background-color: #ECDDD3;
     border: 10px solid #ECDDD3;
@@ -170,3 +182,7 @@ button {
 .conteudo-postagem {
     font-size: 1em;
 }
+
+
+
+
