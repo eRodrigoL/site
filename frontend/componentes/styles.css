@@ -1,3 +1,5 @@
+/*Css de todas as paginas */
+
 * {
     margin: 0;
     padding: 0;
@@ -29,72 +31,101 @@ header {
 /* Formatação COLUNAS */
 main {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     padding: 20px;
     overflow: hidden; /* Para evitar que haja espaços extras */
-}
-
-.colunas {
-    padding: 0px;
-    margin: 0 10px; /* Margem nas laterais */
-    overflow: hidden; /* Define como o conteúdo que excede as dimensões do elemento deve ser tratado */
-    width: 100%; /* Define a largura para ocupar toda a largura disponível */
-    display: flex; /* Ativa o modelo de layout flexível */
-    flex-direction: column; /* Define a direção dos itens como coluna */
-    align-items: flex-start; /* Alinha os itens à esquerda */
-}
-
-.colunas .blocos {
-    width: 378px; /* Define a largura do bloco */
-    height: 348px; /* Define a altura do bloco */
-    display: flex; /* Ativa o modelo de layout flexível */
-    flex-direction: column; /* Define a direção dos itens como coluna */
-    align-items: flex-start; /* Alinha os itens à esquerda */
-}
-
-.resumo > * {
-    margin-bottom: 5px;
-    text-align: center;
 }
 
 /* Formatação BLOCO PRINCIPAL */
 .principal {
     background-color: #ECDDD3;
     border: 10px solid #ECDDD3; /* Adiciona uma borda cinza para separar visualmente os blocos */
-    border-radius: 10px; /* Arredondandoo os cantos dos blocos */
+    border-radius: 10px; /* Arredondando os cantos dos blocos */
     overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
     margin-bottom: 20px; /* Adiciona espaço entre os blocos */
     align-items: flex-end; /* Alinha os itens à direita */
 }
 
-
-/* Gráficos */
-.grafico-container-avaliacao,
-.grafico-container-estilo,
-.grafico-container-jogabilidade {
-    width: 130%; /* Define a largura para ocupar toda a largura disponível */
-    height: auto; /* Define a altura automática para ajustar o conteúdo */
-    border-radius: 20px;
-    background-color: #ECDDD3;
-    margin-bottom: 30px; /* Adiciona espaço entre os blocos */
-    align-items: flex-start; /* Alinha os itens à esquerda */
-}
-canvas {
-    display: block;
-    margin: 0 auto;
+/* Ajustes no carrossel de imagens */
+#carouselExample {
+    width: 100%; /* Ajuste a largura conforme necessário */
+    margin: 0 auto; /* Centraliza o carrossel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Garante que o conteúdo do carrossel não afete o layout */
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
+.carousel-inner {
+    width: 100%;
+    height: 348px; /* Altura fixa do carrossel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item {
+    width: 100%; /* Garante que cada item preencha a largura do carrossel */
+    height: 348px; /* Altura fixa para evitar mudanças */
+}
+
+.carousel-item img {
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+    object-fit: cover; /* Garante que a imagem preencha o item do carrossel sem distorção */
+}
+
+
+/* CSS para organizar os blocos */
+.colunas {
+    padding: 10px; /* Definindo padding para as colunas */
+}
+
+.coluna1, .coluna2rede, .coluna3 {
+    width: 30%; /* Definindo a largura de cada coluna */
+}
+
+.coluna2rede {
+    width: 35%; /* Ajustando a largura específica para a coluna 2 */
+    text-align: center;
+}
+
+.blocos {
+    background-color: #ECDDD3;
+    border: 10px solid #ECDDD3;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding: 10px;
+    align-items: flex-end;
+}
+
+.scrollable {
+    overflow-y: scroll;
+    background-color: #51cdfa;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scrollable::-webkit-scrollbar {
+    display: none;
+}
+
+.resumo {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.reduzido {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.reduzido p {
+    margin: 0;
+    width: 50%;
+    text-align: left;
 }
 
 button {
@@ -108,45 +139,34 @@ button {
     margin-top: 10px;
 }
 
-.carousel-inner {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+/* Estilo específico para postagens e opiniões */
+.opinioes {
+    background-color: #b0eafe;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-.carousel-item {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-    width: 378px;
-    height: 348px;
+.postagens {
+    margin-bottom: 20px;
 }
-/* ..........FORMATAÇÃO BLOCO PRINCIPAL.......... */
-.scrollable {
-    /*C U I D A D O    A O     M U D A R     este bloco scrollable*/
-    overflow-y: scroll; /* Mantém o overflow como scroll */
-    background-color: #51cdfa;
-    scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
-    -ms-overflow-style: none; /* Esconde a barra de rolagem no Internet Explorer e Edge */
+
+.postagem {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
-.scrollable::-webkit-scrollbar {
-    display: none; /* Esconde a barra de rolagem no Chrome e Safari */
-}
+
 .titulo-postagem {
     font-size: 1.3em; /* tamanho da fonte do nome de quem postou */
 }
+
 .date-time-location {
     font-size: 0.8em; /* tamanho da fonte do momento da postagem */
 }
-.principal {
-    background-color: #83ddfd;
-    border: 10px solid #83ddfd; /* Adiciona uma borda cinza para separar visualmente os blocos */
-    border-radius: 10px; /* Arredonda os cantos dos blocos */
-    overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
-}
-.opinioes {
-    background-color: #b0eafe;
-}
-.postagens {
-    /*E S P A Ç O    E N T R E    C A D A    P O S T A G E M*/
-    margin-bottom: 20px; /* Adiciona uma margem de 20 pixels entre cada bloco */
+
+.conteudo-postagem {
+    font-size: 1em;
 }
