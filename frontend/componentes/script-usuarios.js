@@ -1,14 +1,14 @@
-document.getElementById('cadastroUsuarios').addEventListener('submit', function(event) {
+document.getElementById('cadastroUsuarios').addEventListener('submit', async function(event) {
     event.preventDefault(); // Evita o comportamento padrão do formulário
 
     // Obter os valores do formulário
-    var nome = document.getElementById('nome-usuario').value;
-    var apelido = document.getElementById('apelido-usuario').value;
-    var nascimento = document.getElementById('nascimento-usuario').value;
-    var email = document.getElementById('email-usuario').value;
-    var senha = document.getElementById('senha-usuario').value;
-    var confirmacao = document.getElementById('confirmacao').value;
-    var foto = document.getElementById('foto-usuario').files[0]; // apenas o primeiro arquivo
+    const nome = document.getElementById('nome-usuario').value;
+    const apelido = document.getElementById('apelido-usuario').value;
+    const nascimento = document.getElementById('nascimento-usuario').value;
+    const email = document.getElementById('email-usuario').value;
+    const senha = document.getElementById('senha-usuario').value;
+    const confirmacao = document.getElementById('confirmacao').value;
+    const foto = document.getElementById('foto-usuario').files[0]; // apenas o primeiro arquivo
 
     // Validar se os campos obrigatórios estão preenchidos
     if (!nome || !apelido || !email || !senha || !confirmacao) {
@@ -23,36 +23,38 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', function(
     }
 
     // Criar um objeto FormData para enviar os dados do formulário
-    var formData = new FormData();
+    const formData = new FormData();
     formData.append('nome', nome);
     formData.append('apelido', apelido);
     formData.append('nascimento', nascimento);
     formData.append('email', email);
     formData.append('senha', senha);
-   // formData.append('confirmacao', confirmacao);
 
     // Verificar se foi selecionada uma foto
     if (foto) {
         formData.append('file', foto);
     }
+    else{
+        formData.append('file', "#");
+    }
 
     // Enviar a requisição POST para a API
-    fetch('http://localhost:3000/api/usuarios', {
+    try{
+        const response = await fetch('http://localhost:3000/api/usuarios', {
         method: 'POST',
         body: formData
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('O seu email ou apelido já está em uso, por gentileza alterar!');
-        }
-        return response.json();
-    })
-    .then(data => {
-        alert('Usuário cadastrado com sucesso!');
-        // Limpar o formulário após o cadastro
-        document.getElementById('cadastroUsuarios').reset();
-    })
-    .catch(error => {
-        alert(error.message);
     });
+
+    if (!response.ok) {
+        //throw new Error('O seu email ou apelido já está em uso, por gentileza alterar!');
+        return alert('O seu email ou apelido já está em uso, por gentileza alterar!');
+    };
+
+    alert('Usuário cadastrado com sucesso!');
+    document.getElementById('cadastroUsuarios').reset();
+
+    } catch(error){
+        console.log(error);
+        alert('Teste');
+    }
 }); 
