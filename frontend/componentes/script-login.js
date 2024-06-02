@@ -1,5 +1,4 @@
 //const formularioLogin = getElementById('login');
-
 document.getElementById('btnLogin').addEventListener('click', async function(event) {
     event.preventDefault(); // Evita o envio do formulário padrão
 
@@ -14,7 +13,7 @@ document.getElementById('btnLogin').addEventListener('click', async function(eve
     };
 
     // Realiza a solicitação POST usando fetch
-    fetch('http://localhost:3000/api/login', {
+    fetch('https://api-noob.onrender.com/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -26,8 +25,10 @@ document.getElementById('btnLogin').addEventListener('click', async function(eve
             //throw new Error('Erro ao fazer login: ' + response.statusText);
             return alert('Usuário não encontrado, ou senha incorreta. Por favor revisar!');
         }
+        localStorage.setItem('login', apelido);
         alert('Usuário logado com sucesso!');
         console.log('Login bem-sucedido');
+        window.location.href = '../paginas/rede.html'
         // Faça o redirecionamento ou manipulação do DOM aqui
     })
     .catch(function(error) {

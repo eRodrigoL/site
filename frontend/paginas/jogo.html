@@ -53,41 +53,35 @@
             </div>
             <div class="cadastrar-jogo">
                 <button id="cadastrar-jogo">Cadastrar novo jogo</button>
-                <!-- O modal -->
+                <!-- Modal -->
                 <div id="modal" class="modal">
-                    <!-- Conteúdo do modal carregado do arquivo especificado -->
                     <div class="modal-content" id="modal-cadastrar-jogo">
-                        <!-- O conteúdo do arquivo HTML será carregado aqui -->
+                    <!-- O conteúdo do arquivo HTML será carregado aqui -->
                     </div>
                 </div>
-            </div>
-            <div class="reduzido">
-                <div style="float: left; width: 50%"><p>Possuem <b>134</b></p></div>
-                <div style="float: left; width: 50%"><p>Desejam <b>50</b></p></div>
-            </div>
-        </div>
 
-        <!-- Bloco 2 - Caixa de avaliação -->
-        <div class="avaliacao" id="colunas">
-            <div class="scrollable" id="contentContainer">
-                <div class="principal">
-                    <div style="display: flex; align-items: center">
-                        <div class="favorito">
-                            <input type="checkbox" id="favorito" name="caixaSelecao">
-                            <label for="favorito">Favorito</label>
-                        </div>
-                        <div class="posse">
-                            <input type="radio" id="tenho" name="opcao" value="tenho">
-                            <label for="tenho">Tenho</label>
-                            <input type="radio" id="desejo" name="opcao" value="desejo">
-                            <label for="desejo">Desejo</label>
-                            <input type="radio" id="tive" name="opcao" value="tive">
-                            <label for="tive">Já tive</label>
-                            <input type="radio" id="joguei" name="opcao" value="joguei">
-                            <label for="joguei">Joguei</label>
-                            <input type="radio" id="desconheco" name="opcao" value="desconheco">
-                            <label for="desconheco">Desconheço</label>
-                        </div>
+                <div>________________________________________</div>
+                <div style="display: flex; align-items: center">
+                    <div class="favorito">
+                        <input type="checkbox" id="favorito" name="caixaSelecao">
+                        <label for="favorito">Favorito</label>
+                    </div>
+    
+                    <div class="posse">
+                        <input type="radio" id="tenho" name="opcao" value="tenho">
+                        <label for="tenho">Tenho</label>
+                      
+                        <input type="radio" id="desejo" name="opcao" value="desejo">
+                        <label for="desejo">Desejo</label>
+                      
+                        <input type="radio" id="tive" name="opcao" value="tive">
+                        <label for="tive">Já tive</label>
+    
+                        <input type="radio" id="joguei" name="opcao" value="joguei">
+                        <label for="joguei">Joguei</label>
+
+                        <input type="radio" id="desconheco" name="opcao" value="desconheco">
+                        <label for="desconheco">Desconheço</label>
                     </div>
                     <div class="likes">
                         <a href="#"><img src="../imagens/icones/like.png" height="20" alt="Ícone 1"></a>
@@ -143,5 +137,9 @@
         </div>
     </div>
 </main>
+
+<script src="../componentes/script-geral.js"></script>
+<script src="../componentes/script-jogo.js" type="module"></script>
+
 </body>
 </html>

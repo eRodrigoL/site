@@ -13,7 +13,10 @@ const atividadeSchema = new Schema({
         type: [jogoSchema],
     },
     vencedor: {
-        type: [usuarioSchema]
+        type: [usuarioSchema],
+    },
+    duracao: {
+        type : String,
     }
 },
 {timestamps: true} //salva a data de criação e de modificação desse registro

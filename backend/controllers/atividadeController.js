@@ -7,7 +7,8 @@ const atividadeController = {
             const atividade = {
                 usuarios: req.body.usuarios,
                 jogo: req.body.jogo,
-                vencedor: req.body.vencedor
+                vencedor: req.body.vencedor,
+                duracao: req.body.duracao
             };
             const response = await AtividadeModel.create(atividade);
 
@@ -70,7 +71,8 @@ const atividadeController = {
         const atividade = {
             usuarios: req.body.usuarios,
             jogo: req.body.jogo,
-            vencedor: req.body.vencedor
+            vencedor: req.body.vencedor,
+            duracao: req.body.duracao
         };
 
         const updatedAtividade = await AtividadeModel.findByIdAndUpdate(id, atividade)
