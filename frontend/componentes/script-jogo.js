@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     // Barra de Ajuste
     const barraDificuldade = document.getElementById('barraDificuldade');
     const valorDificuldade = document.getElementById('valorDificuldade');
@@ -11,7 +11,50 @@ document.addEventListener('DOMContentLoaded', function() {
     // Atualizar o valor inicial
     valorDificuldade.textContent = barraDificuldade.value;
 
-    // modal .....
+    // Função para obter parâmetros da query string
+    function getQueryParams() {
+        const params = {};
+        const queryString = window.location.search.substring(1);
+        const queryArray = queryString.split('&');
+
+        queryArray.forEach(param => {
+            const [key, value] = param.split('=');
+            params[key] = decodeURIComponent(value);
+        });
+
+        return params;
+    }
+
+    // Carregar página com informações do banco
+    const params = getQueryParams();
+    const jogoId = params.id;
+
+    if (jogoId) {
+        try {
+            const response = await fetch(`https://api-noob.onrender.com/api/jogos/${jogoId}`);
+            if (!response.ok) {
+                throw new Error(`Erro HTTP! status: ${response.status}`);
+            }
+            const jogo = await response.json();
+            renderJogoDetails(jogo);
+        } catch (error) {
+            console.error('Erro ao buscar os detalhes do jogo:', error);
+        }
+    }
+
+    function renderJogoDetails(jogo) {
+        document.querySelector('h2').innerText = jogo.titulo;
+        document.querySelector('.blocos img').src = jogo.img || '../imagens/jogos/Everdell.jpg';
+        document.querySelector('.resumo .nota').innerText = jogo.nota || '0';
+        document.querySelector('.resumo .dificuldade input').value = jogo.dificuldade || '0';
+        document.querySelector('.resumo .dificuldade #valorDificuldade').innerText = jogo.dificuldade || '0';
+        document.querySelector('.resumo .competitivo').innerText = jogo.competitivo || '';
+        document.querySelector('.resumo .componentes').innerText = jogo.componentes || '';
+        document.querySelector('.resumo .descricao').innerText = jogo.descricao || '';
+        // Atualizar gráficos com base nos dados do jogo, se necessário.
+    }
+
+    // Modal .....
     var modal = document.getElementById("modal");
     var openModalBtn = document.getElementById("cadastrar-jogo");
     var cancelBtn = document.getElementById("btnCancelarJogo");
@@ -77,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function closeModal() {
         modal.style.display = "none";
     }
-    // modal .....
+    // Modal .....
 
     // Gráfico Avaliação
     const dataAvaliacao = {

@@ -1,12 +1,10 @@
 const router = require("express").Router()
-
 const usuarioController = require("../controllers/usuarioController");
-
 const upload = require("../config/multer");
 
 // Funções
 
-//router.post("/usuarios", upload.single("file"), usuarioController.create);
+router.post("/usuarios", upload.single("file"), usuarioController.create);// descomentado
 
 router.route("/usuarios").post((req, res) => usuarioController.create(req,res));
 
