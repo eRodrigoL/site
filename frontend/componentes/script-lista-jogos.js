@@ -4,7 +4,7 @@ let items = [];
 
 async function fetchItems() {
     try {
-        const response = await fetch('https://api-noob.onrender.com/api/jogos');
+        const response = await fetch('https://api-noob-1.onrender.com/api/jogos');
         if (!response.ok) {
             throw new Error(`Erro HTTP! status: ${response.status}`);
         }

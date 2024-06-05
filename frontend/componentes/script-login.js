@@ -13,7 +13,7 @@ document.getElementById('btnLogin').addEventListener('click', async function(eve
     };
 
     // Realiza a solicitação POST usando fetch
-    fetch('https://api-noob.onrender.com/api/login', {
+    fetch('https://api-noob-1.onrender.com/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

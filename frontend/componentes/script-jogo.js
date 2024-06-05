@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (userData.titulo.trim() !== '') {
             try {
-                const response = await fetch('https://api-noob.onrender.com/api/jogos', {
+                const response = await fetch('https://api-noob-1.onrender.com/api/jogos', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
