@@ -1,26 +1,25 @@
 const mongoose = require("mongoose");
-const { usuarioSchema } = require("./Usuario");
-const { jogoSchema } = require("./Jogo");
 
 const { Schema } = mongoose;
 
 const atividadeSchema = new Schema({
-
-    usuarios: {
-        type: [usuarioSchema],
-    },
-    jogo: {
-        type: [jogoSchema],
-    },
+    usuarios: [{
+        nome: {
+            type: String,
+        }
+    }],
+    jogo: [{
+        titulo: {
+            type: String,
+        }
+    }],
     vencedor: {
-        type: [usuarioSchema],
+         type: String,
     },
     duracao: {
-        type : String,
+        type: String
     }
-},
-{timestamps: true} //salva a data de criação e de modificação desse registro
-);
+}, { timestamps: true });
 
 const Atividade = mongoose.model("Atividade", atividadeSchema)
 

@@ -13,7 +13,7 @@
     <div class="colunas colunaNOVOjogo" id="colunas">
         <div class="scrollable" id="contentContainer">
             <div class="principal">
-                <form id="cadastroUsuarios" action="" method="post">
+                <form id="cadastroUsuarios" action="" method="post" enctype="multipart/form-data">
                     <label>Nome: </label>
                     <input type="text" id="nome-usuario" name="nome" size="60" placeholder="Obrigatório"><br><br>
                     <label>Apelido: </label>
@@ -27,7 +27,7 @@
                     <label>Confirmação da senha: </label>
                     <input type="password" id="confirmacao" name="confirmacao" size="30" placeholder="Obrigatório"><br><br> 
                     <label>Foto: </label>
-                    <input type="file" id="foto-usuario" name="file" accept="image/*"><br><br> 
+                    <input type="file" id="foto-usuario" name="file" accept="image/*"><br><br> -
                     <button type="submit" id="btnCadastrarUsuario"> Cadastrar</Button>
                     <button type="reset" id="btnCancelar">Cancelar</button>
                 </form>

@@ -43,8 +43,20 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     function renderJogoDetails(jogo) {
-        document.querySelector('h2').innerText = jogo.titulo;
-        document.querySelector('.blocos img').src = jogo.img || '../imagens/jogos/Everdell.jpg';
+        // Carregar o título do jogo
+        document.querySelector('#tituloJogo').innerText = jogo.titulo;
+        
+        // Carregar a imagem do jogo
+        const imgElement = document.querySelector('#capaJogo');
+        if (jogo.img && jogo.img.trim() !== "") {
+            console.log("Carregando imagem do link:", jogo.img);  // Log para depuração
+            imgElement.src = jogo.img;
+        } else {
+            console.log("Mantendo imagem padrão");  // Log para depuração
+            imgElement.src = "../backend/uploads/1714174787744.jpg";
+        }
+        
+        // Carregar a nota do jogo
         document.querySelector('.resumo .nota').innerText = jogo.nota || '0';
         document.querySelector('.resumo .dificuldade input').value = jogo.dificuldade || '0';
         document.querySelector('.resumo .dificuldade #valorDificuldade').innerText = jogo.dificuldade || '0';
@@ -91,7 +103,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         if (userData.titulo.trim() !== '') {
             try {
-                const response = await fetch('https://api-noob.onrender.com/api/jogos', {
+                const response = await fetch('https://api-noob-1.onrender.com/api/jogos', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
