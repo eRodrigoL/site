@@ -2,14 +2,23 @@
 <html lang="pt-BR">
 <head>
 
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    
 </head>
 <body>
     <header>
         <div class="colunaCabecalho logo"><h1>Noob</h1></div>
-    <div class="colunaCabecalho links">
-        <a href="../paginas/jogo.html">Jogos</a>
+    <div class="colunaCabecalho links" id="seLogado">
+        <a href="../paginas/lista-jogos.html">Jogos</a>
         <a href="../paginas/perfil.html">Perfil</a>
         <a href="../paginas/rede.html">Rede</a>
+    </div>
+    <div class="colunaCabecalho links" id="seDeslogado">
+        <a href="../paginas/lista-jogos.html">Jogos</a>
     </div>
     <div class="colunaCabecalho login" id="identificacaoContainer">
         <form id="login" action="" method="post">

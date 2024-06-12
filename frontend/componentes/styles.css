@@ -68,7 +68,7 @@ input[type="text"]:not(:placeholder-shown) {
 main {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 0px;
     margin: 0;
     overflow: hidden; /* Para evitar que haja espaços extras */
 }

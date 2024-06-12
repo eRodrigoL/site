@@ -32,7 +32,7 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', async fun
     }
 
     console.log('Form Data:', formData); // Log para depuração
-    const formData = new FormData();
+    
     formData.append('nome', nome);
     formData.append('apelido', apelido);
     formData.append('nascimento', nascimento);

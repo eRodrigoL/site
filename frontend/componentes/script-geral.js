@@ -55,10 +55,10 @@ window.addEventListener('resize', ajustarTamanhoColunas);
 
 function checkLogin(){
     const isLogin = localStorage.getItem('login');
-    const isRede = window.location.href.indexOf('rede') > 0
+    const isLista = window.location.href.indexOf('lista-jogos') > 0
     const isCadastro = window.location.href.indexOf('cadastro-usuario') > 0
-    if(!isLogin && !isRede && !isCadastro){
-        window.location.href = '../paginas/rede.html?logado=false'
+    if(!isLogin && !isLista && !isCadastro){
+        window.location.href = '../paginas/lista-jogos.html?logado=false'
     }
 }
 
