@@ -43,26 +43,78 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     function renderJogoDetails(jogo) {
-        // Carregar o título do jogo
-        document.querySelector('#tituloJogo').innerText = jogo.titulo;
         
+        // Carregar informações de texto sobre o jogo
+        document.querySelector('#tituloJogo').innerText = jogo.titulo;
+        document.querySelector('#ano').innerText = jogo.ano;
+        document.querySelector('#idade').innerText = jogo.idade;
+        document.querySelector('#designer').innerText = jogo.designer;
+        document.querySelector('#artista').innerText = jogo.artista;
+        document.querySelector('#editora').innerText = jogo.editora;
+        document.querySelector('#descricao').innerText = jogo.descricao;
+
         // Carregar a imagem do jogo
-        const imgElement = document.querySelector('#capaJogo');
-        if (jogo.img && jogo.img.trim() !== "") {
-            console.log("Carregando imagem do link:", jogo.img);  // Log para depuração
-            imgElement.src = jogo.img;
+        const imgElement = document.querySelector('#capa');
+        if (jogo.capa && jogo.capa.trim() !== "") {
+            console.log("Carregando imagem do link:", jogo.capa);  // Log para depuração
+            imgElement.src = jogo.capa;
         } else {
             console.log("Mantendo imagem padrão");  // Log para depuração
             imgElement.src = "../backend/uploads/1714174787744.jpg";
         }
         
+        // ⬇ ⬇ ⬇ ⬇ ⬇ CRIAR BOTÃO DA VERSÃO DIGITAL ⬇ ⬇ ⬇ ⬇ ⬇
+        // Seleciona o elemento com id "digital"
+        const elementoDigital = document.querySelector('#digital');
+
+        // Verifica se o link está disponível e não é vazio
+        if (jogo.digital && jogo.digital.trim() !== "") {
+            const url = jogo.digital.trim();
+
+            // Inicializa o texto do botão como vazio
+            let buttonText = "";
+
+            // Determina o texto do botão com base no link usando switch
+            switch (true) {
+                case url.startsWith('https://play.google.com/'):
+                    buttonText = 'Play Store';
+                    break;
+                case url.startsWith('https://www.example.com/'):
+                    buttonText = 'Example Site';
+                    break;
+                case url.startsWith('https://another.example.com/'):
+                    buttonText = 'Another Site';
+                    break;
+                default:
+                    buttonText = 'Aqui';
+                    console.log('Link desconhecido:', url);
+            }
+
+            // Se o texto do botão foi definido, cria e adiciona o botão
+            if (buttonText !== "") {
+                // Cria o botão
+                const botao = document.createElement('button');
+                botao.innerText = buttonText;
+
+                // Adiciona um evento de clique ao botão
+                botao.addEventListener('click', function() {
+                    window.open(url, '_blank');
+                });
+
+                // Insere o botão no elemento
+                elementoDigital.appendChild(botao);
+            }
+        } else {
+            console.log('Link digital não está disponível ou é inválido.');
+        }
+        // ⬆ ⬆ ⬆ ⬆ ⬆ CRIAR BOTÃO DA VERSÃO DIGITAL ⬆ ⬆ ⬆ ⬆ ⬆
+
         // Carregar a nota do jogo
         document.querySelector('.resumo .nota').innerText = jogo.nota || '0';
         document.querySelector('.resumo .dificuldade input').value = jogo.dificuldade || '0';
         document.querySelector('.resumo .dificuldade #valorDificuldade').innerText = jogo.dificuldade || '0';
         document.querySelector('.resumo .competitivo').innerText = jogo.competitivo || '';
         document.querySelector('.resumo .componentes').innerText = jogo.componentes || '';
-        document.querySelector('.resumo .descricao').innerText = jogo.descricao || '';
         // Atualizar gráficos com base nos dados do jogo, se necessário.
     }
 

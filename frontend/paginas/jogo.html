@@ -16,13 +16,13 @@
     <div class="colunas coluna1" id="colunas">
         <div class="blocos">
             <div>
-                <div style="display: inline;"><h2 id="tituloJogo" style="display: inline;">Título</h2> (ano)</div>
+                <div style="display: inline;"><h2 style="display: inline;"><span id="tituloJogo"></span></h2> (<span id="ano"></span>)</div>
                 <div class="reduzido">
                     <div style="float: left; width: 50%"><p>Possuem <b>134</b></p></div>
                     <div style="float: left; width: 50%"><p>Desejam <b>50</b></p></div>
                 </div>
             </div>
-            <div><img id="capaJogo" src="../../backend/uploads/1714174787744.jpg" alt="Capa do jogo"></div>
+            <div><img id="capa" src="../../backend/uploads/1714174787744.jpg" alt="Capa do jogo"></div>
             <div class="resumo">
                 <p><i>Nota </i><b class="nota">87</b><i></i></p>
                 <div class="dificuldade">
@@ -43,7 +43,7 @@
         <div class="scrollable" id="contentContainer">
             <div class="principal">
                 <button id="cadastrar-jogo">Cadastrar novo jogo</button>
-                <!-- Modal -->
+                <!-- ⬇⬇⬇ Modal ⬇⬇⬇ -->
                 <div id="modal" class="modal">
                     <div class="modal-content" id="modal-cadastrar-jogo">
                         <form id="cadastroJogos" action="" method="post">
@@ -64,9 +64,9 @@
                             <label>Categoria: </label>
                             <input type="text" id="categoria-jogo" size="60" name="categoria" placeholder="(Opcional) Competitivo, competitivo em grupo, cooperativo, semicooperativo, solo"><br><br>
                             <label>Componentes: </label>
-                            <input type="text" id="componentes" size="60" name="componentes" placeholder="(Opcional) Meeples, cartas, tabuleiro, moedas..."><br><br>
+                            <input type="text" id="componentes-jogo" size="60" name="componentes" placeholder="(Opcional) Meeples, cartas, tabuleiro, moedas..."><br><br>
                             <label>Descrição: </label>
-                            <textarea id="descricao" rows="5" cols="60" name="descricao" placeholder="(Opcional) Conte como este jogo é."></textarea><br><br>
+                            <textarea id="descricao-jogo" rows="5" cols="60" name="descricao" placeholder="(Opcional) Conte como este jogo é."></textarea><br><br>
                             <div class="modal-buttons">
                                 <button type="button" id="btnCadastrarJogo">Adicionar jogo</button>
                                 <button type="button" id="btnCancelarJogo">Cancelar</button>
@@ -74,7 +74,7 @@
                             </form>
                     </div>
                 </div>
-                <!-- Modal -->
+                <!-- ⬆⬆⬆ Modal ⬆⬆⬆ -->
                 <div>________________________________________</div>
                 <div style="display: flex; align-items: center">
                     <div class="favorito">
@@ -107,11 +107,11 @@
                 <div>________________________________________</div>
                 
                 <div>
-                    <p><b>Idade:</b> +13</p>
-                    <p></p><b>Designer:</b> James A. Wilson</p>
-                    <p><b>Artista:</b> Andrew Bosley, Dann May</p>
-                    <p><b>Editora:</b> Galápagos (BR), CMON Global Limited (US)</p>
-                    <p><b>Versão digital:</b> <a href="#">Sim</a></p>
+                    <p><b>Idade: </b><span id="idade"></span></p>
+                    <p><b>Designer: </b><span id="designer"></span></p>
+                    <p><b>Artista: </b><span id="artista"></span></p>
+                    <p><b>Editora: </b><span id="editora"></span></p>
+                    <p><b>Versão digital: </b><span id="digital"></span></p>
                 </div>
                 <div>________________________________________</div>
                 <div>
@@ -136,8 +136,7 @@
                 </div>
                 <div>________________________________________</div>
                 <div>
-                    <b>Descrição:</b> Dentro do encantador vale de Everdell, sob os ramos das altas árvores, entre riachos calmos e poças musgosas, uma civilização de criaturas da floresta está prosperando e se expandindo. De Everfrost a Bellsong, muitos anos vieram e se foram, mas chegou a hora de estabelecer novos territórios e novas cidades. Você será o líder de um grupo de criaturas para realizar esta tarefa. Há edifícios para construir, personagens para encontrar, eventos para atender - você tem um ano ocupado à sua frente. Será que o sol brilhará mais na sua cidade antes que a lua do inverno se eleve?<br><br>
-                    Everdell é um jogo dinâmico de construção de tabuleiro e alocação de trabalhadores.
+                    <b>Descrição: </b><span id="descricao"></span>
                 </div>
                 <div>________________________________________</div>
                 <div><b>Opiniões:</b>

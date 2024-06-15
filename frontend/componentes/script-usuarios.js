@@ -1,4 +1,4 @@
-document.getElementById('cadastroUsuarios').addEventListener('submit', async function (event) {
+document.getElementById('cadastroUsuarios').addEventLidescricaostener('submit', async function (event) {
     event.preventDefault();
 
     const nome = document.getElementById('nome-usuario').value;
