@@ -27,7 +27,7 @@ function renderItems() {
         const itemElement = document.createElement('div');
         itemElement.className = 'jogo-item';
 
-        const imgSrc = item.img || '../../backend/uploads/1714174787744.jpg';
+        const imgSrc = item.capa || '../../backend/uploads/1714174787744.jpg';
         const categoria = item.categoria || '(categoria não informada)';
 
         itemElement.innerHTML = `
