@@ -1,17 +1,25 @@
-//..........GRÁFICO DESEMPENHO..........
+
+function atualizarGraficoDesempenho(dados){
+    //..........GRÁFICO DESEMPENHO..........
+
+ // Cria o gráfico
+ if (chart) {
+    chart.destroy(); // Destroi o gráfico existente, se houver
+}
+
 var ctx = document.getElementById('desempenho').getContext('2d');
 var chart = new Chart(ctx, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [75, 40, 5], // Vitórias, Derrotas, Empates
+            //data: [75, 40], // Vitórias, Derrotas
+            data: dados,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.5)', // Vitórias
-                'rgba(54, 162, 235, 0.5)', // Derrotas
-                'rgba(255, 206, 86, 0.5)' // Empates
+                'rgba(54, 162, 235, 0.5)', // Derrotas  
             ],
         }],
-        labels: ['Vitórias', 'Derrotas', 'Empates'] // Labels para a legenda
+        labels: ['Vitórias', 'Derrotas'] // Labels para a legenda
     },
     options: {
         circumference: 180,
@@ -26,7 +34,44 @@ var chart = new Chart(ctx, {
         }
     }
 });
+}
 
+
+/*function atualizarGraficoDesempenho() {
+    // Seleciona o contexto do canvas
+    var ctx = document.getElementById('desempenho').getContext('2d');
+
+    // Cria o gráfico
+    if (chart) {
+        chart.destroy(); // Destroi o gráfico existente, se houver
+    }
+
+    chart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: dadosDesempenho,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)', // Vitórias
+                    'rgba(54, 162, 235, 0.5)', // Derrotas
+                ],
+            }],
+            labels: ['Vitórias', 'Derrotas'] // Labels para a legenda
+        },
+        options: {
+            circumference: 180,
+            rotation: 270,
+            title: {
+                display: true,
+                text: 'Desempenho'
+            },
+            animation: {
+                animateRotate: false,
+                animateScale: true
+            }
+        }
+    });
+}*/
 
 
 //..........GRÁFICO DESEMPENHO POR CATEGORIA..........
@@ -122,43 +167,6 @@ var myChart = new Chart(ctx, {
     options: options
 });
 
-
-
-//..........GRÁFICO NÚMEOR DE DISPUTAS POR TIPO..........
-// Dados do gráfico
-var data = {
-    labels: ["Sorte", "Estratégia", "Destreza", "Outros"],
-    datasets: [{
-        data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)], // Exemplo de dados. Substitua pelos seus dados reais.
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.5)', // Cor para "Sorte"
-            'rgba(54, 162, 235, 0.5)', // Cor para "Estratégia"
-            'rgba(255, 206, 86, 0.5)', // Cor para "Destreza"
-            'rgba(75, 192, 192, 0.5)' // Cor para "Outros"
-        ],
-        borderColor: 'rgba(255, 255, 255, 1)',
-        borderWidth: 2
-    }]
-};
-
-// Configurações do gráfico
-var options = {
-    title: {
-        display: true,
-        text: 'Disputas por Tipo'
-    }
-};
-
-// Configurando o contexto do gráfico
-var ctx = document.getElementById('disputas-tipo').getContext('2d');
-
-// Criando o gráfico de rosca
-var myChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: data,
-    options: options
-});
-
 // Abre a tela de atualização de perfil ao clicar
 document.getElementById('atualizacao-perfil').addEventListener('click', function() {
     window.location.href = 'alterar-perfil.html';
@@ -195,9 +203,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         const response = await fetch('https://api-noob-1.onrender.com/api/atividades');
         const avaliacoes = await response.json();
-
+        
+        let dadosDesempenho = [0, 0]; // Inicializa com zero vitórias e zero derrotas
         let contador_partidas = 0;
         let contador_vitorias= 0;
+        
 
         avaliacoes.forEach(avaliacao => {
             // Contar ocorrências no array de usuários
@@ -217,10 +227,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const derrotas = contador_partidas - contador_vitorias;
 
+         // Atualiza os dados no array
+        dadosDesempenho = [contador_vitorias, derrotas];
+
+        atualizarGraficoDesempenho(dadosDesempenho);
+
         document.getElementById('num-partidas').textContent = contador_partidas;
         document.getElementById('num-vitorias').textContent = contador_vitorias;
         document.getElementById('num-derrotas').textContent = derrotas;
 
+       
 
     } catch (error) {
         console.error('Erro ao buscar as avaliações:', error);
@@ -229,3 +245,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     
 });
+
