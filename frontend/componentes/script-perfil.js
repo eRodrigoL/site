@@ -178,9 +178,10 @@ function calcularIdade(dataNascimento) {
 }
 
 // Carregar informações do usuário do localStorage
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     const nome = localStorage.getItem('nome');
     const nascimento = localStorage.getItem('nascimento');
+    const apelido = localStorage.getItem('apelido');
     
     // Atualizar o conteúdo dos elementos HTML
     if (nome) {
@@ -190,4 +191,41 @@ document.addEventListener("DOMContentLoaded", () => {
         const idade = calcularIdade(nascimento);
         document.getElementById('idade-usuario-perfil').textContent = `(${idade} anos)`;
     }
+
+    try {
+        const response = await fetch('https://api-noob-1.onrender.com/api/atividades');
+        const avaliacoes = await response.json();
+
+        let contador_partidas = 0;
+        let contador_vitorias= 0;
+
+        avaliacoes.forEach(avaliacao => {
+            // Contar ocorrências no array de usuários
+            avaliacao.usuarios.forEach(usuario => {
+                if (usuario.nome === apelido) {
+                    contador_partidas++;
+                }
+            });
+
+            // Contar ocorrências no array de vencedores
+            avaliacao.vencedor.forEach(vencedor => {
+                if (vencedor.nome === apelido) {
+                    contador_vitorias++;
+                }
+            });
+        });
+
+        const derrotas = contador_partidas - contador_vitorias;
+
+        document.getElementById('num-partidas').textContent = contador_partidas;
+        document.getElementById('num-vitorias').textContent = contador_vitorias;
+        document.getElementById('num-derrotas').textContent = derrotas;
+
+
+    } catch (error) {
+        console.error('Erro ao buscar as avaliações:', error);
+        /*document.getElementById('resultado').innerText = 'Erro ao buscar as avaliações.';*/
+    }
+
+    
 });
