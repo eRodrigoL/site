@@ -8,6 +8,7 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', async fun
     const senha = document.getElementById('senha-usuario').value;
     const confirmacao = document.getElementById('confirmacao').value;
     const foto = document.getElementById('foto-usuario').files[0];
+    //const formulario = document.getElementById('cadastroUsuarios');
 
     // Validar se os campos obrigatórios estão preenchidos
     if (!nome || !apelido || !email || !senha || !confirmacao) {
@@ -45,6 +46,10 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', async fun
         }
 
         alert('Usuário cadastrado com sucesso!');
+        
+        //formulario.clear();
+
+            
     } catch (error) {
         console.error('Erro:', error);
         alert('Erro ao cadastrar usuário');

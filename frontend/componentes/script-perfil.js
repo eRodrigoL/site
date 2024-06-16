@@ -163,3 +163,31 @@ var myChart = new Chart(ctx, {
 document.getElementById('atualizacao-perfil').addEventListener('click', function() {
     window.location.href = 'alterar-perfil.html';
 });
+
+
+// Função para calcular a idade a partir da data de nascimento
+function calcularIdade(dataNascimento) {
+    const hoje = new Date();
+    const nascimento = new Date(dataNascimento);
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+    const mes = hoje.getMonth() - nascimento.getMonth();
+    if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+        idade--;
+    }
+    return idade;
+}
+
+// Carregar informações do usuário do localStorage
+document.addEventListener("DOMContentLoaded", () => {
+    const nome = localStorage.getItem('nome');
+    const nascimento = localStorage.getItem('nascimento');
+    
+    // Atualizar o conteúdo dos elementos HTML
+    if (nome) {
+        document.getElementById('nome-usuario-perfil').textContent = nome;
+    }
+    if (nascimento) {
+        const idade = calcularIdade(nascimento);
+        document.getElementById('idade-usuario-perfil').textContent = `(${idade} anos)`;
+    }
+});
