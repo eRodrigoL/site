@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     function renderJogoDetails(jogo) {
         
         // Carregar informações de texto sobre o jogo
+        document.getElementById('tituloPagina').textContent = `Noob - ${jogo.titulo}`;
         document.querySelector('#tituloJogo').innerText = jogo.titulo;
         document.querySelector('#ano').innerText = jogo.ano;
         document.querySelector('#idade').innerText = jogo.idade;
@@ -53,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         document.querySelector('#editora').innerText = jogo.editora;
         document.querySelector('#descricao').innerText = jogo.descricao;
 
-        // Carregar a imagem do jogo
+        // ⬇ ⬇ ⬇ ⬇ ⬇ CARREGAR A IMAGEM DO JOGO ⬇ ⬇ ⬇ ⬇ ⬇
         const imgElement = document.querySelector('#capa');
         if (jogo.capa && jogo.capa.trim() !== "") {
             console.log("Carregando imagem do link:", jogo.capa);  // Log para depuração
@@ -62,6 +63,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             console.log("Mantendo imagem padrão");  // Log para depuração
             imgElement.src = "../backend/uploads/1714174787744.jpg";
         }
+        // ⬆ ⬆ ⬆ ⬆ ⬆ CARREGAR A IMAGEM DO JOGO ⬆ ⬆ ⬆ ⬆ ⬆
         
         // ⬇ ⬇ ⬇ ⬇ ⬇ CRIAR BOTÃO DA VERSÃO DIGITAL ⬇ ⬇ ⬇ ⬇ ⬇
         // Seleciona o elemento com id "digital"
@@ -79,14 +81,23 @@ document.addEventListener('DOMContentLoaded', async function() {
                 case url.startsWith('https://play.google.com/'):
                     buttonText = 'Play Store';
                     break;
-                case url.startsWith('https://www.example.com/'):
-                    buttonText = 'Example Site';
+                case url.startsWith('https://store.steampowered.com/'):
+                    buttonText = 'Steam';
                     break;
-                case url.startsWith('https://another.example.com/'):
-                    buttonText = 'Another Site';
+                case url.startsWith('https://apps.apple.com/'):
+                    buttonText = 'Apple Store';
+                    break;
+                case url.startsWith('https://www.nintendo.com/'):
+                    buttonText = 'Nintendo';
+                    break;
+                case url.startsWith('https://pt.boardgamearena.com/'):
+                    buttonText = 'BGA';
+                    break;
+                case url.startsWith('https://www.xbox.com/'):
+                    buttonText = 'Xbox';
                     break;
                 default:
-                    buttonText = 'Aqui';
+                    buttonText = 'Clique aqui';
                     console.log('Link desconhecido:', url);
             }
 
