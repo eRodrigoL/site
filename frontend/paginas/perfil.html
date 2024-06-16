@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noob Perfil</title>
+    <style>
+        #preview-img {
+        max-width: 200px;
+        max-height: 200px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    </style>
+    
     <link rel="stylesheet" href="../componentes/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Bibliotéca para os gráficos -->
 </head>
@@ -16,13 +25,14 @@
     <div class="colunas coluna1" id="colunas">
         <div class="blocos">
             <div>
-                <div style="display: inline;"><h2 style="display: inline;">Fulano de Tal</h2> (20 anos)</div>
+                <div style="display: inline;">
+                    <h2 style="display: inline;" id="nome-usuario-perfil">Fulano de Tal</h2> <span id="idade-usuario-perfil">(20 anos)</span></div>
                 <div class="reduzido">
                     <div style="float: left; width: 50%"><p>Seguidores <b>514</b></p></div>
                     <div style="float: left; width: 50%"><p>Seguindo <b>309</b></p></div>
                 </div>
             </div>
-            <div><img src="../imagens/perfis/foto.png" alt="Foto de perfil"></div>
+            <div id="preview-container"><img id="preview-img" src="../imagens/perfis/foto.png" alt="Foto de perfil"></div>
             <div class="resumo">
                 <p>Já esteve em: <b>236</b><i> PARTIDAS</i></p>
                 <div style="float: left; width: 50%;">
@@ -35,6 +45,11 @@
                 </div>
             </div>
         </div>
+         <!-- Incluindo atualização de foto-->
+        <input type="file" name="file" id="upload" accept="image/*">
+        <!-- Incluindo botão de salvar-->
+        <button id="btn-salvar-img" style="margin-top: 10px;">Salvar</button>
+   
     </div>
     <div class="colunas coluna2" id="colunas">
         <div class="scrollable" id="contentContainer">
@@ -68,6 +83,8 @@
 
 <script src="../componentes/script-geral.js"></script>
 <script src="../componentes/script-perfil.js" type="module"></script>
+<script src="../componentes/script-login.js"></script>
+<script src="../componentes/script-atualiza-foto.js"></script>
 
 </body>
 </html>

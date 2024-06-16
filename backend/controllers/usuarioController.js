@@ -1,7 +1,7 @@
 const  Usuarios = require("../models/Usuario");
 
 const bcrypt = require('bcrypt');
-//const jwt = require('jsonwebtoken')
+//const jwt = require('jsonwebtoken');
 
 const usuarioController={
     // função para criar usuário via POST
@@ -14,12 +14,14 @@ const usuarioController={
             const {nascimento} = req.body;
             const {email} = req.body;
             const {senha} = req.body;
-<<<<<<< HEAD
+
             const file = req.file;
-=======
+
             //const file = req.file;
             let file = req.file;
->>>>>>> 47484d06c1054aa908951f6070df35049e172f66
+
+            const file = "#";
+            //let file = req.file;
 
             // configurando hash de senha
             const salt = await bcrypt.genSalt(12);
@@ -31,9 +33,10 @@ const usuarioController={
                 apelido,
                 nascimento,
                 email,
-                senha:hash,
+                senha: hash,
+                src: file
                 //src: file.path
-                src: file ? file.path : null
+                //src: file ? file.path : null
             });
     
             // validando se usuário e apelido existem
@@ -63,6 +66,7 @@ const usuarioController={
             console.log(error)
             res.status(500).json({ message: "Erro ao processar a requisição." });
         }
+
     },
     // função para buscar todos os usuários da lista via GET
         getAll: async (req, res) => {
@@ -117,15 +121,29 @@ const usuarioController={
     // atualizando o usuário passando o ID via PUT
         update : async(req,res) =>{
             const id = req.params.id
+
+             // recebendo os parametros do body
+            // const {nome} = req.body;
+            // const {apelido} = req.body;
+            // const {nascimento} = req.body;
+            // const {email} = req.body;
+            // const {senha} = req.body;
+             let file = req.file;
+             //const file = "#";
+             
+ 
+             // configurando hash de senha
+             //const salt = await bcrypt.genSalt(12);
+             //const hash = await bcrypt.hash(senha,salt);
     
             const usuario = {
-                nome: req.body.nome,
-                apelido: req.body.apelido,
-                nascimento: req.body.nascimento,
-                email: req.body.email,
-                senha: req.body.senha,
-                confirmacao: req.body.confirmacao,
-                imagem: req.body.imagem
+                //nome,
+                //apelido,
+                //nascimento,
+               // email,
+               // senha:hash,
+                //src: file
+                src: file ? file.path : null
             };
     
             const updatedUsuario = await Usuarios.findByIdAndUpdate(id, usuario)
@@ -135,9 +153,10 @@ const usuarioController={
                 return;
             }
     
-            res.status(200).json({usuario, msg: "Usuário atualizado com sucesso."}); 
+           // res.status(200).json({usuario, msg: "Usuário atualizado com sucesso."}); 
+           res.status(200).json({usuario, msg: "Foto atualizada com sucesso."}); 
     
-            },
+            }
     
 };
 
