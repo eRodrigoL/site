@@ -1,4 +1,4 @@
-document.getElementById('cadastroUsuarios').addEventLidescricaostener('submit', async function (event) {
+document.getElementById('cadastroUsuarios').addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const nome = document.getElementById('nome-usuario').value;
@@ -32,15 +32,6 @@ document.getElementById('cadastroUsuarios').addEventLidescricaostener('submit', 
     }
 
     console.log('Form Data:', formData); // Log para depuração
-    
-    formData.append('nome', nome);
-    formData.append('apelido', apelido);
-    formData.append('nascimento', nascimento);
-    formData.append('email', email);
-    formData.append('senha', senha);
-    if (foto) {
-        formData.append('file', foto);
-    }
 
     try {
         const response = await fetch('https://api-noob-1.onrender.com/api/usuarios', {

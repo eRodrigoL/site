@@ -158,3 +158,8 @@ var myChart = new Chart(ctx, {
     data: data,
     options: options
 });
+
+// Abre a tela de atualização de perfil ao clicar
+document.getElementById('atualizacao-perfil').addEventListener('click', function() {
+    window.location.href = 'alterar-perfil.html';
+});
