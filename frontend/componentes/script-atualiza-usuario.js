@@ -1,3 +1,11 @@
+function formatarData(data) {
+
+     // Extrai apenas a parte da data (ano, mês e dia) da string
+     const [ano, mes, dia] = data.split('T')[0].split('-');
+     return `${ano}-${mes}-${dia}`;
+}
+
+
 // Preenche os dados no formulário
 document.addEventListener('DOMContentLoaded', async function() {
     // Recupera os dados do localStorage
@@ -17,7 +25,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         document.getElementById('email-usuario').value = email;
     }
     if (nascimento) {
-        document.getElementById('nascimento-usuario').value = nascimento;
+        const dataFormatada = formatarData(nascimento);
+        document.getElementById('nascimento-usuario').value = dataFormatada;
     }
 });
 
