@@ -12,6 +12,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 /* Formatação CABEÇALHO */
@@ -32,33 +33,74 @@ header {
 main {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    gap: 20px; /* Adiciona espaço entre os blocos */
+    padding: 35px;
+    gap: 5px; /* Adiciona espaço entre os blocos */
     overflow: hidden; /* Para evitar que haja espaços extras */
 }
 
-/* Formatação BLOCO PRINCIPAL */
-.bloco-esquerda {
+/* Formatação BLOCO esquerda */
+
+.bloco-esquerda{
+    border-radius: 20px; /* Arredondando os cantos dos blocos */
+    overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
+    margin-bottom: 5px; /* Adiciona espaço entre os blocos */
+    padding: 35px;
+    flex: 3; /* Ajustes de largura para os blocos */
+    max-width: 35%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
+    gap: 1px; /* Adiciona espaço entre os blocos */
+    overflow: hidden; /* Para evitar que haja espaços extras */
+}
+    
+.favorito {
+        flex-grow: 2; /* Faz com que o bloco 3 ocupe mais espaço no centro */
+        background-color: #FA8305; /* Adiciona uma borda cinza para separar visualmente os blocos */
+        border-radius: 10px; /* Arredondando os cantos dos blocos */
+        overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
+        margin-bottom: 20px; /* Adiciona espaço entre os blocos */
+        padding: 20px;
+        flex: 3; /* Ajustes de largura para os blocos */
+        max-width: 30%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
+}
+
+.reduzido {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente, se necessário */
+    text-align: center; /* Centraliza o texto dentro dos divs */
+    height: 40vh; /* Faz o contêiner ocupar toda a altura da tela */
+}
+.reduzido > div {
+    float: none; /* Remove o float */
+    width: 50%;
+}
+.reduzido > div > p {
+    margin: 0; /* Remove a margem padrão dos parágrafos */
+}
+
+.principal{
+
+        flex-grow: 2; /* Faz com que o bloco 3 ocupe mais espaço no centro */
+        background-color: #FA8305; /* Adiciona uma borda cinza para separar visualmente os blocos */
+        border-radius: 10px; /* Arredondando os cantos dos blocos */
+        overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
+        margin-bottom: 20px; /* Adiciona espaço entre os blocos */
+        padding: 10px;
+        flex: 1; /* Ajustes de largura para os blocos */
+        max-width: 30%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
+}
+
+.perfildojogo{
     background-color: #ECDDD3;
     border: 10px solid #ECDDD3; /* Adiciona uma borda cinza para separar visualmente os blocos */
     border-radius: 10px; /* Arredondando os cantos dos blocos */
     overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
-    margin-bottom: 20px; /* Adiciona espaço entre os blocos */
-    padding: 10px;
+    margin-bottom: 10px; /* Adiciona espaço entre os blocos */
+    padding: 5px;
     flex: 1; /* Ajustes de largura para os blocos */
-    max-width: 30%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
+    max-width: 80%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
+  
 }
-.descricao {
-    flex-grow: 2; /* Faz com que o bloco 3 ocupe mais espaço no centro */
-    background-color: #000000;
-    border: 10px solid #000000; /* Adiciona uma borda cinza para separar visualmente os blocos */
-    border-radius: 10px; /* Arredondando os cantos dos blocos */
-    overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
-    margin-bottom: 20px; /* Adiciona espaço entre os blocos */
-    padding: 10px;
-    flex: 1; /* Ajustes de largura para os blocos */
-    max-width: 30%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
-}
+
 .principal {
     flex-grow: 2; /* Faz com que o bloco 3 ocupe mais espaço no centro */
     background-color: #ECDDD3;
@@ -83,23 +125,33 @@ main {
 
 .carousel-inner {
     width: 100%;
-    height: 348px; /* Altura fixa do carrossel */
+    height: 320px; /* Altura fixa do carrossel */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .carousel-item {
-    width: 100%; /* Garante que cada item preencha a largura do carrossel */
-    height: 348px; /* Altura fixa para evitar mudanças */
+    width: 340%; /* Garante que cada item preencha a largura do carrossel */
+    height: 340px; /* Altura fixa para evitar mudanças */
+    border-radius: 10px; /* Arredondando os cantos dos blocos */
+    overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
 }
 
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha o item do carrossel sem distorção */
+.descricao {
+    flex-grow: 2; /* Faz com que o bloco 3 ocupe mais espaço no centro */
+    background-color: #000000;
+    border: 10px solid #000000; /* Adiciona uma borda cinza para separar visualmente os blocos */
+    border-radius: 10px; /* Arredondando os cantos dos blocos */
+    overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
+    margin-bottom: 20px; /* Adiciona espaço entre os blocos */
+    padding: 10px;
+    flex: 1; /* Ajustes de largura para os blocos */
+    max-width: 30%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
 }
+.likes{
 
+}
 
 /* CSS para organizar os blocos */
 .blocos {
@@ -128,28 +180,32 @@ main {
     text-align: center;
 }
 
-.reduzido {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.reduzido p {
-    margin: 0;
-    width: 50%;
-    text-align: left;
-}
 
 button {
-    background-color: #FA8305;
-    color: #FFFFFF;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
+      background-color: #FA8305;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
 }
+
+comprar {
+    background-color: #FA8305;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            position: absolute; /* Posiciona o botão de forma absoluta */
+            right: 0; /* Alinha o botão à direita */
+            top: 10px; /* Ajuste a posição vertical conforme necessário */
+  }
+
 
 /* Estilo específico para postagens e opiniões */
 .opinioes {

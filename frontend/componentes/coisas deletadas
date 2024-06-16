@@ -185,3 +185,15 @@
     }
     
 
+
+    .principal{
+
+        flex-grow: 2; /* Faz com que o bloco 3 ocupe mais espaço no centro */
+        background-color: #FA8305; /* Adiciona uma borda cinza para separar visualmente os blocos */
+        border-radius: 10px; /* Arredondando os cantos dos blocos */
+        overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
+        margin-bottom: 20px; /* Adiciona espaço entre os blocos */
+        padding: 10px;
+        flex: 1; /* Ajustes de largura para os blocos */
+        max-width: 30%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
+}
