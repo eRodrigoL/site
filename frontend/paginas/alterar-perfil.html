@@ -13,8 +13,8 @@
     <div class="colunas colunaNOVOjogo" id="colunas">
         <div class="scrollable" id="contentContainer">
             <div class="principal">
+                <div id="preview-container"><img id="preview-img" src="../imagens/perfis/foto.png" alt="Foto de perfil" style="width: 150px; height: auto;"></div><br>
                 <form id="atualizarUsuarios" action="" method="post" enctype="multipart/form-data">
-                    <div id="preview-container"><img id="preview-img" src="../imagens/perfis/foto.png" alt="Foto de perfil" style="width: 150px; height: auto;"></div><br>
                     <label>Foto: </label>
                     <input type="file" name="file" id="upload" accept="image/*"><br><br>
                 <!--<button id="btn-salvar-img" style="margin-top: 10px;">Salvar</button>-->
@@ -26,10 +26,6 @@
                     <input type="date" id="nascimento-usuario" name="dataNascimento" placeholder="Opcional"><br><br>
                     <label>Email: </label>
                     <input type="text" id="email-usuario" name="email" size="60" placeholder="Obrigatório"><br><br>
-                    <label>Senha: </label>
-                    <input type="password" id="senha-usuario" name="senha" size="30" placeholder="Obrigatório"><br><br>
-                    <label>Confirmação da senha: </label>
-                    <input type="password" id="confirmacao" name="confirmacao" size="30" placeholder="Obrigatório"><br><br> 
                     <button type="submit" id="btnAtualizarUsuario"> Atualizar</Button>
                     <button type="reset" id="btnCancelar">Cancelar</button>
                 </form>
