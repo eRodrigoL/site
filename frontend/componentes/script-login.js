@@ -40,7 +40,7 @@ document.getElementById('btnLogin').addEventListener('click', async function(eve
 
        alert('Usuário logado com sucesso!');
        
-       alert(`Usuário logado com sucesso!\nNome: ${usuario.nome}\nApelido: ${usuario.apelido}\nEmail: ${usuario.email}\nData de Nascimento: ${usuario.nascimento}`);
+       //alert(`Usuário logado com sucesso!\nNome: ${usuario.nome}\nApelido: ${usuario.apelido}\nEmail: ${usuario.email}\nData de Nascimento: ${usuario.nascimento}`);
         console.log('Login bem-sucedido');
         window.location.href = '../paginas/rede.html'
         // Faça o redirecionamento ou manipulação do DOM aqui

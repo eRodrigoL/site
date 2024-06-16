@@ -14,6 +14,10 @@
         <div class="scrollable" id="contentContainer">
             <div class="principal">
                 <form id="atualizarUsuarios" action="" method="post" enctype="multipart/form-data">
+                    <div id="preview-container"><img id="preview-img" src="../imagens/perfis/foto.png" alt="Foto de perfil" style="width: 150px; height: auto;"></div><br>
+                    <label>Foto: </label>
+                    <input type="file" name="file" id="upload" accept="image/*"><br><br>
+                <!--<button id="btn-salvar-img" style="margin-top: 10px;">Salvar</button>-->
                     <label>Nome: </label>
                     <input type="text" id="nome-usuario" name="nome" size="60" placeholder="Obrigatório"><br><br>
                     <label>Apelido: </label>
@@ -26,9 +30,7 @@
                     <input type="password" id="senha-usuario" name="senha" size="30" placeholder="Obrigatório"><br><br>
                     <label>Confirmação da senha: </label>
                     <input type="password" id="confirmacao" name="confirmacao" size="30" placeholder="Obrigatório"><br><br> 
-                    <label>Foto: </label>
-                    <input type="file" id="foto-usuario" name="file" accept="image/*"><br><br> -
-                    <button type="submit" id="btnAtualizarUsuario"> Cadastrar</Button>
+                    <button type="submit" id="btnAtualizarUsuario"> Atualizar</Button>
                     <button type="reset" id="btnCancelar">Cancelar</button>
                 </form>
             </div>
@@ -40,4 +42,6 @@
 <script src="../componentes/script-geral.js"></script>
 <script src="../componentes/script-atualiza-usuario.js"></script>
 <script src="../componentes/script-login.js"></script>
+<script src="../componentes/script-perfil.js" type="module"></script>
+<script src="../componentes/script-atualiza-foto.js"></script>
 </html>
