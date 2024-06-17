@@ -66,12 +66,10 @@ document.getElementById('atualizacao-perfil').addEventListener('click', function
     window.location.href = 'alterar-perfil.html';
 });
 
+    document.addEventListener("DOMContentLoaded", async () => {
     const nome = localStorage.getItem('nome');
     const nascimento = localStorage.getItem('nascimento');
     const apelido = localStorage.getItem('apelido');
-    const partidas = localStorage.getItem('partidas');
-    const vitorias = localStorage.getItem('vitorias');
-    const derrotas = localStorage.getItem('derrotas');
     
     // Atualizar o conteúdo dos elementos HTML
     if (nome) {
@@ -80,21 +78,51 @@ document.getElementById('atualizacao-perfil').addEventListener('click', function
     if (nascimento) {
         const idade = calcularIdade(nascimento);
         document.getElementById('idade-usuario-perfil').textContent = `(${idade} anos)`;
-    };
-    if (partidas) {
-        document.getElementById('num-partidas').textContent = partidas;
-    };
-    if (vitorias) {
-        document.getElementById('num-vitorias').textContent = vitorias;
-    };
-    if (derrotas) {
+    }
+
+    try {
+        const response = await fetch('https://api-noob-1.onrender.com/api/atividades');
+        const atividades = await response.json();
+
+        let contador_partidas = 0;
+        let contador_vitorias= 0;
+        
+
+        atividades.forEach(atividade => {
+            // Contar ocorrências no array de usuários
+            atividade.usuarios.forEach(usuario => {
+                if (usuario.nome === apelido) {
+                    contador_partidas++;
+                }
+            });
+
+            // Contar ocorrências no array de vencedores
+            atividade.vencedor.forEach(vencedor => {
+                if (vencedor.nome === apelido) {
+                    contador_vitorias++;
+                }
+            });
+        });
+
+        const derrotas = contador_partidas - contador_vitorias;
+
+        document.getElementById('num-partidas').textContent = contador_partidas;
+        document.getElementById('num-vitorias').textContent = contador_vitorias;
         document.getElementById('num-derrotas').textContent = derrotas;
-    };
+
+        localStorage.setItem('partidas', contador_partidas);
+        localStorage.setItem('vitorias', contador_vitorias);
+        localStorage.setItem('derrotas', derrotas);
+
+    } catch (error) {
+        console.error('Erro ao buscar as avaliações:', error);
+    }
+
+});
 </script>
 
-
 <script src="../componentes/script-geral.js"></script>
-<script src="../componentes/script-rede.js"></script>
+<script src="../componentes/script-rede.js" type="module"></script>
 <script src="../componentes/script-login.js"></script>
 </body>
 </html>
