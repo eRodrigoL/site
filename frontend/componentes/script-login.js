@@ -28,7 +28,7 @@ document.getElementById('btnLogin').addEventListener('click', async function(eve
         localStorage.setItem('login', apelido);
         alert('Usuário logado com sucesso!');
         console.log('Login bem-sucedido');
-        window.location.href = '../paginas/rede.html'
+        window.location.href = '../paginas/lista-jogos.html'
         // Faça o redirecionamento ou manipulação do DOM aqui
     })
     .catch(function(error) {
