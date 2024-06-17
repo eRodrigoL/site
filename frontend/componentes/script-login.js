@@ -20,18 +20,38 @@ document.getElementById('btnLogin').addEventListener('click', async function(eve
         },
         body: JSON.stringify(data)
     })
-    .then(function(response) {
+    .then(async function(response) {
         if (!response.ok) {
             //throw new Error('Erro ao fazer login: ' + response.statusText);
             return alert('Usuário não encontrado, ou senha incorreta. Por favor revisar!');
         }
+
+        const responseData = await response.json();
+
+        const { usuario } = responseData;
+
         localStorage.setItem('login', apelido);
-        alert('Usuário logado com sucesso!');
-        console.log('Login bem-sucedido');
-        window.location.href = '../paginas/lista-jogos.html'
+
+        localStorage.setItem('id', usuario.id);
+        localStorage.setItem('nome', usuario.nome);
+        localStorage.setItem('apelido', usuario.apelido);
+        localStorage.setItem('nascimento', usuario.nascimento);
+        localStorage.setItem('email', usuario.email);
+
+       alert('Usuário logado com sucesso!');
+       
+       //alert(`Usuário logado com sucesso!\nNome: ${usuario.nome}\nApelido: ${usuario.apelido}\nEmail: ${usuario.email}\nData de Nascimento: ${usuario.nascimento}`);
+        
+       alert(`Usuário logado com sucesso!\nid: ${usuario.id}`);
+
+       console.log('Login bem-sucedido');
+        window.location.href = '../paginas/rede.html'
         // Faça o redirecionamento ou manipulação do DOM aqui
     })
     .catch(function(error) {
         console.error(error);
     });
 });
+
+
+
