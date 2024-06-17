@@ -37,6 +37,7 @@
         </div>
          
         <button id="atualizacao-perfil" style="margin-top: 10px;">Atualizar perfil</button>
+   
     </div>
     <div class="colunas coluna2rede" id="colunas">
         <div class="scrollable" id="contentContainerRede">
@@ -47,9 +48,52 @@
         <div class="blocos">Espaço do jaba</div>
     </div>
 </main>
+<script>
+
+function calcularIdade(dataNascimento) {
+    const hoje = new Date();
+    const nascimento = new Date(dataNascimento);
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+    const mes = hoje.getMonth() - nascimento.getMonth();
+    if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+        idade--;
+    }
+    return idade;
+}
+
+// Abre a tela de atualização de perfil ao clicar
+document.getElementById('atualizacao-perfil').addEventListener('click', function() {
+    window.location.href = 'alterar-perfil.html';
+});
+
+    const nome = localStorage.getItem('nome');
+    const nascimento = localStorage.getItem('nascimento');
+    const apelido = localStorage.getItem('apelido');
+    const partidas = localStorage.getItem('partidas');
+    const vitorias = localStorage.getItem('vitorias');
+    const derrotas = localStorage.getItem('derrotas');
+    
+    // Atualizar o conteúdo dos elementos HTML
+    if (nome) {
+        document.getElementById('nome-usuario-perfil').textContent = nome;
+    }
+    if (nascimento) {
+        const idade = calcularIdade(nascimento);
+        document.getElementById('idade-usuario-perfil').textContent = `(${idade} anos)`;
+    };
+    if (partidas) {
+        document.getElementById('num-partidas').textContent = partidas;
+    };
+    if (vitorias) {
+        document.getElementById('num-vitorias').textContent = vitorias;
+    };
+    if (derrotas) {
+        document.getElementById('num-derrotas').textContent = derrotas;
+    };
+</script>
+
 
 <script src="../componentes/script-geral.js"></script>
-<script src="../componentes/script-perfil.js" type="module"></script>
 <script src="../componentes/script-rede.js"></script>
 <script src="../componentes/script-login.js"></script>
 </body>
