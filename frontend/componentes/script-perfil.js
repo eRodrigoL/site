@@ -128,6 +128,11 @@ function calcularIdade(dataNascimento) {
     return idade;
 }
 
+// Abre a tela de atualização de perfil ao clicar
+document.getElementById('atualizacao-perfil').addEventListener('click', function() {
+    window.location.href = 'alterar-perfil.html';
+});
+
 // Carregar informações do usuário do localStorage
 document.addEventListener("DOMContentLoaded", async () => {
     const nome = localStorage.getItem('nome');
