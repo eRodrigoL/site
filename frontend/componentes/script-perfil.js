@@ -1,7 +1,6 @@
+  //..........GRÁFICO DESEMPENHO..........
 
 function atualizarGraficoDesempenho(dados){
-    //..........GRÁFICO DESEMPENHO..........
-
  // Cria o gráfico
  if (chart) {
     chart.destroy(); // Destroi o gráfico existente, se houver
@@ -36,62 +35,7 @@ var chart = new Chart(ctx, {
 });
 }
 
-//..........GRÁFICO DESEMPENHO POR CATEGORIA..........
-// Dados do gráfico
-/*var data = {
-    labels: ["Competitivos", "Competitivos de grupo", "Cooperativos", "Semi-cooperativos", "Solo", "Sorte", "Estratégia", "Destreza", "Outros"],
-    datasets: [{
-        label: "Vitórias por Categoria",
-        data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)],
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.5)',
-            'rgba(54, 162, 235, 0.5)',
-            'rgba(255, 206, 86, 0.5)',
-            'rgba(75, 192, 192, 0.5)',
-            'rgba(153, 102, 255, 0.5)',
-            'rgba(255, 159, 64, 0.5)',
-            'rgba(255, 99, 132, 0.5)',
-            'rgba(54, 162, 235, 0.5)',
-            'rgba(255, 206, 86, 0.5)'
-        ],
-        borderColor: 'rgba(255, 255, 255, 1)',
-        borderWidth: 2
-    }]
-};
-
-// Opções do gráfico
-var options = {
-    title: {
-        display: true,
-        text: 'Desempenho por Categoria'
-    },
-    scale: {
-        angleLines: {
-            display: false // Remover as linhas de ângulo
-        },
-        ticks: {
-            beginAtZero: true,
-            min: 0,
-            max: 100
-        }
-    },
-    animation: {
-        animateRotate: false, // Desativar a animação de rotação
-        animateScale: true
-    }
-};
-
-// Configurando o contexto do gráfico
-var ctx = document.getElementById('vitorias-catogoria').getContext('2d');
-
-// Criando o gráfico de área polar
-var myChart = new Chart(ctx, {
-    type: 'polarArea',
-    data: data,
-    options: options
-});*/
-
-// Criação do gráfico de vitórias por categoria
+  //..........GRÁFICO DE VITORIAS POR CATEGORIA..........
 var ctxVitorias = document.getElementById('vitorias-categoria').getContext('2d');
 var chartVitorias = new Chart(ctxVitorias, {
     type: 'polarArea',
@@ -138,47 +82,39 @@ var chartVitorias = new Chart(ctxVitorias, {
 });
 
 
-//..........GRÁFICO NÚMEOR DE DISPUTAS POR CATEGORIA..........
-// Dados do gráfico
-var data = {
-    labels: ["Competitivos", "Competitivos de grupo", "Cooperativos", "Semi-cooperativos", "Solo"],
-    datasets: [{
-        data: [Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), Math.floor(Math.random() * 100)],
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.5)',
-            'rgba(54, 162, 235, 0.5)',
-            'rgba(255, 206, 86, 0.5)',
-            'rgba(75, 192, 192, 0.5)',
-            'rgba(153, 102, 255, 0.5)'
-        ],
-        borderColor: 'rgba(255, 255, 255, 1)',
-        borderWidth: 2
-    }]
-};
-
-// Configurações do gráfico
-var options = {
-    title: {
-        display: true,
-        text: 'Disputas por Categoria'
-    }
-};
-
+//..........GRÁFICO NÚMERO DE DISPUTAS POR CATEGORIA..........
 // Configurando o contexto do gráfico
-var ctx = document.getElementById('disputas-categoria').getContext('2d');
+var ctxDisputas = document.getElementById('disputas-categoria').getContext('2d');
 
 // Criando o gráfico de rosca
-var myChart = new Chart(ctx, {
+var chartDisputas = new Chart(ctxDisputas, {
     type: 'doughnut',
-    data: data,
-    options: options
+    data: {
+        labels: ["Competitivos", "Competitivos de grupo", "Cooperativos", "Semi-cooperativos", "Solo", "Sorte", "Estratégia", "Destreza", "Outros"],
+        datasets: [{
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0], // Inicialmente vazio
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)',
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)'
+            ],
+            borderColor: 'rgba(255, 255, 255, 1)',
+            borderWidth: 2
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Disputas por Categoria'
+        }
+    }
 });
-
-// Abre a tela de atualização de perfil ao clicar
-document.getElementById('atualizacao-perfil').addEventListener('click', function() {
-    window.location.href = 'alterar-perfil.html';
-});
-
 
 // Função para calcular a idade a partir da data de nascimento
 function calcularIdade(dataNascimento) {
@@ -250,7 +186,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         /*document.getElementById('resultado').innerText = 'Erro ao buscar as avaliações.';*/
     }
 
-    
 });
 
 // Função para atualizar o gráfico de vitórias por categoria
@@ -315,4 +250,61 @@ async function atualizaGraficoVitoriaCategoria() {
 
 // Chama a função para atualizar o gráfico ao carregar a página
 document.addEventListener('DOMContentLoaded', atualizaGraficoVitoriaCategoria);
+
+
+// Função para atualizar o gráfico de número de disputas por categoria
+async function atualizaGraficoDisputasCategoria() {
+    try {
+        const responseJogos = await fetch('https://api-noob-1.onrender.com/api/jogos');
+        const jogos = await responseJogos.json();
+
+        const responseAtividades = await fetch('https://api-noob-1.onrender.com/api/atividades');
+        const atividades = await responseAtividades.json();
+
+        const disputasPorCategoria = {
+            "Competitivo": 0,
+            "Competitivo de grupo": 0,
+            "Cooperativo": 0,
+            "Semi-cooperativo": 0,
+            "Solo": 0,
+            "Sorte": 0,
+            "Estratégia": 0,
+            "Destreza": 0,
+            "Outros": 0
+        };
+
+        // Conta o número de disputas por categoria
+        atividades.forEach(atividade => {
+            const jogo = jogos.find(j => j.titulo === atividade.jogo[0].titulo);
+            if (jogo) {
+                const categoria = jogo.categoria;
+                if (disputasPorCategoria.hasOwnProperty(categoria)) {
+                    disputasPorCategoria[categoria]++;
+                } else {
+                    disputasPorCategoria["Outros"]++;
+                }
+            }
+        });
+
+        // Atualiza os dados do gráfico de disputas
+        chartDisputas.data.datasets[0].data = [
+            disputasPorCategoria["Competitivo"],
+            disputasPorCategoria["Competitivo de grupo"],
+            disputasPorCategoria["Cooperativo"],
+            disputasPorCategoria["Semi-cooperativo"],
+            disputasPorCategoria["Solo"],
+            disputasPorCategoria["Sorte"],
+            disputasPorCategoria["Estratégia"],
+            disputasPorCategoria["Destreza"],
+            disputasPorCategoria["Outros"]
+        ];
+
+        chartDisputas.update();
+    } catch (error) {
+        console.error('Erro ao atualizar o gráfico:', error);
+    }
+}
+
+// Chama a função para atualizar o gráfico ao carregar a página
+document.addEventListener('DOMContentLoaded', atualizaGraficoDisputasCategoria);
 
