@@ -55,3 +55,19 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', async fun
         alert('Erro ao cadastrar usuário');
     }
 });
+
+document.getElementById('foto-usuario').onchange = function (evt) {
+    var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+
+    // Verifica se foi selecionada alguma imagem
+    if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function () {
+            var img = document.getElementById('preview');
+            img.src = fr.result;
+            img.style.display = 'block'; // Exibe a imagem
+        }
+        fr.readAsDataURL(files[0]);
+    }
+};
