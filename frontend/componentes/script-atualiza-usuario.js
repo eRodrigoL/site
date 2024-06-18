@@ -5,6 +5,7 @@ function formatarData(data) {
 
 async function carregarDadosUsuario() {
     const id = localStorage.getItem('id');
+    const src = localStorage.getItem('src');
     if (!id) {
         console.error('ID do usuário não encontrado no localStorage.');
         return;
@@ -26,6 +27,12 @@ async function carregarDadosUsuario() {
             const dataFormatada = formatarData(usuario.nascimento);
             document.getElementById('nascimento-usuario').value = dataFormatada;
         }
+
+        // Atualizar o src da imagem se a URL estiver disponível
+        if (src) {
+            document.getElementById('preview').src = src;
+        }
+       
     } catch (error) {
         console.error('Erro ao carregar dados do usuário:', error);
         alert('Erro ao carregar dados do usuário.');
@@ -87,6 +94,22 @@ document.getElementById('atualizarUsuarios').addEventListener('submit', async fu
         alert('Erro ao atualizar usuário.');
     }
 });
+
+document.getElementById('upload').onchange = function (evt) {
+    var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+
+    // Verifica se foi selecionada alguma imagem
+    if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function () {
+            var img = document.getElementById('preview');
+            img.src = fr.result;
+            img.style.display = 'block'; // Exibe a imagem
+        }
+        fr.readAsDataURL(files[0]);
+    }
+};
 
 
  
