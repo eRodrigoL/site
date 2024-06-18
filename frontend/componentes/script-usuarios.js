@@ -8,7 +8,7 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', async fun
     const senha = document.getElementById('senha-usuario').value;
     const confirmacao = document.getElementById('confirmacao').value;
     const foto = document.getElementById('foto-usuario').files[0];
-    //const formulario = document.getElementById('cadastroUsuarios');
+    const formulario = document.getElementById('cadastroUsuarios');
 
     // Validar se os campos obrigatórios estão preenchidos
     if (!nome || !apelido || !email || !senha || !confirmacao) {
@@ -47,11 +47,27 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', async fun
 
         alert('Usuário cadastrado com sucesso!');
         
-        //formulario.clear();
-
+       
+        formulario.reset();
             
     } catch (error) {
         console.error('Erro:', error);
         alert('Erro ao cadastrar usuário');
     }
 });
+
+document.getElementById('foto-usuario').onchange = function (evt) {
+    var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+
+    // Verifica se foi selecionada alguma imagem
+    if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function () {
+            var img = document.getElementById('preview');
+            img.src = fr.result;
+            img.style.display = 'block'; // Exibe a imagem
+        }
+        fr.readAsDataURL(files[0]);
+    }
+};

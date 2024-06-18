@@ -1,35 +1,49 @@
 function formatarData(data) {
-    // Extrai apenas a parte da data (ano, mês e dia) da string
     const [ano, mes, dia] = data.split('T')[0].split('-');
     return `${ano}-${mes}-${dia}`;
 }
 
-// Preenche os dados no formulário
-document.addEventListener('DOMContentLoaded', function() {
-    // Recupera os dados do localStorage
-    const nome = localStorage.getItem('nome');
-    const apelido = localStorage.getItem('apelido');
-    const email = localStorage.getItem('email');
-    const nascimento = localStorage.getItem('nascimento');
+async function carregarDadosUsuario() {
+    const id = localStorage.getItem('id');
+    const src = localStorage.getItem('src');
+    if (!id) {
+        console.error('ID do usuário não encontrado no localStorage.');
+        return;
+    }
 
-    // Preenche os campos do formulário com os dados recuperados
-    if (nome) {
-        document.getElementById('nome-usuario').value = nome;
-    }
-    if (apelido) {
-        document.getElementById('apelido-usuario').value = apelido;
-    }
-    if (email) {
-        document.getElementById('email-usuario').value = email;
-    }
-    if (nascimento) {
-        const dataFormatada = formatarData(nascimento);
-        document.getElementById('nascimento-usuario').value = dataFormatada;
-    }
-});
+    try {
+        const response = await fetch(`https://api-noob-1.onrender.com/api/usuarios/${id}`);
+        if (!response.ok) {
+            throw new Error(`Erro ao buscar dados do usuário: ${response.statusText}`);
+        }
 
-const form = document.getElementById('atualizarUsuarios');
-form.addEventListener('submit', async function(event) {
+        const usuario = await response.json();
+
+        // Preencher os campos do formulário com os dados do usuário
+        document.getElementById('nome-usuario').value = usuario.nome || '';
+        document.getElementById('apelido-usuario').value = usuario.apelido || '';
+        document.getElementById('email-usuario').value = usuario.email || '';
+        if (usuario.nascimento) {
+            const dataFormatada = formatarData(usuario.nascimento);
+            document.getElementById('nascimento-usuario').value = dataFormatada;
+        }
+
+        // Atualizar o src da imagem se a URL estiver disponível
+        if (src) {
+            document.getElementById('preview').src = src;
+        }
+       
+    } catch (error) {
+        console.error('Erro ao carregar dados do usuário:', error);
+        alert('Erro ao carregar dados do usuário.');
+    }
+}
+
+// Executar a função quando o conteúdo do DOM estiver carregado
+document.addEventListener('DOMContentLoaded', carregarDadosUsuario);
+
+
+document.getElementById('atualizarUsuarios').addEventListener('submit', async function(event) {
     event.preventDefault(); // Impede o comportamento padrão do formulário
 
     const id = localStorage.getItem('id');
@@ -40,6 +54,7 @@ form.addEventListener('submit', async function(event) {
     const email = document.getElementById('email-usuario').value;
     const nascimento = document.getElementById('nascimento-usuario').value;
     const file = document.getElementById('upload').files[0];
+    
 
     const formData = new FormData();
     formData.append('nome', nome);
@@ -67,10 +82,10 @@ form.addEventListener('submit', async function(event) {
 
             alert('Usuário atualizado com sucesso!');
             // Atualiza os dados no localStorage
-            localStorage.setItem('nome', responseData.usuario.nome);
+           /* localStorage.setItem('nome', responseData.usuario.nome);
             localStorage.setItem('apelido', responseData.usuario.apelido);
             localStorage.setItem('email', responseData.usuario.email);
-            localStorage.setItem('nascimento', responseData.usuario.nascimento);
+            localStorage.setItem('nascimento', responseData.usuario.nascimento);*/
         } else {
             alert(`Erro ao atualizar usuário: ${responseData.msg}`);
         }
@@ -79,6 +94,24 @@ form.addEventListener('submit', async function(event) {
         alert('Erro ao atualizar usuário.');
     }
 });
+
+document.getElementById('upload').onchange = function (evt) {
+    var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+
+    // Verifica se foi selecionada alguma imagem
+    if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function () {
+            var img = document.getElementById('preview');
+            img.src = fr.result;
+            img.style.display = 'block'; // Exibe a imagem
+        }
+        fr.readAsDataURL(files[0]);
+    }
+};
+
+
  
 
 

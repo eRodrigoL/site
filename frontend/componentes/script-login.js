@@ -37,12 +37,13 @@ document.getElementById('btnLogin').addEventListener('click', async function(eve
         localStorage.setItem('apelido', usuario.apelido);
         localStorage.setItem('nascimento', usuario.nascimento);
         localStorage.setItem('email', usuario.email);
+        localStorage.setItem('src', usuario.src);
 
        alert('Usuário logado com sucesso!');
        
        //alert(`Usuário logado com sucesso!\nNome: ${usuario.nome}\nApelido: ${usuario.apelido}\nEmail: ${usuario.email}\nData de Nascimento: ${usuario.nascimento}`);
         
-       alert(`Usuário logado com sucesso!\nid: ${usuario.id}`);
+      // alert(`Usuário logado com sucesso!\nid: ${usuario.id}`);
 
        console.log('Login bem-sucedido');
         window.location.href = '../paginas/rede.html'

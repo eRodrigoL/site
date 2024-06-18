@@ -13,10 +13,8 @@
     <div class="colunas colunaNOVOjogo" id="colunas">
         <div class="scrollable" id="contentContainer">
             <div class="principal">
-                <div id="preview-container"><img id="preview-img" src="../imagens/perfis/foto.png" alt="Foto de perfil" style="width: 150px; height: auto;"></div><br>
+                <img id="preview" src="#" alt="Pré-visualização da imagem" style="max-width: 100%; max-height: 200px; display: none;"><br><br>
                 <form id="atualizarUsuarios" action="" method="post" enctype="multipart/form-data">
-                    <label>Foto: </label>
-                    <input type="file" name="file" id="upload" accept="image/*"><br><br>
                 <!--<button id="btn-salvar-img" style="margin-top: 10px;">Salvar</button>-->
                     <label>Nome: </label>
                     <input type="text" id="nome-usuario" name="nome" size="60" placeholder="Obrigatório"><br><br>
@@ -26,6 +24,8 @@
                     <input type="date" id="nascimento-usuario" name="dataNascimento" placeholder="Opcional"><br><br>
                     <label>Email: </label>
                     <input type="text" id="email-usuario" name="email" size="60" placeholder="Obrigatório"><br><br>
+                    <label>Foto: </label>
+                    <input type="file" name="file" id="upload" accept="image/*"><br><br>
                     <button type="submit" id="btnAtualizarUsuario"> Atualizar</Button>
                     <button type="reset" id="btnCancelar">Cancelar</button>
                 </form>
@@ -36,8 +36,7 @@
 
 </body>
 <script src="../componentes/script-geral.js"></script>
-<script src="../componentes/script-atualiza-usuario.js"></script>
+<script src="../componentes/script-atualiza-usuario.js" type="module"></script>
 <script src="../componentes/script-login.js"></script>
 <script src="../componentes/script-perfil.js" type="module"></script>
-<script src="../componentes/script-atualiza-foto.js"></script>
 </html>

@@ -138,6 +138,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const nome = localStorage.getItem('nome');
     const nascimento = localStorage.getItem('nascimento');
     const apelido = localStorage.getItem('apelido');
+    const src = localStorage.getItem('src');
+
+    // Adiciona um log para verificar o valor de 'src'
+    console.log('Valor de src:', src);
     
     // Atualizar o conteúdo dos elementos HTML
     if (nome) {
@@ -146,6 +150,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (nascimento) {
         const idade = calcularIdade(nascimento);
         document.getElementById('idade-usuario-perfil').textContent = `(${idade} anos)`;
+    }
+    // Verifica se o valor existe e define o atributo 'src' da imagem
+    if (src) {
+        document.getElementById('preview-img').src = src;
     }
 
     try {
@@ -183,8 +191,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById('num-partidas').textContent = contador_partidas;
         document.getElementById('num-vitorias').textContent = contador_vitorias;
         document.getElementById('num-derrotas').textContent = derrotas;
-
-       
 
     } catch (error) {
         console.error('Erro ao buscar as avaliações:', error);

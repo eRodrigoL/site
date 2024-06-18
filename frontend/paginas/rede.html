@@ -22,7 +22,8 @@
                     <div style="float: left; width: 50%"><p>Seguindo <b>309</b></p></div>
                 </div>
             </div>
-            <div id="preview-container"><img id="preview-img" src="../imagens/perfis/foto.png" alt="Foto de perfil"></div>
+            <!--<div id="preview-container"><img id="preview-img" src="../imagens/perfis/foto.png" alt="Foto de perfil"></div>-->
+            <img id="preview-img" src="../imagens/perfis/foto.png" alt="Foto de perfil" style="max-width: 100%; max-height: 200px;">
             <div class="resumo">
                 <p>Já esteve em: <b id="num-partidas">236</b><i> PARTIDAS</i></p>
                 <div style="float: left; width: 50%;">
@@ -37,6 +38,7 @@
         </div>
          
         <button id="atualizacao-perfil" style="margin-top: 10px;">Atualizar perfil</button>
+   
     </div>
     <div class="colunas coluna2rede" id="colunas">
         <div class="scrollable" id="contentContainerRede">
@@ -47,10 +49,86 @@
         <div class="blocos">Espaço do jaba</div>
     </div>
 </main>
+<script>
+
+function calcularIdade(dataNascimento) {
+    const hoje = new Date();
+    const nascimento = new Date(dataNascimento);
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+    const mes = hoje.getMonth() - nascimento.getMonth();
+    if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+        idade--;
+    }
+    return idade;
+}
+
+// Abre a tela de atualização de perfil ao clicar
+document.getElementById('atualizacao-perfil').addEventListener('click', function() {
+    window.location.href = 'alterar-perfil.html';
+});
+
+    document.addEventListener("DOMContentLoaded", async () => {
+    const nome = localStorage.getItem('nome');
+    const nascimento = localStorage.getItem('nascimento');
+    const apelido = localStorage.getItem('apelido');
+    const src = localStorage.getItem('src');
+    
+    // Atualizar o conteúdo dos elementos HTML
+    if (nome) {
+        document.getElementById('nome-usuario-perfil').textContent = nome;
+    }
+    if (nascimento) {
+        const idade = calcularIdade(nascimento);
+        document.getElementById('idade-usuario-perfil').textContent = `(${idade} anos)`;
+    }
+    // Verifica se o valor existe e define o atributo 'src' da imagem
+    if (src) {
+        document.getElementById('preview-img').src = src;
+    }
+
+    try {
+        const response = await fetch('https://api-noob-1.onrender.com/api/atividades');
+        const atividades = await response.json();
+
+        let contador_partidas = 0;
+        let contador_vitorias= 0;
+        
+
+        atividades.forEach(atividade => {
+            // Contar ocorrências no array de usuários
+            atividade.usuarios.forEach(usuario => {
+                if (usuario.nome === apelido) {
+                    contador_partidas++;
+                }
+            });
+
+            // Contar ocorrências no array de vencedores
+            atividade.vencedor.forEach(vencedor => {
+                if (vencedor.nome === apelido) {
+                    contador_vitorias++;
+                }
+            });
+        });
+
+        const derrotas = contador_partidas - contador_vitorias;
+
+        document.getElementById('num-partidas').textContent = contador_partidas;
+        document.getElementById('num-vitorias').textContent = contador_vitorias;
+        document.getElementById('num-derrotas').textContent = derrotas;
+
+        localStorage.setItem('partidas', contador_partidas);
+        localStorage.setItem('vitorias', contador_vitorias);
+        localStorage.setItem('derrotas', derrotas);
+
+    } catch (error) {
+        console.error('Erro ao buscar as avaliações:', error);
+    }
+
+});
+</script>
 
 <script src="../componentes/script-geral.js"></script>
-<script src="../componentes/script-perfil.js" type="module"></script>
-<script src="../componentes/script-rede.js"></script>
+<script src="../componentes/script-rede.js" type="module"></script>
 <script src="../componentes/script-login.js"></script>
 </body>
 </html>

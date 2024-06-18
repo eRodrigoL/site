@@ -156,22 +156,40 @@ document.addEventListener('DOMContentLoaded', async function() {
     document.getElementById('btnCadastrarJogo').addEventListener('click', async function(event) {
         event.preventDefault();
 
-        const formData = new FormData(formularioCadastro);
-        const userData = {};
-        formData.forEach((value, key) => {
-            userData[key] = value;
-        });
+        const titulo = document.getElementById('titulo-jogo').value;
+        const ano = document.getElementById('ano-jogo').value;
+        const idade = document.getElementById('idade-recomendada-jogo').value;
+        const designer = document.getElementById('designer-jogo').value;
+        const artista = document.getElementById('artista-jogo').value;
+        const editora = document.getElementById('editora-jogo').value;
+        const digital = document.getElementById('digital-jogo').value;
+        const categoria= document.getElementById('categoria-jogo').value;
+        const componentes = document.getElementById('componentes-jogo').value;
+        const descricao = document.getElementById('descricao-jogo').value;
+        const capa = document.getElementById('capa-jogo').files[0];
 
-        console.log("Dados do formulário:", userData);
+        const formData = new FormData();
+        formData.append('titulo', titulo);
+        formData.append('ano', ano);
+        formData.append('idade', idade);
+        formData.append('designer', designer);
+        formData.append('artista', artista);
+        formData.append('editora', editora);
+        formData.append('digital', digital);
+        formData.append('categoria', categoria);
+        formData.append('componentes', componentes);
+        formData.append('descricao', descricao);
+        if (capa) {
+            formData.append('file', capa);
+        }
 
-        if (userData.titulo.trim() !== '') {
+        console.log('Form Data:', formData); // Log para depuração
+
+        if (titulo.trim() !== '') {
             try {
                 const response = await fetch('https://api-noob-1.onrender.com/api/jogos', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(userData)
+                    body: formData
                 });
 
                 console.log("Resposta do servidor:", response);
