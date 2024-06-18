@@ -12,6 +12,8 @@
           preview.src = e.target.result;
         };
 
+    
+
         // Lê o arquivo como uma URL de dados
         reader.readAsDataURL(input.files[0]);
       } else {
