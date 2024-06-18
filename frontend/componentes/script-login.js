@@ -37,6 +37,7 @@ document.getElementById('btnLogin').addEventListener('click', async function(eve
         localStorage.setItem('apelido', usuario.apelido);
         localStorage.setItem('nascimento', usuario.nascimento);
         localStorage.setItem('email', usuario.email);
+        localStorage.setItem('src', usuario.src);
 
        alert('Usuário logado com sucesso!');
        
