@@ -85,7 +85,11 @@ document.getElementById('atualizarUsuarios').addEventListener('submit', async fu
         console.log('Usuário atualizado:', data);
         carregarDadosUsuario();
 
-        
+        localStorage.setItem('nome', data.usuario.nome);
+        localStorage.setItem('apelido', data.usuario.apelido);
+        localStorage.setItem('nascimento', usuario.nascimento);
+        localStorage.setItem('email', data.usuario.email);
+
     } catch (error) {
         console.error('Erro:', error);
         alert('Erro ao atualizar usuário. Por favor, tente novamente.');
