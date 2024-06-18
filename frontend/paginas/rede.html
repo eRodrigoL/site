@@ -70,6 +70,7 @@ document.getElementById('atualizacao-perfil').addEventListener('click', function
     const nome = localStorage.getItem('nome');
     const nascimento = localStorage.getItem('nascimento');
     const apelido = localStorage.getItem('apelido');
+    const src = localStorage.getItem('src');
     
     // Atualizar o conteúdo dos elementos HTML
     if (nome) {
@@ -78,6 +79,10 @@ document.getElementById('atualizacao-perfil').addEventListener('click', function
     if (nascimento) {
         const idade = calcularIdade(nascimento);
         document.getElementById('idade-usuario-perfil').textContent = `(${idade} anos)`;
+    }
+    // Verifica se o valor existe e define o atributo 'src' da imagem
+    if (src) {
+        document.getElementById('preview-img').src = src;
     }
 
     try {
