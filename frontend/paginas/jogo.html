@@ -3,63 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noob Jogo</title>
-    <!-- Framework do carrossel de imagens -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title id="tituloPagina">Carregando...</title>
     <link rel="stylesheet" href="../componentes/styles.css">
-    <!-- fim do framework do carrossel -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Biblioteca para os gráficos -->
-    <script src="../componentes/script-geral.js"></script>
-    <script src="../componentes/script-jogo.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Bibliotéca para os gráficos -->
 </head>
 <body>
 
-<script src="../componentes/script-cabecalho.js"></script><!-- Com este script o <header></header> exibirá com conteúdo em ../complementos/header.html. OBS.: NÃO TESTEI SE ISSO ATRAPALHA A CONEXÃO DE LOGIN -->
+<script src="../componentes/script-cabecalho.js"></script><!-- Com este script o <header></header> exibirá com conteúdo em ../complementos/header.html. OBS.: NÃO TESTEI SE ISSO ATRAPALHO A CONEXÃO DE LOGIN -->
 <header></header>
 
 <main>
-    <div class="bloco-esquerda">
-        <!-- Bloco 1 - Bloco da esquerda -->
-        <div class="perfildojogo">
+    <div class="colunas coluna1" id="colunas">
+        <div class="blocos">
             <div>
-                <div style="display: inline;"><h1 style="display: inline;">Everdell</h1></div>
-                <h6>(2018)</h6>
-                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="../imagens/jogos/Everdell.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../imagens/jogos/Everdell_2.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../imagens/jogos/Everdell_3.jpg" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>          
+                <div style="display: inline;"><h2 style="display: inline;"><span id="tituloJogo"></span></h2> (<span id="ano"></span>)</div>
+                <div class="reduzido">
+                    <div style="float: left; width: 50%"><p>Possuem <b>134</b></p></div>
+                    <div style="float: left; width: 50%"><p>Desejam <b>50</b></p></div>
+                </div>
             </div>
-            <div class="comprar">
-                <p>R$ 420,00 &nbsp; (3,36)</p> <!-- Entre () quantos jogos se compra com um salário mínimo -->
-                <button onclick="window.open('#')">Comprar</button> <!-- Mudar "Comprar" para "Indisponível", quando se aplicar -->
+            <div><img id="capa" src="../../backend/uploads/1714174787744.jpg" alt="Capa do jogo"></div>
+            <div class="resumo">
+                <p><i>Nota </i><b class="nota">87</b><i></i></p>
+                <div class="dificuldade">
+                    <p style="display: inline-flex;"><b>Dificuldade </b></p>
+                    <input class="dificuldade" type="range" id="barraDificuldade" min="0" max="100" step="1" value="0">
+                    <div id="valorDificuldade" style="display: inline-flex;"> 0</div>
+                </div>
+                <div>
+                    <p><i class="competitivo">Competitivo</i></p>
+                </div>
+                <div>
+                    <p><i class="componentes">Dados, Cartas, Meeples</i></p>
+                </div>
             </div>
-            <div class="cadastrar-jogo">
+        </div>
+    </div>
+    <div class="colunas coluna2" id="colunas">
+        <div class="scrollable" id="contentContainer">
+            <div class="principal">
                 <button id="cadastrar-jogo">Cadastrar novo jogo</button>
-                <!-- Modal -->
+                <!-- ⬇⬇⬇ Modal ⬇⬇⬇ -->
                 <div id="modal" class="modal">
                     <div class="modal-content" id="modal-cadastrar-jogo">
-                    <!-- O conteúdo do arquivo HTML será carregado aqui -->
+                        <form id="cadastroJogos" action="" method="post">
+                            <label>Título: </label>
+                            <input type="text" id="titulo-jogo" size="60" name="titulo" placeholder="(Obrigatório)"><br><br>
+                            <label>Ano: </label>
+                            <input type="text" id="ano-jogo" size="4"  name="ano" placeholder="(Opcional) Digite o ano de lançamento do jogo."><br><br>
+                            <label>Idade: </label>
+                            <input type="number" id="idade-recomendada-jogo" name="idade" placeholder="(Opcional) Digite a idade mínima indicada."><br><br><!-- número para SE DER TEMPO por filtrar a pesquisa por idade mínima -->
+                            <label>Designer: </label>
+                            <input type="text" id="designer-jogo" size="60" name="designer" placeholder="(Opcional) Digite o(s) nome(s) do(s) designer(s) do jogo."><br><br>
+                            <label>Artista: </label>
+                            <input type="text" id="artista-jogo"  size="60" name="artista" placeholder="(Opcional) Digite o(s) nome(s) do(s) artista(s) do jogo."><br><br>
+                            <label>Editora: </label>
+                            <input type="text" id="editora-jogo" size="60" name="editora" placeholder="(Opcional) Digite o nome da editora do jogo"><br><br>
+                            <label>Versão digital: </label>
+                            <input type="url" id="digital-jogo" name="digital" placeholder="(Opcional) Digite o endereço web completo da versão digital."><br><br>
+                            <label>Categoria: </label>
+                            <input type="text" id="categoria-jogo" size="60" name="categoria" placeholder="(Opcional) Competitivo, competitivo em grupo, cooperativo, semicooperativo, solo"><br><br>
+                            <label>Componentes: </label>
+                            <input type="text" id="componentes-jogo" size="60" name="componentes" placeholder="(Opcional) Meeples, cartas, tabuleiro, moedas..."><br><br>
+                            <label>Descrição: </label>
+                            <textarea id="descricao-jogo" rows="5" cols="60" name="descricao" placeholder="(Opcional) Conte como este jogo é."></textarea><br><br>
+                            <div class="modal-buttons">
+                                <button type="button" id="btnCadastrarJogo">Adicionar jogo</button>
+                                <button type="button" id="btnCancelarJogo">Cancelar</button>
+                            </div>
+                            </form>
                     </div>
                 </div>
-
+                <!-- ⬆⬆⬆ Modal ⬆⬆⬆ -->
                 <div>________________________________________</div>
                 <div style="display: flex; align-items: center">
                     <div class="favorito">
@@ -83,63 +98,73 @@
                         <input type="radio" id="desconheco" name="opcao" value="desconheco">
                         <label for="desconheco">Desconheço</label>
                     </div>
-                    <div class="likes">
-                        <a href="#"><img src="../imagens/icones/like.png" height="20" alt="Ícone 1"></a>
-                        <a href="#"><img src="../imagens/icones/dislike.png" height="20" alt="Ícone 2"></a>
-                        123456 (nº like - dislike)
+                    
+                    <div class="comprar">
+                        <p>R$ 420,00 &nbsp; (3,36)</p> <!-- Entre () quantos jogos se compra com um sálario mínimo -->
+                        <button onclick="window.open('#')">Comprar</button> <!-- Mudar "Comprar" para "Indisponível", quando se aplicar -->
+                    </div>
+                </div>
+                <div>________________________________________</div>
+                
+                <div>
+                    <p><b>Idade: </b><span id="idade"></span></p>
+                    <p><b>Designer: </b><span id="designer"></span></p>
+                    <p><b>Artista: </b><span id="artista"></span></p>
+                    <p><b>Editora: </b><span id="editora"></span></p>
+                    <p><b>Versão digital: </b><span id="digital"></span></p>
+                </div>
+                <div>________________________________________</div>
+                <div>
+                    <p><b>Informações:</b></p>
+                    <p><b>Nota geral:</b> 80,8</p><br>
+                    <p><b>Tempo médio das partidas:</b> 87 min</p><br>
+
+                    <p><b>Categoria:</b> (competitivo, competitivo (grupo), cooperativo, semicooperativo, solo)</p><br>
+                    
+                    <div class="graficos-jogos1">
+                        <p><b>Avaliação: </b> (nota com a médi do gráfico)</p>
+                        <canvas id="avaliacao"></canvas>
+                    </div>
+                    <div class="graficos-jogos2">
+                        <p><b>Estilo: </b></p>
+                        <canvas id="estilo"></canvas>
+                    </div>
+                    <div class="graficos-jogos3">
+                        <p><b>Jpgabilidade: </b></p>
+                        <canvas id="jogabilidade"></canvas>
+                    </div>
+                </div>
+                <div>________________________________________</div>
+                <div>
+                    <b>Descrição: </b><span id="descricao"></span>
+                </div>
+                <div>________________________________________</div>
+                <div><b>Opiniões:</b>
+                    <div class="opinioes">
+                        <div>
+                            <img src="../imagens/perfis/foto.png" alt="Imagem" height="30">
+                            <b><em>Fulano de Tal</em></b>
+                        </div>
+                        <div>
+                            Texto da descrição                        
+                            <div>
+                                <p><b>Ruim----------------80,8---Bom</b></p>
+                            </div>
+                        </div>
+                        <div class="likes">
+                            <a href="#"><img src="../imagens/icones/like.png" height="20" alt="Ícone 1"></a>
+                            <a href="#"><img src="../imagens/icones/dislike.png" height="20" alt="Ícone 2"></a>
+                            123456 (nº like - dislike)
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Bloco 3 - Descrição do centro -->
-    <div class="descricao">
-        <div><b>Descrição:</b> Dentro do encantador vale de Everdell, sob os ramos das altas árvores, entre riachos calmos e poças musgosas, uma civilização de criaturas da floresta está prosperando e se expandindo. De Everfrost a Bellsong, muitos anos vieram e se foram, mas chegou a hora de estabelecer novos territórios e novas cidades. Você será o líder de um grupo de criaturas para realizar esta tarefa. Há edifícios para construir, personagens para encontrar, eventos para atender - você tem um ano ocupado à sua frente. Será que o sol brilhará mais na sua cidade antes que a lua do inverno se eleve?<br><br>
-        Everdell é um jogo dinâmico de construção de tabuleiro e alocação de trabalhadores.</div>
-        <div><b>Informações Gerais</b></div>
-        <div>
-            <p><b>Idade:</b> +13</p>
-            <p><b>Designer:</b> James A. Wilson</p>
-            <p><b>Artista:</b> Andrew Bosley, Dann May</p>
-            <p><b>Editora:</b> Galápagos (BR), CMON Global Limited (US)</p>
-            <p><b>Versão digital:</b> <a href="#">Sim</a></p>
-        </div>
-        <div><b>Última avaliação:</b>
-            <div class="opinioes">
-                <div>
-                    <img src="../imagens/perfis/foto.png" alt="Imagem" height="30">
-                    <b><em>Victor Myke</em></b>
-                </div>
-                <div>
-                    O melhor jogo que já joguei!!!                        
-                    <div>
-                        <p><b>Ruim----------------80,8---Bom</b></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bloco 4 - Gráficos à direita -->
-    <div class="principal">
-        <div class="grafico-container-avaliacao">
-            <p><b>Avaliação: </b> (nota com a média do gráfico)</p>
-            <canvas id="avaliacao"></canvas>
-        </div>
-        <div class="grafico-container-estilo">
-            <p><b>Estilo: </b></p>
-            <canvas id="estilo"></canvas>
-        </div>
-        <div class="grafico-container-jogabilidade">
-            <p><b>Jogabilidade: </b></p>
-            <canvas id="jogabilidade"></canvas>
         </div>
     </div>
 </main>
 
 <script src="../componentes/script-geral.js"></script>
 <script src="../componentes/script-jogo.js" type="module"></script>
-
+<script src="../componentes/script-login.js"></script>
 </body>
 </html>

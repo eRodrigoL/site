@@ -84,7 +84,7 @@ const jogoController = {
             digital: req.body.digital,
             categoria: req.body.categoria,
             componentes: req.body.componentes,
-            descricao: req.body.descricao
+            descricao: req.body.descricao,
         };
 
         const updatedJogo = await JogoModel.findByIdAndUpdate(id, jogo)

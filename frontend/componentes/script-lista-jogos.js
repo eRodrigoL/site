@@ -4,7 +4,7 @@ let items = [];
 
 async function fetchItems() {
     try {
-        const response = await fetch('https://api-noob.onrender.com/api/jogos');
+        const response = await fetch('https://api-noob-1.onrender.com/api/jogos');
         if (!response.ok) {
             throw new Error(`Erro HTTP! status: ${response.status}`);
         }
@@ -27,13 +27,15 @@ function renderItems() {
         const itemElement = document.createElement('div');
         itemElement.className = 'jogo-item';
 
-        const imgSrc = item.img || '../../backend/uploads/1714174787743.jpg';
+        const imgSrc = item.capa || '../../backend/uploads/1714174787744.jpg';
         const categoria = item.categoria || '(categoria não informada)';
 
         itemElement.innerHTML = `
-            <img src="${imgSrc}" alt="${item.titulo}">
-            <h3>${item.titulo}</h3>
-            <p>${categoria}</p>
+            <a href="jogo.html?id=${item._id}">
+                <img src="${imgSrc}" alt="${item.titulo}">
+                <h3>${item.titulo}</h3>
+                <p>${categoria}</p>
+            </a>
         `;
         
         listaJogo.appendChild(itemElement);

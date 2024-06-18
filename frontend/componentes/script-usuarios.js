@@ -1,5 +1,4 @@
-
-document.getElementById('cadastroUsuarios').addEventListener('submit', async function (event) {
+document.getElementById('cadastroUsuarios').addEventLidescricaostener('submit', async function (event) {
     event.preventDefault();
 
     const nome = document.getElementById('nome-usuario').value;
@@ -8,9 +7,10 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', async fun
     const email = document.getElementById('email-usuario').value;
     const senha = document.getElementById('senha-usuario').value;
     const confirmacao = document.getElementById('confirmacao').value;
+    const foto = document.getElementById('foto-usuario').files[0];
 
-       // Validar se os campos obrigatórios estão preenchidos
-       if (!nome || !apelido || !email || !senha || !confirmacao) {
+    // Validar se os campos obrigatórios estão preenchidos
+    if (!nome || !apelido || !email || !senha || !confirmacao) {
         alert('Por favor, preencha todos os campos obrigatórios.');
         return;
     }
@@ -21,35 +21,41 @@ document.getElementById('cadastroUsuarios').addEventListener('submit', async fun
         return;
     }
 
-    const dados = {
-        nome: nome,
-        apelido: apelido,
-        nascimento: nascimento,
-        email: email,
-        senha: senha
-    };
+    const formData = new FormData();
+    formData.append('nome', nome);
+    formData.append('apelido', apelido);
+    formData.append('nascimento', nascimento);
+    formData.append('email', email);
+    formData.append('senha', senha);
+    if (foto) {
+        formData.append('file', foto);
+    }
+
+    console.log('Form Data:', formData); // Log para depuração
+    
+    formData.append('nome', nome);
+    formData.append('apelido', apelido);
+    formData.append('nascimento', nascimento);
+    formData.append('email', email);
+    formData.append('senha', senha);
+    if (foto) {
+        formData.append('file', foto);
+    }
 
     try {
-        const response = await fetch('https://api-noob.onrender.com/api/usuarios', {
+        const response = await fetch('https://api-noob-1.onrender.com/api/usuarios', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dados)
+            body: formData
         });
 
         if (!response.ok) {
-           return alert('O apelido ou email já está em uso!');
+            const errorMessage = await response.json();
+            return alert(errorMessage.message);
         }
 
-        //const resultado = await response.json();
-        return alert('Usuário cadastrado com sucesso!');
-        //console.log(resultado);
-        
+        alert('Usuário cadastrado com sucesso!');
     } catch (error) {
         console.error('Erro:', error);
         alert('Erro ao cadastrar usuário');
     }
 });
-
-

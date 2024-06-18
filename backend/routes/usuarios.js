@@ -1,12 +1,10 @@
 const router = require("express").Router()
-
 const usuarioController = require("../controllers/usuarioController");
-
 const upload = require("../config/multer");
 
 // Funções
 
-//router.post("/usuarios", upload.single("file"), usuarioController.create);
+router.post("/usuarios", upload.single("file"), usuarioController.create);// descomentado
 
 router.route("/usuarios").post((req, res) => usuarioController.create(req,res));
 
@@ -16,9 +14,9 @@ router.route("/usuarios/:id").get((req,res) =>usuarioController.get(req, res));
 
 router.route("/usuarios/:id").delete((req,res) =>usuarioController.delete(req, res));
 
-//router.route("/usuarios/:id").put((req,res) =>usuarioController.update(req, res));
+router.route("/usuarios/:id").put((req,res) =>usuarioController.update(req, res));
 
-router.put("/usuarios/:id", upload.single("file"), usuarioController.update);
+//router.put("/usuarios/:id", upload.single("file"), usuarioController.update);
 
 module.exports = router;
 

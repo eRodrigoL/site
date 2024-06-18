@@ -1,184 +1,469 @@
-/*Css de todas as paginas */
+/* ⬇ ⬇ ⬇ ⬇ ⬇ NOME DO TRECHO ⬇ ⬇ ⬇ ⬇ ⬇ */
+/* ⬆ ⬆ ⬆ ⬆ ⬆ NOME DO TRECHO ⬆ ⬆ ⬆ ⬆ ⬆ */
 
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
-    background-color: #000000;
+    background-color: #51cdfa;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    overflow: hidden; /* Para remover a barra de rolagem */
 }
 
-/* Formatação CABEÇALHO */
+/* ⬇ ⬇ ⬇ ⬇ ⬇ CABEÇALHO ⬇ ⬇ ⬇ ⬇ ⬇ */
 header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #00adec;
+    color: #fff;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 10;
 }
+header h1 {
+    margin: 0;
+}
 
-/* Formatação COLUNAS */
+.logo {
+    min-width: 100px;
+}
+.links {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+.login {
+    background-color: rgb(14, 16, 156);
+    min-width: 200px;
+}
+
+.links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* ..........FORMATAÇÃO Login.......... */
+.login {
+    text-align: right;
+}
+/* Estilo para o campo de entrada */
+input[type="text"], input[type="password"] {
+    padding: 4px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/* Estilo para o texto dentro do campo quando o placeholder está sendo exibido */
+input[type="text"]::placeholder,
+        input[type="password"]::placeholder {
+    color: #999; /* Cor do texto do placeholder */
+}
+
+/* Estilo para o texto dentro do campo quando o placeholder não está sendo exibido */
+input[type="text"]:not(:placeholder-shown) {
+    color: #000; /* Cor do texto digitado */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilos para o cabeçalho e menu */
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #00adec;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+header h1 {
+    margin: 0;
+}
+
+.logo {
+    min-width: 100px;
+}
+.links {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+.login {
+    background-color: rgb(14, 16, 156);
+    min-width: 200px;
+}
+
+.links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Estilo para o campo de entrada */
+input[type="text"], input[type="password"] {
+    padding: 4px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo para o texto dentro do campo quando o placeholder está sendo exibido */
+input[type="text"]::placeholder,
+input[type="password"]::placeholder {
+    color: #999; /* Cor do texto do placeholder */
+}
+
+/* Estilo para o texto dentro do campo quando o placeholder não está sendo exibido */
+input[type="text"],
+input[type="password"] {
+    color: #000; /* Cor do texto digitado */
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.menu {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.menu a:hover {
+    background-color: #f0f0f0;
+}
+/* ⬆ ⬆ ⬆ ⬆ ⬆ CABEÇALHO ⬆ ⬆ ⬆ ⬆ ⬆ */
+
+/* ..........FORMATAÇÃO COLUNAS.......... */
 main {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    gap: 20px; /* Adiciona espaço entre os blocos */
+    padding: 0px;
+    margin: 0;
     overflow: hidden; /* Para evitar que haja espaços extras */
 }
-
-/* Formatação BLOCO PRINCIPAL */
-.bloco-esquerda {
-    background-color: #ECDDD3;
-    border: 10px solid #ECDDD3; /* Adiciona uma borda cinza para separar visualmente os blocos */
-    border-radius: 10px; /* Arredondando os cantos dos blocos */
-    overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
-    margin-bottom: 20px; /* Adiciona espaço entre os blocos */
-    padding: 10px;
-    flex: 1; /* Ajustes de largura para os blocos */
-    max-width: 30%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
+.colunas {
+    padding: 0px;
+    margin: 0 10px; /* Margem nas laterais */
+    overflow: hidden;
 }
-.descricao {
-    flex-grow: 2; /* Faz com que o bloco 3 ocupe mais espaço no centro */
-    background-color: #000000;
-    border: 10px solid #000000; /* Adiciona uma borda cinza para separar visualmente os blocos */
-    border-radius: 10px; /* Arredondando os cantos dos blocos */
-    overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
-    margin-bottom: 20px; /* Adiciona espaço entre os blocos */
+.coluna1 {
+    width: 25%;
+}
+.coluna2 {
+    width: 75%;
+}
+.coluna2rede {
+    width: 50%;
+}
+.coluna3 {
+    width: 25%;
+}
+.colunaNOVOjogo {
+    width: 100%;
+}
+
+/* ..........FORMATAÇÃO BLOCOS.......... */
+.blocos {
+    border-radius: 10px;
     padding: 10px;
-    flex: 1; /* Ajustes de largura para os blocos */
-    max-width: 30%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
+    background-color: #83ddfd;
+    overflow: hidden;
+}
+.resumo > * {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* ..........FORMATAÇÃO BLOCO PERFIL DE USUÁRIO E JOGO.......... */
+.blocos img {
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+}
+.reduzido {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+
+/* ⬇ ⬇ ⬇ ⬇ ⬇ ROLAGEM INFINITA ⬇ ⬇ ⬇ ⬇ ⬇ */
+.scrollable {
+    /*C U I D A D O    A O     M U D A R     este bloco scrollable*/
+    overflow-y: scroll; /* Mantém o overflow como scroll */
+    background-color: #51cdfa;
+    scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
+    -ms-overflow-style: none; /* Esconde a barra de rolagem no Internet Explorer e Edge */
+}
+.scrollable::-webkit-scrollbar {
+    display: none; /* Esconde a barra de rolagem no Chrome e Safari */
+}
+/* ⬆ ⬆ ⬆ ⬆ ⬆ ROLAGEM INFINITA ⬆ ⬆ ⬆ ⬆ ⬆ */
+
+.titulo-postagem {
+    font-size: 1.3em; /* tamanho da fonte do nome de quem postou */
+}
+.date-time-location {
+    font-size: 0.8em; /* tamanho da fonte do momento da postagem */
 }
 .principal {
-    flex-grow: 2; /* Faz com que o bloco 3 ocupe mais espaço no centro */
-    background-color: #ECDDD3;
-    border: 10px solid #ECDDD3; /* Adiciona uma borda cinza para separar visualmente os blocos */
-    border-radius: 10px; /* Arredondando os cantos dos blocos */
+    background-color: #83ddfd;
+    border: 10px solid #83ddfd; /* Adiciona uma borda cinza para separar visualmente os blocos */
+    border-radius: 10px; /* Arredonda os cantos dos blocos */
     overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
-    margin-bottom: 20px; /* Adiciona espaço entre os blocos */
-    padding: 10px;
-    flex: 1; /* Ajustes de largura para os blocos */
-    max-width: 30%; /* Garante que os blocos 1, 2 e 4 tenham o mesmo tamanho */
+}
+.opinioes {
+    background-color: #b0eafe;
+}
+.postagens {
+    /*E S P A Ç O    E N T R E    C A D A    P O S T A G E M*/
+    margin-bottom: 20px; /* Adiciona uma margem de 20 pixels entre cada bloco */
 }
 
-/* Ajustes no carrossel de imagens */
+/* ..........CAIXA DE SELEÇÃO E DE OPÇÃO E COMPRAR.......... */
+.favorito {
+    width: 20%;
+}
+.favorito input {
+    margin-right: 5px;
+}
+.posse {
+    width: 60%;
+}
+.posse input {
+    margin-right: 5px;
+}
+.posse label {
+    margin-right: 20px;
+}
+.comprar {
+    width: 20%;
+    border: 1px solid #379c69;
+}
+
+/* ..........GRÁFICOS.......... */
+.graficos-jogos1 {
+    height: 500px;
+}
+.graficos-jogos2 {
+    height: 300px;
+}
+.graficos-jogos3 {
+    height: 400px;
+}
+.graficos-jogos4 {
+    height: 300px;
+}
+.graficos-jogos5 {
+    height: 500px;
+}
+.graficos-jogos6 {
+    height: 400px;
+}
+.graficos-jogos7 {
+    height: 400px;
+}
+.coluna1 .dificuldade {
+    display: inline;
+    width: 55%;
+}
+
+
+
+/* ................lita...........*/
+body {
+    font-family: Arial, sans-serif;
+}
+
+.lista-jogos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.jogo-item {
+    background-color: #b0eafe;
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.jogo-item img {
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+}
+
+.jogo-item h3 {
+    margin: 10px 0 5px;
+}
+
+.jogo-item p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+#pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#pagination button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+#pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+/*.............lista..............*/
+
+
+/*.................modal..........*/
+/* Estilos para o modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#btnCancelarJogo {
+    background-color: #f44336;
+    color: white;
+}
+
+#btnCadastrarJogo {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/*.................modal..........*/
+
+/* ⬇ ⬇ ⬇ ⬇ ⬇ CARROSSEL ⬇ ⬇ ⬇ ⬇ ⬇ */
 #carouselExample {
     width: 100%; /* Ajuste a largura conforme necessário */
     margin: 0 auto; /* Centraliza o carrossel */
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 75%;
     overflow: hidden; /* Garante que o conteúdo do carrossel não afete o layout */
 }
 
 .carousel-inner {
     width: 100%;
-    height: 348px; /* Altura fixa do carrossel */
+    height: 320px; /* Altura fixa do carrossel */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .carousel-item {
-    width: 100%; /* Garante que cada item preencha a largura do carrossel */
-    height: 348px; /* Altura fixa para evitar mudanças */
+    width: 340%; /* Garante que cada item preencha a largura do carrossel */
+    height: 340px; /* Altura fixa para evitar mudanças */
+    border-radius: 10px; /* Arredondando os cantos dos blocos */
+    overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
 }
+/* ⬆ ⬆ ⬆ ⬆ ⬆ CARROSSEL ⬆ ⬆ ⬆ ⬆ ⬆ */
 
-.carousel-item img {
+.sobre {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha o item do carrossel sem distorção */
 }
-
-
-/* CSS para organizar os blocos */
-.blocos {
-    background-color: #ECDDD3;
-    border: 10px solid #ECDDD3;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    padding: 10px;
-    align-items: flex-end;
-}
-
-.scrollable {
-    overflow-y: scroll;
-    background-color: #51cdfa;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.scrollable::-webkit-scrollbar {
-    display: none;
-}
-
-.resumo {
-    margin-bottom: 5px;
-    text-align: center;
-}
-
-.reduzido {
+.sobreCarrossel {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    flex-direction: column; /* Organiza o conteúdo da div em coluna */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    background-color: #f44336;
+    border-radius: 20px; /* Arredondando os cantos dos blocos */
+    overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
+    margin-bottom: 5px; /* Adiciona espaço entre os blocos */
+    padding: 35px;
+    flex: 3; /* Ajustes de largura para os blocos */
+    gap: 1px; /* Adiciona espaço entre os blocos */
 }
 
-.reduzido p {
-    margin: 0;
-    width: 50%;
-    text-align: left;
+.sobreTexto {
+    text-align: justify;        /* Ajusta o alinhamento do texto para justificado */
+    max-width: 700px;           /* Largura máxima para melhor legibilidade */
+    margin-top: 20px;           /* Espaçamento acima do texto descritivo */
 }
 
-button {
-    background-color: #FA8305;
-    color: #FFFFFF;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
+.sobreTexto p {
+    text-indent: 1.5em;         /* Indenta a primeira linha de cada parágrafo */
+    margin-bottom: 1em;         /* Espaçamento entre parágrafos para melhor legibilidade */
 }
 
-/* Estilo específico para postagens e opiniões */
-.opinioes {
-    background-color: #b0eafe;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.postagens {
-    margin-bottom: 20px;
-}
-
-.postagem {
-    background-color: #ffffff;
-    color: #000000;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.titulo-postagem {
-    font-size: 1.3em; /* tamanho da fonte do nome de quem postou */
-}
-
-.date-time-location {
-    font-size: 0.8em; /* tamanho da fonte do momento da postagem */
-}
-
-.conteudo-postagem {
-    font-size: 1em;
-}

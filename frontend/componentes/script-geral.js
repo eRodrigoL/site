@@ -1,43 +1,3 @@
-/*
-//..........CABEÇALHO..........
-// Verifica se o documento foi completamente carregado
-document.addEventListener("DOMContentLoaded", function() {
-
-    // Criação dos elementos HTML
-    var logo = document.createElement("div");
-    logo.className = "colunaCabecalho logo";
-    logo.innerHTML = "<h1>Noob</h1>";
-
-    var links = document.createElement("div");
-    links.className = "colunaCabecalho links";
-    links.innerHTML = '<a href="../paginas/jogo.html">Jogo</a>' +
-                      '<a href="../paginas/perfil.html">Perfil</a>' +
-                      '<a href="../paginas/rede.html">Rede</a>';
-
-    var login = document.createElement("div");
-    login.className = "colunaCabecalho login";
-    login.innerHTML = '<div>' +
-                      '<form id="login" action="" method="get">'+
-                      '<input type="text" id="apelido" name="apelido" placeholder="Usuário">' +
-                      '<input type="password" id="senha" name="senha" placeholder="Senha">' +
-                      '<Button type="submit">Entrar</Button>' +
-                      '</form>'+
-                      '</div>' +
-                      '<p>Ainda não tem conta?<a href="cadastro-usuario.html">Cadastre-se</a></p>'+
-                      '<script src="script-login.js"></script>'
-                      ;
-
-    // Seleciona o elemento header de cada página e adiciona os elementos criados
-    var headers = document.querySelectorAll("header");
-    headers.forEach(function(header) {
-        header.appendChild(logo.cloneNode(true));
-        header.appendChild(links.cloneNode(true));
-        header.appendChild(login.cloneNode(true));
-    });
-});
-*/
-
-
 //..........ALTURA DA COLUNA..........
 // Adicionar função para ajustar o tamanho da coluna meio
 function ajustarTamanhoColunas() {
@@ -55,10 +15,11 @@ window.addEventListener('resize', ajustarTamanhoColunas);
 
 function checkLogin(){
     const isLogin = localStorage.getItem('login');
-    const isRede = window.location.href.indexOf('rede') > 0
+    const isLista = window.location.href.indexOf('lista-jogos') > 0
     const isCadastro = window.location.href.indexOf('cadastro-usuario') > 0
-    if(!isLogin && !isRede && !isCadastro){
-        window.location.href = '../paginas/rede.html?logado=false'
+    const isSobre = window.location.href.indexOf('sobre') > 0
+    if(!isLogin && !isLista && !isCadastro && !isSobre){
+        window.location.href = '../paginas/sobre.html?logado=false'
     }
 }
 

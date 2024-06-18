@@ -2,7 +2,7 @@ const Usuarios = require("../models/Usuario");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const usuarioController={
+const loginController={
 
     // enviando as informações do formulário e validando-as
     post: async(req, res) =>{
@@ -30,8 +30,8 @@ const usuarioController={
         // Gerar um token JWT
         const token = jwt.sign({ id: usuario._id }, 'secret', { expiresIn: '1h' });
 
-        res.status(200).json({ token, usuario: { apelido: usuario.apelido, nome: usuario.nome }, msg: "Usuário logado com sucesso!" });      
+        res.status(200).json({ token, usuario: { id: usuario._id, nome: usuario.nome, apelido: usuario.apelido, nascimento: usuario.nascimento, email: usuario.email}, msg: "Usuário logado com sucesso!" });      
     }
 };
 
-module.exports = usuarioController;
+module.exports = loginController;

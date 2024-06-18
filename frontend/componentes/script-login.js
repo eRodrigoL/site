@@ -13,7 +13,7 @@ document.getElementById('btnLogin').addEventListener('click', async function(eve
     };
 
     // Realiza a solicitação POST usando fetch
-    fetch('https://api-noob.onrender.com/api/login', {
+    fetch('https://api-noob-1.onrender.com/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ document.getElementById('btnLogin').addEventListener('click', async function(eve
         localStorage.setItem('login', apelido);
         alert('Usuário logado com sucesso!');
         console.log('Login bem-sucedido');
-        window.location.href = '../paginas/rede.html'
+        window.location.href = '../paginas/lista-jogos.html'
         // Faça o redirecionamento ou manipulação do DOM aqui
     })
     .catch(function(error) {
