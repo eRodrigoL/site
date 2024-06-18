@@ -49,31 +49,26 @@ document.getElementById('atualizarUsuarios').addEventListener('submit', async fu
     event.preventDefault(); // Evita o envio padrão do formulário
 
     const id = localStorage.getItem('id');
-    const apiUrl =  `https://api-noob-1.onrender.com/api/usuarios/${id}`;
+    const apiUrl = `https://api-noob-1.onrender.com/api/usuarios/${id}`;
 
-   
-    // Captura os dados do formulário
-    const nome = document.getElementById('nome-usuario').value;
-    const apelido = document.getElementById('apelido-usuario').value;
-    const dataNascimento = document.getElementById('nascimento-usuario').value;
-    const email = document.getElementById('email-usuario').value;
+    // Cria um objeto FormData a partir do formulário
+    const formData = new FormData();
+    formData.append('nome', document.getElementById('nome-usuario').value);
+    formData.append('apelido', document.getElementById('apelido-usuario').value);
+    formData.append('nascimento', document.getElementById('nascimento-usuario').value);
+    formData.append('email', document.getElementById('email-usuario').value);
 
-    // Cria o objeto com os dados do usuário
-    const usuario = {
-        nome: nome,
-        apelido: apelido,
-        nascimento: dataNascimento,
-        email: email
-    };
+    // Adiciona o arquivo de foto, se houver
+    const fileInput = document.getElementById('upload');
+    if (fileInput.files.length > 0) {
+        formData.append('file', fileInput.files[0]);
+    }
 
     try {
         // Faz a requisição PUT para a API
         const response = await fetch(apiUrl, {
             method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(usuario)
+            body: formData
         });
 
         if (!response.ok) {
@@ -83,12 +78,15 @@ document.getElementById('atualizarUsuarios').addEventListener('submit', async fu
         const data = await response.json();
         alert('Usuário atualizado com sucesso!');
         console.log('Usuário atualizado:', data);
-        carregarDadosUsuario();
 
+        // Atualiza os dados no localStorage
         localStorage.setItem('nome', data.usuario.nome);
         localStorage.setItem('apelido', data.usuario.apelido);
-        localStorage.setItem('nascimento', usuario.nascimento);
+        localStorage.setItem('nascimento', data.usuario.nascimento);
         localStorage.setItem('email', data.usuario.email);
+        localStorage.setItem('src',data.usuario.src);
+
+        carregarDadosUsuario();
 
     } catch (error) {
         console.error('Erro:', error);
@@ -96,6 +94,22 @@ document.getElementById('atualizarUsuarios').addEventListener('submit', async fu
     }
 });
 
+
+document.getElementById('upload').onchange = function (evt) {
+    var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+
+    // Verifica se foi selecionada alguma imagem
+    if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function () {
+            var img = document.getElementById('preview-img');
+            img.src = fr.result;
+            img.style.display = 'block'; // Exibe a imagem
+        }
+        fr.readAsDataURL(files[0]);
+    }
+};
 
 
 
