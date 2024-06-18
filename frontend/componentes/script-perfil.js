@@ -184,10 +184,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById('num-vitorias').textContent = contador_vitorias;
         document.getElementById('num-derrotas').textContent = derrotas;
 
-        localStorage.setItem('partidas', contador_partidas);
-        localStorage.setItem('vitorias', contador_vitorias);
-        localStorage.setItem('derrotas', derrotas);
-
     } catch (error) {
         console.error('Erro ao buscar as avaliações:', error);
         /*document.getElementById('resultado').innerText = 'Erro ao buscar as avaliações.';*/
