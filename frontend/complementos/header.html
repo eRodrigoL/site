@@ -20,7 +20,7 @@
             <p>Olá<span id="nome"></span>!</p>
             <div class="menu-icon" onclick="toggleMenu()">☰</div>
             <div class="menu visibilidade" id="dropdownMenu">
-                <a href="#">Configurar perfil</a>
+                <a href="#" id="atualizacao-perfil">Configurar perfil</a>
                 <a href="#">Alterar senha</a>
                 <a href="#" id="logout">Sair</a>
             </div>
@@ -36,5 +36,11 @@
             <p>Ainda não tem conta? <a href="cadastro-usuario.html">Cadastre-se</a></p>
         </div>
     </header>
+    <script>
+            // Abre a tela de atualização de perfil ao clicar
+    document.getElementById('atualizacao-perfil').addEventListener('click', function() {
+        window.location.href = 'alterar-perfil.html';
+    });
+    </script>
 </body>
 </html>
