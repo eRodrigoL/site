@@ -43,6 +43,7 @@ header h1 {
 .login {
     background-color: rgb(14, 16, 156);
     min-width: 200px;
+    text-align: right; /*testar*/
 }
 
 .links a {
@@ -52,9 +53,7 @@ header h1 {
 }
 
 /* ..........FORMATAÇÃO Login.......... */
-.login {
-    text-align: right;
-}
+
 /* Estilo para o campo de entrada */
 input[type="text"], input[type="password"] {
     padding: 4px;
@@ -73,67 +72,12 @@ input[type="text"]:not(:placeholder-shown) {
     color: #000; /* Cor do texto digitado */
 }
 
-.hidden {
+.visibilidade {
     display: none;
+    visibility: hidden;
 }
 
-/* Estilos para o cabeçalho e menu */
-header {
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #00adec;
-    color: #fff;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
-}
-header h1 {
-    margin: 0;
-}
-
-.logo {
-    min-width: 100px;
-}
-.links {
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-}
-.login {
-    background-color: rgb(14, 16, 156);
-    min-width: 200px;
-}
-
-.links a {
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-/* Estilo para o campo de entrada */
-input[type="text"], input[type="password"] {
-    padding: 4px;
-    font-size: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-/* Estilo para o texto dentro do campo quando o placeholder está sendo exibido */
-input[type="text"]::placeholder,
-input[type="password"]::placeholder {
-    color: #999; /* Cor do texto do placeholder */
-}
-
-/* Estilo para o texto dentro do campo quando o placeholder não está sendo exibido */
-input[type="text"],
-input[type="password"] {
-    color: #000; /* Cor do texto digitado */
-}
-
-.user-menu {
+.menuSanduiche {
     display: flex;
     align-items: center;
     position: relative;

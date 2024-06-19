@@ -5,27 +5,33 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(html => {
         cabecalhoContainer.innerHTML = html;
         executeScripts(cabecalhoContainer);
-        const isLogin = localStorage.getItem('login');
-        if (isLogin) {
-            document.getElementById('seLogado').classList.remove('hidden');
-            document.getElementById('seDeslogado').classList.add('hidden');
-            const identificacaoContainer = document.getElementById('identificacaoContainer');
-            identificacaoContainer.classList.add('hidden');
-            const userMenu = document.getElementById('userMenu');
-            userMenu.classList.remove('hidden');
-            userMenu.querySelector('span').textContent = `Olá, ${isLogin}`;
-            const logout = document.getElementById('logout');
-            logout.addEventListener('click', () => {
+
+        const usuario = localStorage.getItem('login'); // Contém o nome do usuário logado
+
+        const seLogadoLogin = document.getElementById('seLogado-login');
+        const seDeslogadoLogin = document.getElementById('seDeslogado-login');
+        const seLogadoLinks = document.getElementById('seLogado-links');
+        const seDeslogadoLinks = document.getElementById('seDeslogado-links');
+
+        if (usuario) {
+            seLogadoLogin.classList.remove('visibilidade');
+            seDeslogadoLogin.classList.add('visibilidade');
+            seLogadoLinks.classList.remove('visibilidade');
+            seDeslogadoLinks.classList.add('visibilidade');
+
+            seLogadoLogin.querySelector('#nome').innerText = `, ${usuario}`; // nome do usuário
+
+            const sair = document.getElementById('logout');
+            sair.addEventListener('click', () => {
                 localStorage.removeItem('login');
                 window.location.reload();
-            });
+            })
         } else {
-            document.getElementById('seLogado').classList.add('hidden');
-            document.getElementById('seDeslogado').classList.remove('hidden');
-            const identificacaoContainer = document.getElementById('identificacaoContainer');
-            identificacaoContainer.classList.remove('hidden');
-            const userMenu = document.getElementById('userMenu');
-            userMenu.classList.add('hidden');  // Ensure userMenu is hidden when not logged in
+            seLogadoLogin.classList.add('visibilidade');
+            seDeslogadoLogin.classList.remove('visibilidade');
+            seLogadoLinks.classList.add('visibilidade');
+            seDeslogadoLinks.classList.remove('visibilidade');
+
             const scriptLogin = document.createElement('script');
             scriptLogin.src = '../componentes/script-login.js';
             document.body.appendChild(scriptLogin);
@@ -43,6 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.toggleMenu = function() {
         const dropdownMenu = document.getElementById('dropdownMenu');
-        dropdownMenu.classList.toggle('hidden');
+        dropdownMenu.classList.toggle('visibilidade');
     };
 });
