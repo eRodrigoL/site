@@ -32,23 +32,22 @@
                     <div style="float: left; width: 50%"><p>Seguindo <b>309</b></p></div>
                 </div>
             </div>
-            <div id="preview-container"><img id="preview-img" src="../imagens/perfis/foto.png" alt="Foto de perfil"></div>
+            <!--<div id="preview-container"><img id="preview-img" src="../imagens/perfis/foto.png" alt="Foto de perfil"></div>-->
+            <img id="preview-img" src="../imagens/perfis/foto.png" alt="Foto de perfil" style="max-width: 100%; max-height: 200px;">
             <div class="resumo">
-                <p>Já esteve em: <b>236</b><i> PARTIDAS</i></p>
+                <p>Já esteve em: <b id="num-partidas">236</b><i> PARTIDAS</i></p>
                 <div style="float: left; width: 50%;">
                     <p><i>Vitórias</i></p>
-                    <p><b>137</b></p>
+                    <p><b id="num-vitorias">137</b></p>
                 </div>
                 <div style="float: left; width: 50%;">
                     <p><i>Derrotas</i></p>
-                    <p><b>137</b></p>
+                    <p><b id="num-derrotas">137</b></p>
                 </div>
             </div>
         </div>
-         <!-- Incluindo atualização de foto-->
-        <input type="file" name="file" id="upload" accept="image/*">
-        <!-- Incluindo botão de salvar-->
-        <button id="btn-salvar-img" style="margin-top: 10px;">Salvar</button>
+         
+        <button id="atualizacao-perfil" style="margin-top: 10px;">Atualizar perfil</button>
    
     </div>
     <div class="colunas coluna2" id="colunas">
@@ -57,20 +56,16 @@
                 <div>
                     <div class="graficos-jogos4">
                         <p><b>Desempenho: </b></p>
-                        <canvas id="desempenho"></canvas>
-                    </div>
+                        <canvas id="desempenho"></canvas><br>
+                    </div><br><br>
                     <div class="graficos-jogos5">
                         <p><b>Desempenho por categoria (%): </b></p>
-                        <canvas id="vitorias-catogoria"></canvas>
-                    </div>
+                        <canvas id="vitorias-categoria"></canvas>
+                    </div><br><br>
                     <div class="graficos-jogos6">
                         <p><b>Nº de disputas (Categorias): </b></p>
                         <canvas id="disputas-categoria"></canvas>
-                    </div>
-                    <div class="graficos-jogos7">
-                        <p><b>Nº de disputas (Tipos): </b></p>
-                        <canvas id="disputas-tipo"></canvas>
-                    </div>
+                    </div><br><br><br>
                 </div>
                 <div>________________________________________</div>
                 <div>
@@ -84,7 +79,5 @@
 <script src="../componentes/script-geral.js"></script>
 <script src="../componentes/script-perfil.js" type="module"></script>
 <script src="../componentes/script-login.js"></script>
-<script src="../componentes/script-atualiza-foto.js"></script>
-
 </body>
 </html>

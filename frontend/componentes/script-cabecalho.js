@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const identificacaoContainer = document.getElementById('identificacaoContainer');
             identificacaoContainer.classList.remove('hidden');
             const userMenu = document.getElementById('userMenu');
-            userMenu.classList.add('hidden');
+            userMenu.classList.add('hidden');  // Ensure userMenu is hidden when not logged in
             const scriptLogin = document.createElement('script');
             scriptLogin.src = '../componentes/script-login.js';
             document.body.appendChild(scriptLogin);
