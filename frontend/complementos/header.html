@@ -6,17 +6,26 @@
 <body>
     <header>
         <div class="logo"><h1>Noob</h1></div>
-        <div class="links" id="seLogado" class="hidden">
+        <div class="links visibilidade" id="seLogado-links">
             <a href="../paginas/sobre.html">Sobre</a>
             <a href="../paginas/lista-jogos.html">Jogos</a>
             <a href="../paginas/perfil.html">Perfil</a>
             <a href="../paginas/rede.html">Rede</a>
         </div>
-        <div class="links" id="seDeslogado">
+        <div class="links" id="seDeslogado-links">
             <a href="../paginas/sobre.html">Sobre</a>
             <a href="../paginas/lista-jogos.html">Jogos</a>
         </div>
-        <div class="login" id="identificacaoContainer">
+        <div class="menuSanduiche visibilidade" id="seLogado-login">
+            <p>Olá<span id="nome"></span>!</p>
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <div class="menu visibilidade" id="dropdownMenu">
+                <a href="#">Configurar perfil</a>
+                <a href="#">Alterar senha</a>
+                <a href="#" id="logout">Sair</a>
+            </div>
+        </div>
+        <div class="login" id="seDeslogado-login">
             <form id="login" action="" method="post">
                 <div style="display: inline-block">
                     <input type="text" id="apelido" name="apelido" placeholder="Usuário">
@@ -26,16 +35,6 @@
             </form>
             <p>Ainda não tem conta? <a href="cadastro-usuario.html">Cadastre-se</a></p>
         </div>
-        <div class="user-menu hidden" id="userMenu">
-            <span>Olá, Usuário</span>
-            <div class="menu-icon" onclick="toggleMenu()">☰</div>
-            <div class="menu hidden" id="dropdownMenu">
-                <a href="#">Configurar perfil</a>
-                <a href="#">Alterar senha</a>
-                <a href="#" id="logout">Sair</a>
-            </div>
-        </div>
     </header>
-    <script src="../componentes/script-cabecalho.js"></script>
 </body>
 </html>
