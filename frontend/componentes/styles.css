@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #51cdfa;
+    background-color: #ffffff;
     color: #ffffff;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -20,8 +20,8 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #00adec;
-    color: #fff;
+    background-color: #000000;
+    color: #ffffff;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -77,6 +77,42 @@ input[type="text"]:not(:placeholder-shown) {
     visibility: hidden;
 }
 
+/* Estilos para o cabeçalho e menu */
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+header h1 {
+    margin: 0;
+}
+
+.logo {
+    min-width: 100px;
+}
+.links {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+.login {
+    background-color: #000000;
+    min-width: 100px;
+}
+
+.links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
 .menuSanduiche {
     display: flex;
     align-items: center;
@@ -93,8 +129,8 @@ input[type="text"]:not(:placeholder-shown) {
     position: absolute;
     top: 30px;
     right: 0;
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.274);
     border-radius: 5px;
     overflow: hidden;
     z-index: 1000;
@@ -121,8 +157,8 @@ main {
     overflow: hidden; /* Para evitar que haja espaços extras */
 }
 .colunas {
-    padding: 0px;
-    margin: 0 10px; /* Margem nas laterais */
+    padding: 25px;
+    margin: 0 20x; /* Margem nas laterais */
     overflow: hidden;
 }
 .coluna1 {
@@ -144,8 +180,8 @@ main {
 /* ..........FORMATAÇÃO BLOCOS.......... */
 .blocos {
     border-radius: 10px;
-    padding: 10px;
-    background-color: #83ddfd;
+    padding: 15px;
+    background-color: #f44336;
     overflow: hidden;
 }
 .resumo > * {
@@ -170,7 +206,7 @@ main {
 .scrollable {
     /*C U I D A D O    A O     M U D A R     este bloco scrollable*/
     overflow-y: scroll; /* Mantém o overflow como scroll */
-    background-color: #51cdfa;
+    background-color: #ffffff;
     scrollbar-width: none; /* Esconde a barra de rolagem no Firefox */
     -ms-overflow-style: none; /* Esconde a barra de rolagem no Internet Explorer e Edge */
 }
@@ -186,13 +222,13 @@ main {
     font-size: 0.8em; /* tamanho da fonte do momento da postagem */
 }
 .principal {
-    background-color: #83ddfd;
-    border: 10px solid #83ddfd; /* Adiciona uma borda cinza para separar visualmente os blocos */
+    background-color: #f443362b;
+    border: 2px solid #f443362b; /* Adiciona uma borda cinza para separar visualmente os blocos */
     border-radius: 10px; /* Arredonda os cantos dos blocos */
     overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
 }
 .opinioes {
-    background-color: #b0eafe;
+    background-color: #f443362b;
 }
 .postagens {
     /*E S P A Ç O    E N T R E    C A D A    P O S T A G E M*/
@@ -217,7 +253,7 @@ main {
 }
 .comprar {
     width: 20%;
-    border: 1px solid #379c69;
+    border: 1px solid #f44336;
 }
 
 /* ..........GRÁFICOS.......... */
@@ -262,7 +298,7 @@ body {
 }
 
 .jogo-item {
-    background-color: #b0eafe;
+    background-color: #f443362b;
     width: calc(33.333% - 20px);
     box-sizing: border-box;
     padding: 10px;
@@ -350,15 +386,21 @@ body {
 }
 
 #btnCadastrarJogo {
-    background-color: #4CAF50;
+    background-color: #f44336;
     color: white;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    color: #000000;
+
 }
 
 /*.................modal..........*/
 
 /* ⬇ ⬇ ⬇ ⬇ ⬇ CARROSSEL ⬇ ⬇ ⬇ ⬇ ⬇ */
 #carouselExample {
-    width: 100%; /* Ajuste a largura conforme necessário */
+    width: auto; /* Ajuste a largura conforme necessário */
     margin: 0 auto; /* Centraliza o carrossel */
     display: flex;
     justify-content: center;
@@ -385,6 +427,10 @@ body {
 
 .sobre {
     width: 100%;
+    display: flex;
+    justify-content: center; /* Centraliza os itens filhos horizontalmente */
+    align-items: center; /* Centraliza os itens filhos verticalmente */
+    height: 100vh; /* Garante que o contêiner ocupe a altura total da tela */
 }
 .sobreCarrossel {
     display: flex;
@@ -395,15 +441,17 @@ body {
     border-radius: 20px; /* Arredondando os cantos dos blocos */
     overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
     margin-bottom: 5px; /* Adiciona espaço entre os blocos */
-    padding: 35px;
-    flex: 3; /* Ajustes de largura para os blocos */
-    gap: 1px; /* Adiciona espaço entre os blocos */
+    padding: 50px; /*margin de dentro da coluna*/
+    flex: 1; /* Ajustes de largura para os blocos */
+    width: 1000px; /* Largura específica */
+    max-height: auto; /* Altura específica */
+    gap: 10px; /* Adiciona espaço entre os blocos */
 }
 
 .sobreTexto {
-    text-align: justify;        /* Ajusta o alinhamento do texto para justificado */
+    text-align: center;        /* Ajusta o alinhamento do texto para justificado */
     max-width: 700px;           /* Largura máxima para melhor legibilidade */
-    margin-top: 20px;           /* Espaçamento acima do texto descritivo */
+    margin-top: 50px;           /* Espaçamento acima do texto descritivo */
 }
 
 .sobreTexto p {

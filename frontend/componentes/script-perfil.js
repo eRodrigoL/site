@@ -290,7 +290,7 @@ async function atualizaGraficoDisputasCategoria() {
                     disputasPorCategoria["Outros"]++;
                 }
             }
-        });
+        }); 
 
         // Atualiza os dados do gráfico de disputas
         chartDisputas.data.datasets[0].data = [
