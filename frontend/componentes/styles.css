@@ -411,3 +411,9 @@ body {
     margin-bottom: 1em;         /* Espaçamento entre parágrafos para melhor legibilidade */
 }
 
+#preview-img {
+    max-width: 200px;
+    max-height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
