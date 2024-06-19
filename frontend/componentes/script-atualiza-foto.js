@@ -11,6 +11,7 @@ function previewImage(event) {
       reader.onload = function(e) {
         preview.src = e.target.result;
       };
+<<<<<<< HEAD
 
 <<<<<<< HEAD
     
@@ -22,11 +23,17 @@ function previewImage(event) {
         preview.src = "../imagens/perfis/foto.png";
       }
 =======
+=======
+
+>>>>>>> 98cec1c38eafaae5bb5f3608636ca635bbfc0481
       // Lê o arquivo como uma URL de dados
       reader.readAsDataURL(input.files[0]);
     } else {
       // Se nenhum arquivo for selecionado, mantém a imagem pré-definida
       preview.src = "../imagens/perfis/foto.png";
+<<<<<<< HEAD
+>>>>>>> 98cec1c38eafaae5bb5f3608636ca635bbfc0481
+=======
 >>>>>>> 98cec1c38eafaae5bb5f3608636ca635bbfc0481
     }
   }
