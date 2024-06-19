@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #51cdfa;
+    background-color: #ffffff;
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -20,8 +20,8 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #00adec;
-    color: #fff;
+    background-color: #000000;
+    color: #000000
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -177,7 +177,7 @@ main {
     overflow: hidden; /* Para evitar que haja espaços extras */
 }
 .colunas {
-    padding: 0px;
+    padding: 10px;
     margin: 0 10px; /* Margem nas laterais */
     overflow: hidden;
 }
@@ -414,7 +414,7 @@ body {
 
 /* ⬇ ⬇ ⬇ ⬇ ⬇ CARROSSEL ⬇ ⬇ ⬇ ⬇ ⬇ */
 #carouselExample {
-    width: 100%; /* Ajuste a largura conforme necessário */
+    width: 50%; /* Ajuste a largura conforme necessário */
     margin: 0 auto; /* Centraliza o carrossel */
     display: flex;
     justify-content: center;
@@ -451,9 +451,9 @@ body {
     border-radius: 20px; /* Arredondando os cantos dos blocos */
     overflow: hidden; /* Evita que os cantos arredondados sejam cortados */
     margin-bottom: 5px; /* Adiciona espaço entre os blocos */
-    padding: 35px;
+    padding: 150px; /*margin de dentro da coluna*/
     flex: 3; /* Ajustes de largura para os blocos */
-    gap: 1px; /* Adiciona espaço entre os blocos */
+    gap: 5px; /* Adiciona espaço entre os blocos */
 }
 
 .sobreTexto {
