@@ -155,6 +155,25 @@ filtroPorTitulo.addEventListener('input', async () => {
     renderItems(itemsFiltrados);
 });
 
+// Event listener para o botão "Limpar Filtros"
+const btnLimparFiltros = document.getElementById('limparFiltros');
+btnLimparFiltros.addEventListener('click', limparFiltros);
+
+// Função para limpar todos os filtros
+function limparFiltros() {
+    // Limpar filtro por título
+    document.getElementById('filtroTitulo').value = '';
+
+    // Desmarcar todos os checkboxes de categoria
+    const checkboxes = document.querySelectorAll('#checkboxContainer input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    // Re-renderizar a lista de jogos sem filtros
+    renderItems();
+}
+
 // Função para abrir e fechar o modal de cadastro
 const modal = document.getElementById('modal');
 const btnCadastrarJogo = document.getElementById('cadastrar-jogo');
