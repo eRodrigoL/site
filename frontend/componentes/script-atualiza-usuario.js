@@ -5,7 +5,8 @@ function formatarData(data) {
 
 async function carregarDadosUsuario() {
     const id = localStorage.getItem('id');
-    const src = localStorage.getItem('src');
+   // const src = localStorage.getItem('src');
+
     if (!id) {
         console.error('ID do usuário não encontrado no localStorage.');
         return;
@@ -27,10 +28,10 @@ async function carregarDadosUsuario() {
             const dataFormatada = formatarData(usuario.nascimento);
             document.getElementById('nascimento-usuario').value = dataFormatada;
         }
-
-        // Atualizar o src da imagem se a URL estiver disponível
-        if (src) {
-            document.getElementById('preview').src = src;
+        if(usuario.src){
+            const imgElement = document.getElementById('preview-img');
+            imgElement.src = usuario.src;
+    
         }
        
     } catch (error) {
@@ -39,61 +40,60 @@ async function carregarDadosUsuario() {
     }
 }
 
-// Executar a função quando o conteúdo do DOM estiver carregado
-document.addEventListener('DOMContentLoaded', carregarDadosUsuario);
+document.addEventListener('DOMContentLoaded', carregarDadosUsuario());
 
+
+// atualização de perfil
 
 document.getElementById('atualizarUsuarios').addEventListener('submit', async function(event) {
-    event.preventDefault(); // Impede o comportamento padrão do formulário
+    event.preventDefault(); // Evita o envio padrão do formulário
 
     const id = localStorage.getItem('id');
-    console.log('User ID:', id); // Verificar o ID
+    const apiUrl = `https://api-noob-1.onrender.com/api/usuarios/${id}`;
 
-    const nome = document.getElementById('nome-usuario').value;
-    const apelido = document.getElementById('apelido-usuario').value;
-    const email = document.getElementById('email-usuario').value;
-    const nascimento = document.getElementById('nascimento-usuario').value;
-    const file = document.getElementById('upload').files[0];
-    
-
+    // Cria um objeto FormData a partir do formulário
     const formData = new FormData();
-    formData.append('nome', nome);
-    formData.append('apelido', apelido);
-    formData.append('email', email);
-    formData.append('nascimento', nascimento);
-    if (file) {
-        formData.append('file', file);
+    formData.append('nome', document.getElementById('nome-usuario').value);
+    formData.append('apelido', document.getElementById('apelido-usuario').value);
+    formData.append('nascimento', document.getElementById('nascimento-usuario').value);
+    formData.append('email', document.getElementById('email-usuario').value);
+
+    // Adiciona o arquivo de foto, se houver
+    const fileInput = document.getElementById('upload');
+    if (fileInput.files.length > 0) {
+        formData.append('file', fileInput.files[0]);
     }
 
     try {
-        const response = await fetch(`https://api-noob-1.onrender.com/api/usuarios/${id}`, {
+        // Faz a requisição PUT para a API
+        const response = await fetch(apiUrl, {
             method: 'PUT',
             body: formData
         });
 
-        const responseData = await response.json();
-        console.log('API Response:', responseData); // Log da resposta completa
-
-        if (response.ok) {
-            console.log('nome', responseData.usuario.nome);
-            console.log('apelido', responseData.usuario.apelido);
-            console.log('email', responseData.usuario.email);
-            console.log('nascimento', responseData.usuario.nascimento);
-
-            alert('Usuário atualizado com sucesso!');
-            // Atualiza os dados no localStorage
-           /* localStorage.setItem('nome', responseData.usuario.nome);
-            localStorage.setItem('apelido', responseData.usuario.apelido);
-            localStorage.setItem('email', responseData.usuario.email);
-            localStorage.setItem('nascimento', responseData.usuario.nascimento);*/
-        } else {
-            alert(`Erro ao atualizar usuário: ${responseData.msg}`);
+        if (!response.ok) {
+            throw new Error(`Erro ao atualizar usuário: ${response.statusText}`);
         }
+
+        const data = await response.json();
+        alert('Usuário atualizado com sucesso!');
+        console.log('Usuário atualizado:', data);
+
+        // Atualiza os dados no localStorage
+        localStorage.setItem('nome', data.usuario.nome);
+        localStorage.setItem('apelido', data.usuario.apelido);
+        localStorage.setItem('nascimento', data.usuario.nascimento);
+        localStorage.setItem('email', data.usuario.email);
+        localStorage.setItem('src',data.usuario.src);
+
+        carregarDadosUsuario();
+
     } catch (error) {
         console.error('Erro:', error);
-        alert('Erro ao atualizar usuário.');
+        alert('Erro ao atualizar usuário. Por favor, tente novamente.');
     }
 });
+
 
 document.getElementById('upload').onchange = function (evt) {
     var tgt = evt.target || window.event.srcElement,
@@ -103,13 +103,17 @@ document.getElementById('upload').onchange = function (evt) {
     if (FileReader && files && files.length) {
         var fr = new FileReader();
         fr.onload = function () {
-            var img = document.getElementById('preview');
+            var img = document.getElementById('preview-img');
             img.src = fr.result;
             img.style.display = 'block'; // Exibe a imagem
         }
         fr.readAsDataURL(files[0]);
     }
 };
+
+
+
+
 
 
  
